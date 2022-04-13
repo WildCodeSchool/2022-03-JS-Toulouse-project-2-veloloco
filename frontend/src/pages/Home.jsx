@@ -1,5 +1,9 @@
 import FavouriteCard from "../components/FavouriteCard";
 
 export default function Home() {
-  return <FavouriteCard />;
+  return (
+    <div>
+      <FavouriteCard />
+    </div>
+  );
 }

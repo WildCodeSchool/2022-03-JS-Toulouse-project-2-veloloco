@@ -1,27 +1,29 @@
 import React from "react";
+import "./DisplayFavouriteCard.css";
 
 export default function DisplayFavouriteCard({ favouriteCard }) {
+  console.log(favouriteCard);
   return (
-    <div id="favourite-card">
-      <div id="top-favourite-card">
-        <h3>n°{favouriteCard.number}</h3>
-        <h2>{favouriteCard.name}</h2>
+    <div className="CardStationComp">
+      <div className="top-favourite-card">
+        <h3>n°{favouriteCard[1].number}</h3>
+        <h2>{favouriteCard[1].name}</h2>
         <img
           src="/frontend/src/assets/Heart-favorite-card-full.png"
           alt="favourite-heart-full"
         />
       </div>
 
-      <div id="middle-favourite-card">
-        <h2>{favouriteCard.adress}</h2>
-        <h2>{favouriteCard.distance}</h2>
+      <div className="middle-favourite-card">
+        <h2>{favouriteCard[1].adress}</h2>
+        {/* <h2>{favouriteCard.distance}</h2> */}
       </div>
 
-      <div id="bottom-favourite-card">
+      <div className="bottom-favourite-card">
         <div id="available-bikes">
-          {favouriteCard.availableBikes}
+          {favouriteCard[1].availableBikes}
           <div id="available-bikes-stands">
-            {favouriteCard.availableBikesStands}
+            {favouriteCard[1].availableBikesStands}
           </div>
         </div>
       </div>
