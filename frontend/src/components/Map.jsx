@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, Marker } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "./Map.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -28,7 +28,7 @@ export default function Map() {
       .get(
         "https:/api.jcdecaux.com/vls/v1/stations?contract=toulouse&apiKey=ac948d6ebb42f6edfe3322e2089d50095869b8e3"
       )
-      .then((response) => setApiResult(response.data[2]));
+      .then((response) => setApiResult(response.data));
   }, []);
 
   console.log(apiResult);
@@ -47,6 +47,11 @@ export default function Map() {
           <Marker
             position={[location.coordinates.lat, location.coordinates.lng]}
           />
+          {apiResult.map((marker) => (
+            <Marker position={marker.position}>
+              <Popup>Hello world</Popup>
+            </Marker>
+          ))}
         </MapContainer>
       ) : (
         "chargement"
