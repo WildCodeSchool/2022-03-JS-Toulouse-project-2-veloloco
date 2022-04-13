@@ -20,10 +20,11 @@ export default function Map() {
   const error = (err) => {
     console.error(err);
   };
-  navigator.geolocation.getCurrentPosition(success, error);
+
   //* ******************************************************** */
   const [apiResult, setApiResult] = useState([]);
   useEffect(() => {
+    navigator.geolocation.getCurrentPosition(success, error);
     axios
       .get(
         "https:/api.jcdecaux.com/vls/v1/stations?contract=toulouse&apiKey=ac948d6ebb42f6edfe3322e2089d50095869b8e3"
