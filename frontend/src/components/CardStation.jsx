@@ -3,8 +3,8 @@ import "./CardStation.css";
 
 function CardStation() {
   return (
-    <div className="CardStationComp">
-      <div className="CardParagraph">
+    <div className="card-station-comp">
+      <div className="card-paragraph">
         <p>N°52</p>
         <h3>St Cyprien</h3>
         <img src="https://www.placecage.com/30/30" alt="Keur" />

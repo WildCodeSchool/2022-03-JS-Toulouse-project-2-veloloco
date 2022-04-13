@@ -12,45 +12,44 @@
   filter: var(--map-tiles-filter, none);
   z-index: 1;
 }
-.rightSlideOn{
+
+.right-slide-on {
   position: relative;
-  left:20% ;
+  left: 20%;
   z-index: 999999;
   width: 80%;
-  top:1%;
+  top: 1%;
   height: 98%;
   /* overflow: scroll; */
-  border-bottom-left-radius:10px ;
-  border-top-left-radius:10px ;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
 }
-.rightSlideOff{
+
+.right-slide-off {
   position: relative;
-  left:100% ;
+  left: 100%;
   z-index: 999999;
   width: 80%;
-  top:1%;
+  top: 1%;
   height: 98%;
   /* overflow: scroll; */
-  border-bottom-left-radius:10px ;
-  border-top-left-radius:10px ;
-  
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
 }
 
-
-.slideButton {
+.slide-button {
   background-color: var(--translucid-bg);
   width: 25px;
   height: 70px;
   position: relative;
   left: -25px;
-  top:22rem;
+  top: 22rem;
   z-index: 999999;
-  border-top-left-radius:10px ;
-  border-bottom-left-radius:10px ;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
   display: block;
   border: none;
-  
 }
-.slideButtonCont{
+.slide-button-cont {
   height: 0px;
 }

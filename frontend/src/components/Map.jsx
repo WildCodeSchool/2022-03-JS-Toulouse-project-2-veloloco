@@ -42,11 +42,11 @@ export default function Map() {
           zoom={12}
         >
           {/* TODO empecher le zoom de map pour pouvoir scroll le slideer de droite */}
-          <div className={slideState ? "rightSlideOn" : "rightSlideOff"}>
-            <div className="slideButtonCont">
+          <div className={slideState ? "right-slide-on" : "right-slide-off"}>
+            <div className="slide-button-cont">
               <button
                 type="button"
-                className="slideButton"
+                className="slide-button"
                 onClick={() => setSlideState(!slideState)}
               >
                 {" "}

@@ -2,7 +2,7 @@
   --translucid-bg:rgba(255, 255, 255, 1)
 }
 
-.mainCollumnSlide{
+.main-collumn-slide{
   position: relative;
   top: 0%;
   background-color:var(--translucid-bg);  
@@ -12,7 +12,7 @@
   border-bottom-left-radius:10px ;
   
 }
-.subCollumnSlide{
+.sub-collumn-slide{
   margin: 0 15px 0 15px;
 }
 .separator{

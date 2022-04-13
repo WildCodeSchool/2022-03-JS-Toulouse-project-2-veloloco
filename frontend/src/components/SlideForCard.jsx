@@ -4,18 +4,18 @@ import "./SlideForCard.css";
 
 function SlideForCard() {
   return (
-    <div className="mainCollumnSlide">
-      <div className="subCollumnSlide">
-        <div className="FavouriteStationsCont">
-          <CardStation className="cardStation" />
-          <CardStation className="cardStation" />
+    <div className="main-collumn-slide">
+      <div className="sub-collumn-slide">
+        <div className="favourite-stations-cont">
+          <CardStation className="card-station" />
+          <CardStation className="card-station" />
         </div>
         <div className="separator"> </div>
-        <div className="ProximityStationsCont">
-          <CardStation className="cardStation" />
-          <CardStation className="cardStation" />
-          <CardStation className="cardStation" />
-          <CardStation className="cardStation" />
+        <div className="proximity-stations-cont">
+          <CardStation className="card-station" />
+          <CardStation className="card-station" />
+          <CardStation className="card-station" />
+          <CardStation className="card-station" />
         </div>
       </div>
     </div>
