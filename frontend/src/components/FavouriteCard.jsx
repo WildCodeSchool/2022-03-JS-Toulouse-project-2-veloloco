@@ -3,7 +3,7 @@ import axios from "axios";
 import DisplayFavouriteCard from "./DisplayFavouriteCard";
 
 export default function FavouriteCard() {
-  const [cardInfos, setcardInfos] = useState([]);
+  const [cardInfos, setcardInfos] = useState(null);
 
   useEffect(
     () => {
@@ -19,7 +19,11 @@ export default function FavouriteCard() {
 
   return (
     <div>
-      <DisplayFavouriteCard favouriteCard={cardInfos} />
+      {cardInfos !== null ? (
+        <DisplayFavouriteCard favouriteCard={cardInfos} />
+      ) : (
+        console.log("nique ta maman")
+      )}
     </div>
   );
 }
