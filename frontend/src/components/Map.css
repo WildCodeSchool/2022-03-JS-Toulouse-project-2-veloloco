@@ -10,4 +10,14 @@
 
 .tile {
   filter: var(--map-tiles-filter, none);
+  z-index: 1;
 }
+.rightSlide{
+  position: relative;
+  left:20% ;
+  z-index: 999999;
+  width: 80%;
+  
+ 
+}
+

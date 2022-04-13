@@ -2,6 +2,7 @@ import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import "./Map.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import SlideForCard from "./SlideForCard";
 
 export default function Map() {
   //* ***********************LOCALISATION****************************** */
@@ -44,9 +45,13 @@ export default function Map() {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             className="tile"
           />
+          <div className="slideButton"> zizi </div>
           <Marker
             position={[location.coordinates.lat, location.coordinates.lng]}
           />
+          <div className="rightSlide">
+            <SlideForCard />
+          </div>
         </MapContainer>
       ) : (
         "chargement"
