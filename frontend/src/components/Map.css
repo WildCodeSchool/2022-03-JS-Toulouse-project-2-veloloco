@@ -12,12 +12,45 @@
   filter: var(--map-tiles-filter, none);
   z-index: 1;
 }
-.rightSlide{
+.rightSlideOn{
   position: relative;
   left:20% ;
   z-index: 999999;
   width: 80%;
+  top:1%;
+  height: 98%;
+  /* overflow: scroll; */
+  border-bottom-left-radius:10px ;
+  border-top-left-radius:10px ;
+}
+.rightSlideOff{
+  position: relative;
+  left:100% ;
+  z-index: 999999;
+  width: 80%;
+  top:1%;
+  height: 98%;
+  /* overflow: scroll; */
+  border-bottom-left-radius:10px ;
+  border-top-left-radius:10px ;
   
- 
 }
 
+
+.slideButton {
+  background-color: var(--translucid-bg);
+  width: 25px;
+  height: 70px;
+  position: relative;
+  left: -25px;
+  top:22rem;
+  z-index: 999999;
+  border-top-left-radius:10px ;
+  border-bottom-left-radius:10px ;
+  display: block;
+  border: none;
+  
+}
+.slideButtonCont{
+  height: 0px;
+}

@@ -31,6 +31,7 @@ export default function Map() {
       )
       .then((response) => setApiResult(response.data[2]));
   }, []);
+  const [slideState, setSlideState] = useState(false);
 
   console.log(apiResult);
   return (
@@ -40,18 +41,27 @@ export default function Map() {
           center={[location.coordinates.lat, location.coordinates.lng]}
           zoom={12}
         >
+          {/* TODO empecher le zoom de map pour pouvoir scroll le slideer de droite */}
+          <div className={slideState ? "rightSlideOn" : "rightSlideOff"}>
+            <div className="slideButtonCont">
+              <button
+                type="button"
+                className="slideButton"
+                onClick={() => setSlideState(!slideState)}
+              >
+                {" "}
+              </button>
+            </div>
+            <SlideForCard slideState={slideState} />
+          </div>
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             className="tile"
           />
-          <div className="slideButton"> zizi </div>
           <Marker
             position={[location.coordinates.lat, location.coordinates.lng]}
           />
-          <div className="rightSlide">
-            <SlideForCard />
-          </div>
         </MapContainer>
       ) : (
         "chargement"

@@ -1,19 +1,25 @@
-.slideButton {
-  background-color: rgb(255, 255, 255);
-  width: 25px;
-  height: 50px;
-  position: relative;
-  left: -25px;
-  top:40%;
-  z-index: 999999;
+:root{
+  --translucid-bg:rgba(255, 255, 255, 1)
 }
+
 .mainCollumnSlide{
-  background-color: white;
+  position: relative;
+  top: 0%;
+  background-color:var(--translucid-bg);  
+  overflow: scroll;
+  height: 100%;
   border-top-left-radius:10px ;
+  border-bottom-left-radius:10px ;
+  
 }
 .subCollumnSlide{
   margin: 0 15px 0 15px;
 }
-.cardStation{
-  margin-top: 5px;
+.separator{
+  padding: 0;
+  border-bottom: 1px solid rgba(104, 27, 27, 0);
+  margin: 25px;
+  box-shadow: 0px 0px 7.3px rgb(0, 0, 0) ;
+  height: 0.1px;
+  background-color: rgba(0, 0, 0, 0.164);
 }
