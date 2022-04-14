@@ -1,31 +1,30 @@
 :root {
-  --translucid-bg:rgba(255, 255, 255, 1)
+  --translucid-bg: rgba(255, 255, 255, 1);
 }
 
 .main-collumn-slide {
   position: relative;
   top: 0%;
-  background-color:var(--translucid-bg);  
+  background-color: var(--translucid-bg);
   overflow: scroll;
   height: 100%;
-  
 }
 @media screen and (max-width: 783px) {
   .main-collumn-slide {
-    border-top-left-radius:10px ;
-    border-bottom-left-radius:10px ;
-    
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
   }
 }
 .sub-collumn-slide {
   margin: 0 15px 0 15px;
 }
 
-.separator{
-  padding: 0;
-  border-bottom: 1px solid rgba(104, 27, 27, 0);
-  margin: 25px;
-  box-shadow: 0px 0px 7.3px rgb(0, 0, 0) ;
-  height: 0.1px;
-  background-color: rgba(0, 0, 0, 0.164);
+.separator {
+  position: relative;
+  left: -5%;
+  border: none;
+  margin: 2rem;
+  width: 90%;
+  border-bottom: 1px solid #5a5a5a96;
+  box-shadow: 0 0 20px 8px rgba(51, 51, 51, 0.6);
 }
