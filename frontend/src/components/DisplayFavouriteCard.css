@@ -2,8 +2,21 @@
   box-shadow: 0 0 15px rgb(0, 0, 0);
   background-color: rgb(255, 255, 255);
   border-radius: 15px;
-  width: 15rem;
-  height: 8rem;
+  width: 250px;
+  height: 100px;
+}
+
+.top-favourite-card{
+  display: flex;
+
+}
+
+.middle-favourite-card{
+
+}
+
+.bottom-favourite-card{
+  
 }
 
 #test-button {
