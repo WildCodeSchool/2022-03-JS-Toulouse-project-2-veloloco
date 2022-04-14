@@ -23,7 +23,19 @@
   /* overflow: scroll; */
   border-bottom-left-radius: 10px;
   border-top-left-radius: 10px;
+  animation-name: slideAnimationOn;
+  animation-duration: 500ms;
+  animation-iteration-count:1 ;
 }
+
+@keyframes slideAnimationOn {
+  0%{
+    left: 100%;
+  }
+  100%{
+    left: 20%;
+  }
+ }
 
 .right-slide-off {
   position: relative;
@@ -35,21 +47,47 @@
   /* overflow: scroll; */
   border-bottom-left-radius: 10px;
   border-top-left-radius: 10px;
+  animation-name: slideAnimationOff;
+  animation-duration: 500ms;
+  animation-iteration-count:1 ;
+}
+
+@keyframes slideAnimationOff {
+  0%{
+    left: 20%;
+  }
+  100%{
+    left: 100%;
+  }
+ }
+
+.triangle-logo {
+  height: 38px;
+  width: auto;
+  
+  
+}
+
+.triangle-on {
+  transform: rotate(180deg)
 }
 
 .slide-button {
   background-color: var(--translucid-bg);
-  width: 25px;
+  width: 30px;
   height: 70px;
   position: relative;
-  left: -25px;
-  top: 22rem;
+  left: -29px;
+  top: calc(50vh - 35px);
   z-index: 999999;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
-  display: block;
+  display: flex;
   border: none;
+  justify-content: center;
+  align-items: center;
 }
+
 .slide-button-cont {
   height: 0px;
 }

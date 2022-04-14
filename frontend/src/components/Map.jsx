@@ -50,6 +50,15 @@ export default function Map() {
                 onClick={() => setSlideState(!slideState)}
               >
                 {" "}
+                <img
+                  src="../src/assets/TRIANGLE.png"
+                  className={
+                    slideState
+                      ? "triangle-logo triangle-on"
+                      : "triangle-logo triangle-off"
+                  }
+                  alt="triangle logo"
+                />
               </button>
             </div>
             <SlideForCard slideState={slideState} />
