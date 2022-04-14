@@ -2,6 +2,7 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "./Map.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import SlideForCard from "./SlideForCard";
 
 export default function Map() {
   //* ***********************LOCALISATION****************************** */
@@ -31,6 +32,7 @@ export default function Map() {
       )
       .then((response) => setApiResult(response.data));
   }, []);
+  const [slideState, setSlideState] = useState(false);
 
   console.log(apiResult);
   return (
@@ -40,6 +42,28 @@ export default function Map() {
           center={[location.coordinates.lat, location.coordinates.lng]}
           zoom={12}
         >
+          {/* TODO empecher le zoom de map pour pouvoir scroll le slideer de droite */}
+          <div className={slideState ? "right-slide-on" : "right-slide-off"}>
+            <div className="slide-button-cont">
+              <button
+                type="button"
+                className="slide-button"
+                onClick={() => setSlideState(!slideState)}
+              >
+                {" "}
+                <img
+                  src="../src/assets/TRIANGLE.png"
+                  className={
+                    slideState
+                      ? "triangle-logo triangle-on"
+                      : "triangle-logo triangle-off"
+                  }
+                  alt="triangle logo"
+                />
+              </button>
+            </div>
+            <SlideForCard slideState={slideState} />
+          </div>
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
