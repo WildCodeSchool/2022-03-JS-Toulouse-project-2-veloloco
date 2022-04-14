@@ -4,23 +4,53 @@
   border-radius: 15px;
   width: 250px;
   height: 100px;
-}
-
-.top-favourite-card{
   display: flex;
-
+  flex-direction: column;
 }
 
-.middle-favourite-card{
-
+.top-favourite-card {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 35%;
 }
 
-.bottom-favourite-card{
-  
+.top-favourite-card h2 {
+  font-size: 16px;
+  font-weight: lighter;
 }
 
-#test-button {
-  border: 10px solid black;
-  padding: 10px;
+.top-favourite-card img{
+  width: 20px;
+  height: 20px;
 }
 
+.top-favourite-card h3 {
+  font-size: 16px;
+  font-weight: lighter;
+}
+
+.middle-favourite-card h2 {
+  font-size: 16px;
+  font-weight: lighter;
+  margin: 0%;
+}
+
+.bottom-favourite-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#available-bikes{
+  background-color: #7B0828;
+  width: 30%;
+  border-radius: 15px 0px 0px 15px;
+}
+
+#available-bike-stands{
+  background-color: #32936F;
+  width: 30%;
+  border-radius: 15px 15px 15px 15px;
+}
