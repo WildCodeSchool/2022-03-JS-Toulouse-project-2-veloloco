@@ -10,7 +10,7 @@ function SlideForCard() {
           <CardStation className="card-station" />
           <CardStation className="card-station" />
         </div>
-        <div className="separator"> </div>
+        <hr className="separator" />
         <div className="proximity-stations-cont">
           <CardStation className="card-station" />
           <CardStation className="card-station" />
