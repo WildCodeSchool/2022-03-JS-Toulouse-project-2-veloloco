@@ -19,6 +19,7 @@
     "husky": "^7.0.0"
   },
   "dependencies": {
+
     "axios": "^0.26.1",
     "leaflet": "^1.7.1",
     "leaflet-routing-machine": "^3.2.12",
@@ -27,5 +28,6 @@
     "react-dom": "^18.0.0",
     "react-leaflet": "^3.2.5",
     "react-router-dom": "^6.3.0"
+
   }
 }
