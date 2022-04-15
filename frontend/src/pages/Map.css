@@ -11,3 +11,6 @@
 .tile {
   filter: var(--map-tiles-filter, none);
 }
+.btn-darkmode {
+  z-index: 1000000;
+}
