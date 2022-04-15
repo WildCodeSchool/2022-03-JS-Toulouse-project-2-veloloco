@@ -6,7 +6,8 @@ import Geo from "../components/Geo";
 
 export default function Map() {
   const [location, setLocation] = useState(null);
-  const [isOn, toggleIsOn] = useState(true);
+
+  /* const [isOn, toggleIsOn] = useState(true); */
   // eslint-disable-next-line no-shadow
   const success = (location) => {
     console.log(location);
