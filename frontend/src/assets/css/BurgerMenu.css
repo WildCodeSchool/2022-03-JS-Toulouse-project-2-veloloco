@@ -64,3 +64,9 @@ hr {
   border-bottom: 1px solid #5a5a5a96;
   box-shadow: 0 0 20px 8px rgba(51, 51, 51, 0.6);
 }
+.navbar-burger {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: transparent;
+  border: none;
+}

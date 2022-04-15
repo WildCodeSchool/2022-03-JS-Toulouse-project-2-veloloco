@@ -2,7 +2,7 @@ import React from "react";
 
 export default function DarkMode() {
   return (
-    <div className="ThemeMode">
+    <div className="theme-mode">
       <div className="dark">
         <label htmlFor="dark" className="switch">
           <input id="dark" type="checkbox" />
