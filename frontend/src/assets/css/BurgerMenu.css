@@ -1,5 +1,5 @@
 .navbar {
-  display: flex;
+  display: none;
   flex-direction: column;
   height: 98vh;
   border-radius: 0 2rem 2rem 0;
