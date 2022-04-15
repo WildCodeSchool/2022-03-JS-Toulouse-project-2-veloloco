@@ -1,9 +1,9 @@
-import FavouriteCard from "../components/FavouriteCard";
+import Map from "../components/Map";
 
 export default function Home() {
   return (
     <div>
-      <FavouriteCard />
+      <Map />
     </div>
   );
 }

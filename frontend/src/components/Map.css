@@ -1,0 +1,105 @@
+.leaflet-container {
+  height: 100vh;
+  width: 100vw;
+}
+
+:root {
+  --map-tiles-filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg)
+    saturate(0.3) brightness(0.5);
+}
+
+.tile {
+  filter: var(--map-tiles-filter, none);
+  z-index: 1;
+}
+.right-slide-off {
+  position: relative;
+  right: calc(-100% + 300px);
+  z-index: 999999;
+  width: 300px;
+  height:100%;
+  
+}
+.right-slide-on {
+  position: relative;
+  right: calc(-100% + 300px);
+  z-index: 999999;
+  width: 300px;
+  height:100%;
+  
+}
+.slide-button {
+ display: none;
+ visibility: none;
+}
+
+@media screen and (max-width: 783px) {
+  .right-slide-on {
+    position: relative;
+    left: 20%;
+    z-index: 999999;
+    width: 80%;
+    top: 1%;
+    height: 98%;
+    /* overflow: scroll; */
+    
+    animation-name: slideAnimationOn;
+    animation-duration: 500ms;
+    animation-iteration-count:1 ;
+  }
+  @keyframes slideAnimationOn {
+    0%{
+      left: 100%;
+    }
+    100%{
+      left: 20%;
+    }
+   }
+  
+  .right-slide-off {
+    position: relative;
+    left: 100%;
+    z-index: 999999;
+    width: 80%;
+    top: 1%;
+    height: 98%;
+    /* overflow: scroll; */
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    
+    animation-iteration-count:1 ;
+  }
+  .slide-button {
+    background-color: var(--translucid-bg);
+    width: 30px;
+    height: 70px;
+    position: relative;
+    left: -29px;
+    top: calc(50vh - 35px);
+    z-index: 999999;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    display: flex;
+    border: none;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+
+.triangle-logo {
+  height: 38px;
+  width: auto;
+  
+  
+}
+
+.triangle-on {
+  transform: rotate(180deg)
+}
+
+
+
+.slide-button-cont {
+  height: 0px;
+}

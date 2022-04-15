@@ -25,6 +25,7 @@ export default function DisplayFavouriteCard({ favouriteCard }) {
         <div id="available-bike-stands">
           {favouriteCard[1].available_bike_stands}
         </div>
+        <h3>5km</h3>
       </div>
     </div>
   );
