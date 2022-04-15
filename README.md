@@ -32,3 +32,9 @@ It's pre-configured with a set of tools which'll help students produce industry-
 - _Prettier_ : "Quality of code" tool as well, focuses on the styleguide
 - _ Airbnb Standard_ : One of the most known "standards", even though it's not officially linked to ES/JS
 - _Nodemon_ : Allows to restart the server everytime a .js file is udated
+
+API adresses:
+
+https:/api.jcdecaux.com/vls/v1/stations?contract=toulouse&apiKey=ac948d6ebb42f6edfe3322e2089d50095869b8e3/
+https://data.toulouse-metropole.fr/explore/dataset/station-velo-toulouse/information/
+https://data.toulouse-metropole.fr/explore/dataset/reseau-cyclable-et-vert/information/

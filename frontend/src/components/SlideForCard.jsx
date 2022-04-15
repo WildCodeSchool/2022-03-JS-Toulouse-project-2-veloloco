@@ -1,5 +1,5 @@
 import React from "react";
-import CardStation from "./CardStation";
+import FavouriteCard from "./FavouriteCard";
 import "./SlideForCard.css";
 
 function SlideForCard() {
@@ -7,15 +7,15 @@ function SlideForCard() {
     <div className="main-collumn-slide">
       <div className="sub-collumn-slide">
         <div className="favourite-stations-cont">
-          <CardStation className="card-station" />
-          <CardStation className="card-station" />
+          <FavouriteCard />
+          <FavouriteCard />
         </div>
-        <hr className="separator" />
+        <div className="separator"> </div>
         <div className="proximity-stations-cont">
-          <CardStation className="card-station" />
-          <CardStation className="card-station" />
-          <CardStation className="card-station" />
-          <CardStation className="card-station" />
+          <FavouriteCard />
+          <FavouriteCard />
+          <FavouriteCard />
+          <FavouriteCard />
         </div>
       </div>
     </div>
