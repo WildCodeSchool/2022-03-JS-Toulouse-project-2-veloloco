@@ -4,7 +4,7 @@ import "./DisplayFavouriteCard.css";
 export default function DisplayFavouriteCard({ favouriteCard }) {
   console.log(favouriteCard);
   return (
-    <div className="CardStationComp">
+    <div className="card-station-comp">
       <div className="top-favourite-card">
         <h3>n°{favouriteCard[1].number}</h3>
         <h2>{favouriteCard[1].name.split(" - ").slice(1).join("-")}</h2>
