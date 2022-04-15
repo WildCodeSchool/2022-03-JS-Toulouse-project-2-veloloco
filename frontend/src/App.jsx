@@ -1,11 +1,10 @@
-import Nav from "./components/BurgerMenu";
-
 import "./App.css";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <div className="App">
-      <Nav />
+      <Home />
     </div>
   );
 }

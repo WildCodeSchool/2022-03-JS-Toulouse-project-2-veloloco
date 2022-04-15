@@ -8,10 +8,8 @@ import SlideForCard from "../components/SlideForCard";
 export default function Map() {
   const [location, setLocation] = useState(null);
 
-  /* const [isOn, toggleIsOn] = useState(true); */
   // eslint-disable-next-line no-shadow
   const success = (location) => {
-    console.log(location);
     setLocation({
       coordinates: {
         lat: location.coords.latitude,
