@@ -41,8 +41,9 @@ export default function Map() {
         <MapContainer
           center={[location.coordinates.lat, location.coordinates.lng]}
           zoom={12}
+          /* scrollWheelZoom={!slideState} */
         >
-          {/* TODO empecher le zoom de map pour pouvoir scroll le slideer de droite */}
+          {/* TODO ^^^ empecher le zoom de map pour pouvoir scroll le slideer de droite */}
           <div className={slideState ? "right-slide-on" : "right-slide-off"}>
             <div className="slide-button-cont">
               <button
