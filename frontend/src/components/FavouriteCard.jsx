@@ -3,22 +3,23 @@ import axios from "axios";
 import DisplayFavouriteCard from "./DisplayFavouriteCard";
 import ProximityFilter from "./ProximityFilter";
 
-export default function FavouriteCard({ userPos }) {
+export default function FavouriteCard({ userPos, iteration }) {
   const [cardInfos, setcardInfos] = useState(null);
   useEffect(() => {
     axios
       .get(
         "https:/api.jcdecaux.com/vls/v1/stations?contract=toulouse&apiKey=ac948d6ebb42f6edfe3322e2089d50095869b8e3"
       )
-      .then((response) => setcardInfos(response.data))
-      .then(() => console.log(ProximityFilter(userPos, cardInfos)));
+      .then((response) => {
+        setcardInfos(ProximityFilter(userPos, response.data));
+      });
   }, []);
 
   // console.log(ProximityFilter(userPos, cardInfos));
   return (
     <div>
       {cardInfos !== null ? (
-        <DisplayFavouriteCard favouriteCard={cardInfos} />
+        <DisplayFavouriteCard favouriteCard={cardInfos} iteration={iteration} />
       ) : (
         "Chargement..."
       )}

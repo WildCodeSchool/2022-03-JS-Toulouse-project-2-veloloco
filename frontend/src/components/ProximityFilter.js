@@ -7,13 +7,13 @@
   { kaaris: "F", x: 1, y: 1 },
 ];
 
-let userPos = { x: 20, y: 5 }; */
+let userPos = { x: 20, y: 5 };  */
 const ProximityFilter = (userPosition, stationsList) => {
   const userPos = {
     x: userPosition.coordinates.lat,
     y: userPosition.coordinates.lng,
   };
-  /* console.log(userPosition) */
+  /* console.log(userPosition); */
   const lessFarFounder = (coord, userCoord) => {
     let pith = 0;
     let oldPith = 1000;
@@ -22,7 +22,7 @@ const ProximityFilter = (userPosition, stationsList) => {
     for (let i = 0; i < coord.length; i += 1) {
       const coordDiffX = userCoord.x - coord[i].position.lat;
       const coordDiffY = userCoord.y - coord[i].position.lng;
-      pith = Math.sqrt((coordDiffX, 2) ** 2 + (coordDiffY, 2) ** 2);
+      pith = Math.sqrt(coordDiffX ** 2 + coordDiffY ** 2);
       if (pith < oldPith) {
         lessFar = [coord[i], i];
         oldPith = pith;
@@ -37,7 +37,7 @@ const ProximityFilter = (userPosition, stationsList) => {
   /* console.log(stationsList); */
   const lessFarList = [];
 
-  for (let k = 0; k < 3; k += 1) {
+  for (let k = 0; k < 5; k += 1) {
     lessFarList.push(lessFarFounder(list, userPos)[0]);
     list.splice(lessFarFounder(list, userPos)[1], 1);
   }
