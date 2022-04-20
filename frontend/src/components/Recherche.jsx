@@ -10,6 +10,9 @@ export default function Recherche({ apiResult, mapState }) {
     input = input.toLowerCase();
     const array = [];
     for (let i = 0; i < apiResult.length; i += 1) {
+      if (input === " ") {
+        setResult([]);
+      }
       if (apiResult[i].name.toLowerCase().includes(input)) {
         array.push(apiResult[i]);
         setResult([...array]);
