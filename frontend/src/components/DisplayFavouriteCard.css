@@ -44,3 +44,7 @@
   height: 25%;
   margin: 0.5rem;
 }
+
+.fav-button{
+  border: none;
+}
