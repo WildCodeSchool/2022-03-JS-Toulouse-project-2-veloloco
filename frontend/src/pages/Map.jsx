@@ -2,7 +2,7 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "./Map.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import L from "leaflet";
+
 import Recherche from "../components/Recherche";
 import Geo from "../components/Geo";
 import SlideForCard from "../components/SlideForCard";

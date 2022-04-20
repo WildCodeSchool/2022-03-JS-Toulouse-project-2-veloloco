@@ -9,15 +9,17 @@ export default function Recherche({ apiResult, mapState }) {
     let input = document.getElementById("searchbar").value;
     input = input.toLowerCase();
     const array = [];
-    for (let i = 0; i < apiResult.length; i++) {
+    for (let i = 0; i < apiResult.length; i += 1) {
       if (apiResult[i].name.toLowerCase().includes(input)) {
         array.push(apiResult[i]);
         setResult([...array]);
+
         if (array.length > 4) {
           return array;
         }
       }
     }
+    return null;
   }
   function flyPosition(item) {
     mapState.map.flyTo(item.position);
