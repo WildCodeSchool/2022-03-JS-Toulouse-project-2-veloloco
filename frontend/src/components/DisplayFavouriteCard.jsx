@@ -1,5 +1,6 @@
 import React from "react";
 import "./DisplayFavouriteCard.css";
+import JaugeVelo from "./JaugeVelo";
 
 export default function DisplayFavouriteCard({ favouriteCard }) {
   return (
@@ -20,10 +21,7 @@ export default function DisplayFavouriteCard({ favouriteCard }) {
       </div>
 
       <div className="bottom-favourite-card">
-        <div id="available-bikes">{favouriteCard[1].available_bikes}</div>
-        <div id="available-bike-stands">
-          {favouriteCard[1].available_bike_stands}
-        </div>
+        <JaugeVelo favouriteCard={favouriteCard} />
         <h3>5km</h3>
       </div>
     </div>

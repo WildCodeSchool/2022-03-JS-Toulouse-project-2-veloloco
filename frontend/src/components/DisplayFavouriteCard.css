@@ -40,21 +40,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-}
-
-.bottom-favourite-card h3 {
-  margin-left: 1rem;
-}
-
-#available-bikes {
-  background-color: #7b0828;
-  width: 30%;
-  border-radius: 15px 0px 0px 15px;
-}
-
-#available-bike-stands {
-  background-color: #32936f;
-  width: 30%;
-  border-radius: 15px 15px 15px 15px;
+  justify-content: space-around;
+  height: 25%;
+  margin: 0.5rem;
 }
