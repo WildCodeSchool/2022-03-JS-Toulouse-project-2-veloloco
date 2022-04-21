@@ -5,12 +5,13 @@ import "../assets/css/recherche.css";
 export default function Recherche({ apiResult, mapState }) {
   const [result, setResult] = useState([]);
 
+  const [inputValue, setInputValue] = useState("");
   function searchStation() {
     let input = document.getElementById("searchbar").value;
     input = input.toLowerCase();
     const array = [];
     for (let i = 0; i < apiResult.length; i += 1) {
-      if (input === " ") {
+      if (inputValue === " ") {
         setResult([]);
       }
       if (apiResult[i].name.toLowerCase().includes(input)) {
@@ -27,18 +28,33 @@ export default function Recherche({ apiResult, mapState }) {
   function flyPosition(item) {
     mapState.map.flyTo(item.position);
   }
+
   return (
     <div className="search">
-      <input id="searchbar" onKeyUp={searchStation} type="text" name="search" />
-      <ul id="list">
-        {result.map((item) => {
-          return (
-            <button onClick={() => flyPosition(item)} type="button">
-              {item.name.substr(7).toLowerCase()}
-            </button>
-          );
-        })}
-      </ul>
+      <input
+        id="searchbar"
+        onKeyUp={searchStation}
+        type="text"
+        name="search"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+      />
+      <div className="list">
+        {inputValue === ""
+          ? null
+          : result.map((item) => {
+              return (
+                <button
+                  className="item-list"
+                  type="button"
+                  onClick={() => flyPosition(item)}
+                >
+                  <hr className="hr-item" />
+                  {item.name.substr(7).toLowerCase()}
+                </button>
+              );
+            })}
+      </div>
     </div>
   );
 }
