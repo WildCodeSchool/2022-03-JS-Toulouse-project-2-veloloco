@@ -43,13 +43,13 @@ export default function Recherche({ apiResult, mapState }) {
         {inputValue === ""
           ? null
           : result.map((item) => {
-              const doublePutes = item.name.toLowerCase().substr(7).split("");
-              for (let i = 0; i < doublePutes.length; i += 1) {
-                if (i === 0 || doublePutes[i - 1] === " ") {
-                  doublePutes[i] = doublePutes[i].toLocaleUpperCase();
+              const nameStation = item.name.toLowerCase().substr(7).split("");
+              for (let i = 0; i < nameStation.length; i += 1) {
+                if (i === 0 || nameStation[i - 1] === " ") {
+                  nameStation[i] = nameStation[i].toLocaleUpperCase();
                 }
               }
-              const pute = doublePutes.join("");
+              const station = nameStation.join("");
               return (
                 <button
                   className="item-list"
@@ -57,7 +57,7 @@ export default function Recherche({ apiResult, mapState }) {
                   onClick={() => flyPosition(item)}
                 >
                   <hr className="hr-item" />
-                  {pute}
+                  {station}
                 </button>
               );
             })}
