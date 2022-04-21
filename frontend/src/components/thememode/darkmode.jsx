@@ -9,14 +9,14 @@ export default function DarkMode() {
           <span className="slider round"> </span>
         </label>
 
-        <h4>Dark-Mode</h4>
+        <h4 className="title-darkmode">Dark-Mode</h4>
       </div>
       <div className="rainbow">
         <label htmlFor="rainbow" className="switch">
           <input id="rainbow" type="checkbox" />
           <span className="slider round"> </span>
         </label>
-        <h4>Rainbow-Mode</h4>
+        <h4 className="title-darkmode">Rainbow-Mode</h4>
       </div>
     </div>
   );
