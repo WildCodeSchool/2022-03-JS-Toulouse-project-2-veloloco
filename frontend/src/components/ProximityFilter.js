@@ -3,34 +3,33 @@ const ProximityFilter = (userPosition, stationsList) => {
     x: userPosition.coordinates.lat,
     y: userPosition.coordinates.lng,
   };
+  const closerFounder = (coords, userCoord) => {
+    let distance = 0;
+    let oldDistance = 1000;
+    let closer;
 
-  const lessFarFounder = (coord, userCoord) => {
-    let pith = 0;
-    let oldPith = 1000;
-    let lessFar;
-
-    for (let i = 0; i < coord.length; i += 1) {
-      const coordDiffX = userCoord.x - coord[i].position.lat;
-      const coordDiffY = userCoord.y - coord[i].position.lng;
-      pith = Math.sqrt(coordDiffX ** 2 + coordDiffY ** 2);
-      if (pith < oldPith) {
-        lessFar = [coord[i], i];
-        oldPith = pith;
+    for (let i = 0; i < coords.length; i += 1) {
+      const coordDiffX = userCoord.x - coords[i].position.lat;
+      const coordDiffY = userCoord.y - coords[i].position.lng;
+      distance = Math.sqrt(coordDiffX ** 2 + coordDiffY ** 2);
+      if (distance < oldDistance) {
+        closer = [coords[i], i];
+        oldDistance = distance;
       }
     }
-    return lessFar;
+    return closer;
   };
 
   const list = stationsList;
 
-  const lessFarList = [];
+  const closestList = [];
 
   for (let k = 0; k < 5; k += 1) {
-    lessFarList.push(lessFarFounder(list, userPos)[0]);
-    list.splice(lessFarFounder(list, userPos)[1], 1);
+    closestList.push(closerFounder(list, userPos)[0]);
+    list.splice(closerFounder(list, userPos)[1], 1);
   }
 
-  return lessFarList;
+  return closestList;
 };
 
 export default ProximityFilter;
