@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./DisplayFavouriteCard.css";
 import JaugeVelo from "./JaugeVelo";
 
-
 export default function DisplayFavouriteCard({ favouriteCard, iteration }) {
   const [fav, setFav] = useState(false);
 
@@ -42,7 +41,6 @@ export default function DisplayFavouriteCard({ favouriteCard, iteration }) {
       </div>
 
       <div className="middle-favourite-card">
-
         <h2>{favouriteCard[iteration].address}</h2>
       </div>
 
