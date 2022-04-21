@@ -16,7 +16,6 @@ export default function DisplayFavouriteCard({ favouriteCard, iteration }) {
 
       <div className="middle-favourite-card">
         <h2>{favouriteCard[iteration].address}</h2>
-        {/* <h2>{favouriteCard.distance}</h2> */}
       </div>
 
       <div className="bottom-favourite-card">

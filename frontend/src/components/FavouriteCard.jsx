@@ -15,7 +15,6 @@ export default function FavouriteCard({ userPos, iteration }) {
       });
   }, []);
 
-  // console.log(ProximityFilter(userPos, cardInfos));
   return (
     <div>
       {cardInfos !== null ? (
