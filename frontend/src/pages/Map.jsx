@@ -36,7 +36,6 @@ export default function Map() {
       });
   }, []);
   const [slideState, setSlideState] = useState(false);
-
   return (
     <div id="map">
       {location != null ? (
@@ -64,7 +63,7 @@ export default function Map() {
                 />
               </button>
             </div>
-            <SlideForCard slideState={slideState} />
+            <SlideForCard slideState={slideState} userPosition={location} />
           </div>
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
