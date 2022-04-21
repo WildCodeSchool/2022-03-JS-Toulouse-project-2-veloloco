@@ -48,7 +48,6 @@ export default function Map() {
         type="button"
         onClick={() => {
           setToggleSearch(!toggleSearch);
-          console.log("tacos");
         }}
       >
         la
