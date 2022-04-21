@@ -39,10 +39,17 @@ export default function Recherche({ apiResult, mapState }) {
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
       />
-      <div className="list">
+      <ul className="list">
         {inputValue === ""
           ? null
           : result.map((item) => {
+              const doublePutes = item.name.toLowerCase().substr(7).split("");
+              for (let i = 0; i < doublePutes.length; i += 1) {
+                if (i === 0 || doublePutes[i - 1] === " ") {
+                  doublePutes[i] = doublePutes[i].toLocaleUpperCase();
+                }
+              }
+              const pute = doublePutes.join("");
               return (
                 <button
                   className="item-list"
@@ -50,11 +57,11 @@ export default function Recherche({ apiResult, mapState }) {
                   onClick={() => flyPosition(item)}
                 >
                   <hr className="hr-item" />
-                  {item.name.substr(7).toLowerCase()}
+                  {pute}
                 </button>
               );
             })}
-      </div>
+      </ul>
     </div>
   );
 }
