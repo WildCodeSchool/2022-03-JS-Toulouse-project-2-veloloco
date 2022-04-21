@@ -30,7 +30,12 @@
   display: none;
   visibility: none;
 }
-
+.btn-change {
+  z-index: 1101;
+  position: absolute;
+  left: 90%;
+  top: 10%;
+}
 @media screen and (max-width: 783px) {
   .right-slide-on {
     position: relative;

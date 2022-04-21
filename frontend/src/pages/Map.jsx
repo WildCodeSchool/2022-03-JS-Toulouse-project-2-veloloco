@@ -6,6 +6,7 @@ import axios from "axios";
 import Recherche from "../components/Recherche";
 import Geo from "../components/Geo";
 import SlideForCard from "../components/SlideForCard";
+import ItinerarySearch from "../components/ItinerarySearch";
 
 export default function Map() {
   const [location, setLocation] = useState(null);
@@ -38,11 +39,25 @@ export default function Map() {
   }, []);
   const [slideState, setSlideState] = useState(false);
   const [mapState, setMapState] = useState();
+  const [toggleSearch, setToggleSearch] = useState(true);
 
-  console.log(mapState);
   return (
     <div id="map">
-      <Recherche apiResult={apiResult} mapState={mapState} />
+      <button
+        className="btn-change"
+        type="button"
+        onClick={() => {
+          setToggleSearch(!toggleSearch);
+          console.log("tacos");
+        }}
+      >
+        la
+      </button>
+      {toggleSearch ? (
+        <Recherche apiResult={apiResult} mapState={mapState} />
+      ) : (
+        <ItinerarySearch apiResult={apiResult} mapState={mapState} />
+      )}
 
       {location != null ? (
         <MapContainer
