@@ -40,7 +40,6 @@
     top: 1%;
     height: 98%;
 
-
     animation-name: slideAnimationOn;
     animation-duration: 500ms;
     animation-iteration-count: 1;
@@ -76,7 +75,6 @@
       left: 100%;
     }
   }
-
 
   .slide-button {
     background-color: var(--translucid-bg);
