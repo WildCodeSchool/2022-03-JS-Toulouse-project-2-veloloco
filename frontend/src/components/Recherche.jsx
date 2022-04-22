@@ -56,7 +56,7 @@ export default function Recherche({ apiResult: apiStations, mapState }) {
                 <button
                   className="item-list"
                   type="button"
-                  onClick={() => flyPosition(stationCapitalized)}
+                  onClick={() => flyPosition(station)}
                 >
                   <hr className="hr-item" />
                   {stationCapitalized}
