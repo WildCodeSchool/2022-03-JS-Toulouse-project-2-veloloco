@@ -16,14 +16,13 @@ export default function Recherche({ apiResult: apiStations, mapState }) {
       }
       if (apiStations[i].name.toLowerCase().includes(input)) {
         stations.push(apiStations[i]);
-        setFilteredStations([...stations]);
 
         if (stations.length > 4) {
-          return stations;
+          break;
         }
       }
     }
-    return null;
+    setFilteredStations([...stations]);
   }
   function flyPosition(item) {
     mapState.map.flyTo(item.position);
@@ -52,15 +51,15 @@ export default function Recherche({ apiResult: apiStations, mapState }) {
                   nameStation[i] = nameStation[i].toLocaleUpperCase();
                 }
               }
-              const stations = nameStation.join("");
+              const stationCapitalized = nameStation.join("");
               return (
                 <button
                   className="item-list"
                   type="button"
-                  onClick={() => flyPosition(stations)}
+                  onClick={() => flyPosition(stationCapitalized)}
                 >
                   <hr className="hr-item" />
-                  {stations}
+                  {stationCapitalized}
                 </button>
               );
             })}
