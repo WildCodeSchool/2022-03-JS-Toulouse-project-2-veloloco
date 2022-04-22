@@ -39,7 +39,6 @@
     width: 80%;
     top: 1%;
     height: 98%;
-    /* overflow: scroll; */
 
     animation-name: slideAnimationOn;
     animation-duration: 500ms;
@@ -64,9 +63,19 @@
     /* overflow: scroll; */
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
-
+    animation-name: slideAnimationOff;
+    animation-duration: 500ms;
     animation-iteration-count: 1;
   }
+  @keyframes slideAnimationOff {
+    0% {
+      left: 20%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+
   .slide-button {
     background-color: var(--translucid-bg);
     width: 30px;
