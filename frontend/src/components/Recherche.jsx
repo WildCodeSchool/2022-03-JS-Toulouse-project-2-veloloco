@@ -25,7 +25,7 @@ export default function Recherche({ apiResult: apiStations, mapState }) {
     setFilteredStations([...stations]);
   }
   function flyPosition(item) {
-    mapState.map.flyTo(item.position);
+    mapState.map.flyTo(item.position, 18);
   }
 
   return (
@@ -34,6 +34,7 @@ export default function Recherche({ apiResult: apiStations, mapState }) {
         id="searchbar"
         onKeyUp={searchStation}
         type="text"
+        autoComplete="off"
         name="search"
         value={valueOrigin}
         onChange={(e) => setValueOrigin(e.target.value)}

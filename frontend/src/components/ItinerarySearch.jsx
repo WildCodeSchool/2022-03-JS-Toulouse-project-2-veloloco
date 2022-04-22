@@ -36,6 +36,8 @@ export default function Recherche({ apiResult }) {
         name="search"
         value={inputOrigin}
         onChange={(e) => setInputOrigin(e.target.value)}
+        autoComplete="off"
+        placeholder="Depart"
       />
       <input
         id="searchbar"
@@ -44,6 +46,8 @@ export default function Recherche({ apiResult }) {
         name="search"
         value={inputDestination}
         onChange={(e) => setInputDestination(e.target.value)}
+        autoComplete="off"
+        placeholder="Arrivee"
       />
       <ul className="list">
         {inputOrigin === ""
@@ -58,11 +62,11 @@ export default function Recherche({ apiResult }) {
                   nameStation[i] = nameStation[i].toLocaleUpperCase();
                 }
               }
-              const stations = nameStation.join("");
+              const stationCapitalized = nameStation.join("");
               return (
                 <button className="item-list" type="button">
                   <hr className="hr-item" />
-                  {stations}
+                  {stationCapitalized}
                 </button>
               );
             })}
