@@ -2,18 +2,20 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "./Map.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+
+import Recherche from "../components/Recherche";
 import Geo from "../components/Geo";
 import SlideForCard from "../components/SlideForCard";
+import ItinerarySearch from "../components/ItinerarySearch";
 
 export default function Map() {
   const [location, setLocation] = useState(null);
 
-  // eslint-disable-next-line no-shadow
-  const success = (location) => {
+  const success = (locations) => {
     setLocation({
       coordinates: {
-        lat: location.coords.latitude,
-        lng: location.coords.longitude,
+        lat: locations.coords.latitude,
+        lng: locations.coords.longitude,
       },
     });
   };
@@ -36,12 +38,31 @@ export default function Map() {
       });
   }, []);
   const [slideState, setSlideState] = useState(false);
+  const [mapState, setMapState] = useState();
+  const [toggleSearch, setToggleSearch] = useState(true);
+
   return (
     <div id="map">
+      <button
+        className="btn-change"
+        type="button"
+        onClick={() => {
+          setToggleSearch(!toggleSearch);
+        }}
+      >
+        la
+      </button>
+      {toggleSearch ? (
+        <Recherche apiResult={apiResult} mapState={mapState} />
+      ) : (
+        <ItinerarySearch apiResult={apiResult} mapState={mapState} />
+      )}
+
       {location != null ? (
         <MapContainer
           center={[location.coordinates.lat, location.coordinates.lng]}
           zoom={20}
+          whenCreated={(map) => setMapState({ map })}
         >
           {/* TODO empecher le zoom de map pour pouvoir scroll le slideer de droite */}
           <div className={slideState ? "right-slide-on" : "right-slide-off"}>

@@ -1,0 +1,34 @@
+#searchbar {
+  margin-top: 1rem;
+  padding: 15px;
+  border-radius: 10px;
+  height: 0.5rem;
+  width: 240px;
+}
+
+.search {
+  position: absolute;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-left: 25%;
+}
+.list {
+  background-color: rgba(245, 245, 245, 0.644);
+  margin: 0;
+  padding: 0;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.item-list {
+  background: transparent;
+  border: none !important;
+  margin: 0;
+  align-self: stretch;
+}
+.hr-item {
+  margin: 0;
+}

@@ -45,13 +45,6 @@ export default function DisplayFavouriteCard({ favouriteCard, iteration }) {
       </div>
 
       <div className="bottom-favourite-card">
-        <div id="available-bikes">
-          {favouriteCard[iteration].available_bikes}
-        </div>
-        <div id="available-bike-stands">
-          {favouriteCard[iteration].available_bike_stands}
-        </div>
-
         <JaugeVelo favouriteCard={favouriteCard} iteration={iteration} />
         <h3>5km</h3>
       </div>
