@@ -4,7 +4,7 @@ import "../assets/css/recherche.css";
 
 export default function Recherche({ apiResult: apiStations, mapState }) {
   const [filteredStations, setFilteredStations] = useState([]);
-  console.log(mapState.map);
+
   const [valueOrigin, setValueOrigin] = useState("");
   function searchStation() {
     let input = document.getElementById("searchbar").value;
