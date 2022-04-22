@@ -81,7 +81,7 @@ export default function Navigation() {
             </li>
           </ul>
         </div>
-        <hr />
+        <hr className="hr-burger" />
         <DarkMode />
         <div className="contact">
           <h5>Contact us (please do not)</h5>

@@ -1,4 +1,10 @@
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  Popup,
+  ZoomControl,
+} from "react-leaflet";
 import "./Map.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -63,7 +69,9 @@ export default function Map() {
           center={[location.coordinates.lat, location.coordinates.lng]}
           zoom={20}
           whenCreated={(map) => setMapState({ map })}
+          zoomControl={false}
         >
+          <ZoomControl position="bottomleft" />
           {/* TODO empecher le zoom de map pour pouvoir scroll le slideer de droite */}
           <div className={slideState ? "right-slide-on" : "right-slide-off"}>
             <div className="slide-button-cont">
