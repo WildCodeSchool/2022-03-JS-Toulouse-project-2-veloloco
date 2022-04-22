@@ -52,7 +52,7 @@ export default function DisplayFavouriteCard({ favouriteCard, iteration }) {
           {favouriteCard[iteration].available_bike_stands}
         </div>
 
-        <JaugeVelo favouriteCard={favouriteCard} />
+        <JaugeVelo favouriteCard={favouriteCard} iteration={iteration} />
         <h3>5km</h3>
       </div>
     </div>
