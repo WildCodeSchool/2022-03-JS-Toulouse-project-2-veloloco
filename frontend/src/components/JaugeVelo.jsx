@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function JaugeVelo({ favouriteCard }) {
+export default function JaugeVelo({ favouriteCard, iteration }) {
   const jaugeVeloStyle = {
     display: "flex",
     width: "70%",
@@ -9,7 +9,9 @@ export default function JaugeVelo({ favouriteCard }) {
   };
 
   let availableBikes =
-    (favouriteCard[8].available_bikes / favouriteCard[8].bike_stands) * 100;
+    (favouriteCard[iteration].available_bikes /
+      favouriteCard[iteration].bike_stands) *
+    100;
   availableBikes += "%";
   const myavailablebikesstyle = {
     width: availableBikes,
@@ -20,7 +22,8 @@ export default function JaugeVelo({ favouriteCard }) {
   };
 
   let availableBikeStands =
-    (favouriteCard[8].available_bike_stands / favouriteCard[8].bike_stands) *
+    (favouriteCard[iteration].available_bike_stands /
+      favouriteCard[iteration].bike_stands) *
     100;
   availableBikeStands += "%";
   const myavailablebikesstandsstyle = {
@@ -30,17 +33,17 @@ export default function JaugeVelo({ favouriteCard }) {
   };
 
   let deadBikes =
-    ((favouriteCard[8].bike_stands -
-      favouriteCard[8].available_bikes -
-      favouriteCard[8].available_bike_stands) /
-      favouriteCard[8].bike_stands) *
+    ((favouriteCard[iteration].bike_stands -
+      favouriteCard[iteration].available_bikes -
+      favouriteCard[iteration].available_bike_stands) /
+      favouriteCard[iteration].bike_stands) *
     100;
   deadBikes += "%";
 
   const deadBikesNumber =
-    favouriteCard[8].bike_stands -
-    favouriteCard[8].available_bikes -
-    favouriteCard[8].available_bike_stands;
+    favouriteCard[iteration].bike_stands -
+    favouriteCard[iteration].available_bikes -
+    favouriteCard[iteration].available_bike_stands;
 
   const myDeadBikesStyle = {
     width: deadBikes,
@@ -52,10 +55,10 @@ export default function JaugeVelo({ favouriteCard }) {
   return (
     <div style={jaugeVeloStyle}>
       <div id="available-bikes" style={myavailablebikesstyle}>
-        {favouriteCard[8].available_bikes}
+        {favouriteCard[iteration].available_bikes}
       </div>
       <div id="available-bike-stands" style={myavailablebikesstandsstyle}>
-        {favouriteCard[8].available_bike_stands}
+        {favouriteCard[iteration].available_bike_stands}
       </div>
       {deadBikesNumber !== 0 ? (
         <div style={myDeadBikesStyle}>{deadBikesNumber}</div>
