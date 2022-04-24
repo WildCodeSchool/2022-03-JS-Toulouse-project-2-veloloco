@@ -1,13 +1,8 @@
-import {
-  MapContainer,
-  TileLayer,
-  Marker,
-  Popup,
-  ZoomControl,
-} from "react-leaflet";
+import { MapContainer, TileLayer, ZoomControl } from "react-leaflet";
 import "./Map.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import MarkerDefault from "../components/MarkerDefault";
 import logoitinerary from "../assets/images/itinerary.png";
 import Recherche from "../components/Recherche";
 import Geo from "../components/Geo";
@@ -46,9 +41,30 @@ export default function Map() {
   const [slideState, setSlideState] = useState(false);
   const [mapState, setMapState] = useState();
   const [toggleSearch, setToggleSearch] = useState(true);
+  function flyPositionUser() {
+    mapState.map.flyTo([location.coordinates.lat, location.coordinates.lng]);
+  }
 
   return (
     <div id="map">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="44"
+        height="44"
+        viewBox="0 0 24 24"
+        strokeWidth="1.5"
+        stroke="#7b0828"
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="btn-geo"
+        onClick={flyPositionUser}
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 17l-1 -4l-4 -1l9 -4z" />
+      </svg>
+
       <button
         className="btn-change"
         type="button"
@@ -107,9 +123,7 @@ export default function Map() {
             localisationlng={location.coordinates.lng}
           />
           {apiResult.map((marker) => (
-            <Marker position={marker.position}>
-              <Popup>Hello world</Popup>
-            </Marker>
+            <MarkerDefault positionStation={marker.position} />
           ))}
         </MapContainer>
       ) : (

@@ -1,20 +1,18 @@
 import { useState } from "react";
-import icon from "../assets/images/icon.png";
+
 import "../assets/css/recherche.css";
 
 export default function Recherche({ apiResult: apiStations, mapState }) {
   const [filteredStations, setFilteredStations] = useState([]);
-
+  const [displayChange, setDisplayChange] = useState(true);
   const [valueOrigin, setValueOrigin] = useState("");
   function searchStation() {
-    let input = document.getElementById("searchbar").value;
-    input = input.toLowerCase();
     const stations = [];
     for (let i = 0; i < apiStations.length; i += 1) {
       if (valueOrigin === " ") {
         setFilteredStations([]);
       }
-      if (apiStations[i].name.toLowerCase().includes(input)) {
+      if (apiStations[i].name.toLowerCase().includes(valueOrigin)) {
         stations.push(apiStations[i]);
 
         if (stations.length > 4) {
@@ -26,6 +24,8 @@ export default function Recherche({ apiResult: apiStations, mapState }) {
   }
   function flyPosition(item) {
     mapState.map.flyTo(item.position, 18);
+    setDisplayChange(!displayChange);
+    setValueOrigin("");
   }
 
   return (
@@ -37,9 +37,11 @@ export default function Recherche({ apiResult: apiStations, mapState }) {
         autoComplete="off"
         name="search"
         value={valueOrigin}
-        onChange={(e) => setValueOrigin(e.target.value)}
+        onChange={(e) => {
+          setValueOrigin(e.target.value);
+          setDisplayChange(!displayChange);
+        }}
       />
-      <img className="iconsearch" alt="icon" src={icon} />
 
       <ul className="list">
         {valueOrigin === ""
@@ -55,13 +57,13 @@ export default function Recherche({ apiResult: apiStations, mapState }) {
                 }
               }
               const stationCapitalized = nameStation.join("");
+
               return (
                 <button
-                  className="item-list"
+                  className={displayChange ? "item-list" : "item-list-no"}
                   type="button"
                   onClick={() => flyPosition(station)}
                 >
-                  <hr className="hr-item" />
                   {stationCapitalized}
                 </button>
               );

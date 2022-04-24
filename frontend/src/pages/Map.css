@@ -94,7 +94,7 @@
     width: 30px;
     height: 70px;
     position: relative;
-    left: -40px;
+    left: -29px;
     top: calc(50vh - 35px);
     z-index: 999999;
     border-top-left-radius: 10px;
@@ -105,7 +105,12 @@
     align-items: center;
   }
 }
-
+.btn-geo {
+  z-index: 1001;
+  position: absolute;
+  top: 92%;
+  left: 86%;
+}
 .triangle-logo {
   height: 38px;
   width: auto;
