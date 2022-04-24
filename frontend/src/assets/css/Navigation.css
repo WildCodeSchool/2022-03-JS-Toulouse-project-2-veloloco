@@ -5,6 +5,7 @@
   border-radius: 0 2rem 2rem 0;
   box-shadow: 0 0 2.5em;
   margin: 0.5rem 5rem 0.5rem 0.5rem;
+  font-family: var(--nunito);
 }
 .logo-title {
   display: flex;
@@ -39,7 +40,7 @@ h2 {
 }
 .logo-velo {
   width: 6rem;
-  height: 7.5rem;
+  height: 6rem;
 }
 
 .image-item {
@@ -52,6 +53,8 @@ h2 {
 .navbar-link {
   font-size: 1.1rem;
   padding: 0.6rem;
+  text-decoration: none;
+  color: #7b0828;
 }
 
 @media screen and (max-width: 780px) {
@@ -63,6 +66,7 @@ h2 {
   .cross-close {
     width: 2.5rem;
     height: 2.5rem;
+    margin-left: 1rem;
   }
   .cross-logo {
     background-color: transparent;
@@ -128,7 +132,7 @@ h2 {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    margin: 0 2rem 0.3rem 0;
+    margin: 0 1rem 0.3rem 0;
     font-size: 1rem;
     color: #7b0828;
   }
@@ -148,6 +152,7 @@ h2 {
     justify-content: space-between;
     list-style-type: none;
     align-items: flex-start;
+    gap: 30px;
   }
   .navbar-item {
     display: flex;
@@ -169,11 +174,17 @@ h2 {
     font-size: 1.1rem;
     padding: 0.6rem;
   }
-  .hr-burger {
-    margin-top: 2rem;
+  .hr-burgertop {
+    margin-top: 70px;
     border: none;
     width: 90%;
     border-bottom: 1px solid #5a5a5a96;
     box-shadow: 0 0 20px 8px rgba(51, 51, 51, 0.6);
+  }
+  .hr-burgerbottom {
+    border: none;
+    width: 90%;
+    border-bottom: 1px solid #5a5a5a96;
+    box-shadow: 0 0 20px 8px rgba(90, 90, 90, 0.6);
   }
 }

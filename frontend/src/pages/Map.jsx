@@ -8,7 +8,7 @@ import {
 import "./Map.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+import logoitinerary from "../assets/images/itinerary.png";
 import Recherche from "../components/Recherche";
 import Geo from "../components/Geo";
 import SlideForCard from "../components/SlideForCard";
@@ -56,7 +56,7 @@ export default function Map() {
           setToggleSearch(!toggleSearch);
         }}
       >
-        la
+        <img src={logoitinerary} alt="logo" />
       </button>
       {toggleSearch ? (
         <Recherche apiResult={apiResult} mapState={mapState} />
@@ -71,7 +71,11 @@ export default function Map() {
           whenCreated={(map) => setMapState({ map })}
           zoomControl={false}
         >
-          <ZoomControl position="bottomleft" />
+          <ZoomControl
+            position="bottomleft"
+            zoomInText="&#128069;"
+            zoomOutText="&#128078;"
+          />
           {/* TODO empecher le zoom de map pour pouvoir scroll le slideer de droite */}
           <div className={slideState ? "right-slide-on" : "right-slide-off"}>
             <div className="slide-button-cont">

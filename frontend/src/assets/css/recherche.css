@@ -4,7 +4,6 @@
   border-radius: 10px;
   height: 0.5rem;
   width: 240px;
-
   backdrop-filter: blur(1px) saturate(200%);
   -webkit-backdrop-filter: blur(1px) saturate(200%);
   background-color: rgba(255, 255, 255, 0.8);
@@ -13,10 +12,14 @@
 }
 #searchbar:focus {
   outline: none !important;
-  border-color: #719ece;
-  box-shadow: 0 0 10px #719ece;
+  border-color: #7b0828;
+  box-shadow: 0 0 10px #7b0828;
 }
-
+.iconsearch {
+  z-index: 1001;
+  height: 30px;
+  width: 30px;
+}
 .search {
   position: absolute;
   z-index: 1000;

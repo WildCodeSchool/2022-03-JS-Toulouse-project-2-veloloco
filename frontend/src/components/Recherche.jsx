@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import icon from "../assets/images/icon.png";
 import "../assets/css/recherche.css";
 
 export default function Recherche({ apiResult: apiStations, mapState }) {
@@ -39,6 +39,8 @@ export default function Recherche({ apiResult: apiStations, mapState }) {
         value={valueOrigin}
         onChange={(e) => setValueOrigin(e.target.value)}
       />
+      <img className="iconsearch" alt="icon" src={icon} />
+
       <ul className="list">
         {valueOrigin === ""
           ? null
