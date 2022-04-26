@@ -13,9 +13,27 @@ const iconDanger = L.icon({
   iconSize: [25, 41],
   iconAnchor: [12, 41],
 });
-export default function MarkerDefault({ positionStation, marker }) {
+
+export default function MarkerDefault({
+  positionStation,
+  marker,
+  toggleCard,
+  setToggleCard,
+}) {
   if (marker.available_bikes <= 3) {
     return <Marker icon={iconDanger} position={positionStation} />;
   }
-  return <Marker icon={iconDefault} position={positionStation} />;
+  function clickAction() {
+    console.log("tacos");
+    setToggleCard();
+  }
+  return (
+    <Marker
+      icon={iconDefault}
+      position={positionStation}
+      eventHandlers={{
+        click: clickAction,
+      }}
+    />
+  );
 }

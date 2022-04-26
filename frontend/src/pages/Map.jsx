@@ -8,6 +8,7 @@ import Recherche from "../components/Recherche";
 import Geo from "../components/Geo";
 import SlideForCard from "../components/SlideForCard";
 import ItinerarySearch from "../components/ItinerarySearch";
+import CardStationDrop from "../components/CardStationDrop";
 
 export default function Map() {
   const [location, setLocation] = useState(null);
@@ -41,10 +42,13 @@ export default function Map() {
   const [slideState, setSlideState] = useState(false);
   const [mapState, setMapState] = useState();
   const [toggleSearch, setToggleSearch] = useState(true);
+  const [toggleCard, setToggleCard] = useState(false);
   function flyPositionUser() {
     mapState.map.flyTo([location.coordinates.lat, location.coordinates.lng]);
   }
-
+  useEffect(() => {
+    console.log("location change");
+  }, [location]);
   return (
     <div id="map">
       <svg
@@ -100,7 +104,6 @@ export default function Map() {
                 className="slide-button"
                 onClick={() => setSlideState(!slideState)}
               >
-                {" "}
                 <img
                   src="../src/assets/TRIANGLE.png"
                   className={
@@ -125,10 +128,11 @@ export default function Map() {
           {apiResult.map((marker) => (
             <MarkerDefault
               positionStation={marker.position}
-              apiResult={apiResult}
               marker={marker}
+              setToggleCard={() => setToggleCard((status) => !status)}
             />
           ))}
+          {toggleCard ? <CardStationDrop /> : null}
         </MapContainer>
       ) : (
         "chargement"
