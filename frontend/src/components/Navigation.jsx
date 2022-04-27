@@ -19,7 +19,7 @@ export default function Navigation(props) {
     <div className="navbar-container">
       <button
         type="button"
-        className="burger-logo"
+        className={showLinks ? "burger-logo display-none" : "burger-logo"}
         onClick={() => antiConflictMenu(false)}
       >
         <img className="logo-burger" src={LogoBurger} alt="Logo Burger" />
