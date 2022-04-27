@@ -1,4 +1,3 @@
-import { useState } from "react";
 import LogoVelo from "../assets/images/logo.png";
 import LogoBurger from "../assets/images/Menu hamburger.png";
 import LogoTopsecret from "../assets/images/logo-topsecret-about.png";
@@ -14,14 +13,14 @@ import "../assets/css/darkMode.css";
 import "../assets/css/contact.css";
 import DarkMode from "./thememode/darkmode";
 
-export default function Navigation() {
-  const [showLinks, setShowLinks] = useState(false);
+export default function Navigation(props) {
+  const { setShowLinks, showLinks, antiConflictMenu } = props;
   return (
     <div className="navbar-container">
       <button
         type="button"
         className="burger-logo"
-        onClick={() => setShowLinks(!showLinks)}
+        onClick={() => antiConflictMenu(false)}
       >
         <img className="logo-burger" src={LogoBurger} alt="Logo Burger" />
       </button>

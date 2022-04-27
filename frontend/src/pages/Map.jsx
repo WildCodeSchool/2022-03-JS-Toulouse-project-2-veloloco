@@ -44,12 +44,22 @@ export default function Map() {
   const [mapState, setMapState] = useState();
   const [toggleSearch, setToggleSearch] = useState(true);
   const [toggleCard, setToggleCard] = useState(false);
+  const [showLinks, setShowLinks] = useState(false);
   function flyPositionUser() {
     mapState.map.flyTo([location.coordinates.lat, location.coordinates.lng]);
   }
   useEffect(() => {
     console.log("location change");
   }, [location]);
+  const antiConflictMenu = (menu) => {
+    if (menu) {
+      setSlideState(!slideState);
+      setShowLinks(false);
+    } else if (!menu) {
+      setSlideState(false);
+      setShowLinks(!showLinks);
+    }
+  };
   return (
     <div id="map">
       <svg
@@ -75,7 +85,11 @@ export default function Map() {
         ) : (
           <ItinerarySearch apiResult={apiResult} mapState={mapState} />
         )}
-        <Navigation />
+        <Navigation
+          setShowLinks={setShowLinks}
+          showLinks={showLinks}
+          antiConflictMenu={() => antiConflictMenu()}
+        />
         <button
           className="btn-change"
           type="button"
@@ -104,7 +118,7 @@ export default function Map() {
               <button
                 type="button"
                 className="slide-button"
-                onClick={() => setSlideState(!slideState)}
+                onClick={() => antiConflictMenu(true)}
               >
                 <img
                   src="../src/assets/TRIANGLE.png"
