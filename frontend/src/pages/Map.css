@@ -105,8 +105,20 @@
     align-items: center;
   }
 }
-.btn-geo {
+.cardstation {
+  height: 16vh;
+  width: 100vw;
+}
+.containersearch {
+  display: flex;
+  border: red 1px solid;
+  position: absolute;
   z-index: 1001;
+  height: 11vh;
+  width: 100%;
+}
+.btn-geo {
+  z-index: 1000;
   position: absolute;
   top: 92%;
   left: 86%;

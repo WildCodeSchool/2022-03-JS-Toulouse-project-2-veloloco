@@ -9,6 +9,7 @@ import Geo from "../components/Geo";
 import SlideForCard from "../components/SlideForCard";
 import ItinerarySearch from "../components/ItinerarySearch";
 import CardStationDrop from "../components/CardStationDrop";
+import Navigation from "../components/Navigation";
 
 export default function Map() {
   const [location, setLocation] = useState(null);
@@ -68,22 +69,23 @@ export default function Map() {
         <circle cx="12" cy="12" r="9" />
         <path d="M12 17l-1 -4l-4 -1l9 -4z" />
       </svg>
-
-      <button
-        className="btn-change"
-        type="button"
-        onClick={() => {
-          setToggleSearch(!toggleSearch);
-        }}
-      >
-        <img src={logoitinerary} alt="logo" />
-      </button>
-      {toggleSearch ? (
-        <Recherche apiResult={apiResult} mapState={mapState} />
-      ) : (
-        <ItinerarySearch apiResult={apiResult} mapState={mapState} />
-      )}
-
+      <div className="containersearch">
+        {toggleSearch ? (
+          <Recherche apiResult={apiResult} mapState={mapState} />
+        ) : (
+          <ItinerarySearch apiResult={apiResult} mapState={mapState} />
+        )}
+        <Navigation />
+        <button
+          className="btn-change"
+          type="button"
+          onClick={() => {
+            setToggleSearch(!toggleSearch);
+          }}
+        >
+          <img src={logoitinerary} alt="logo" />
+        </button>
+      </div>
       {location != null ? (
         <MapContainer
           center={[location.coordinates.lat, location.coordinates.lng]}
@@ -132,7 +134,9 @@ export default function Map() {
               setToggleCard={() => setToggleCard((status) => !status)}
             />
           ))}
-          {toggleCard ? <CardStationDrop /> : null}
+          <div className="leaflet-bottom cardstation">
+            {toggleCard ? <CardStationDrop /> : null}
+          </div>
         </MapContainer>
       ) : (
         "chargement"

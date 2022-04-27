@@ -17,7 +17,6 @@ const iconDanger = L.icon({
 export default function MarkerDefault({
   positionStation,
   marker,
-
   setToggleCard,
 }) {
   if (marker.available_bikes <= 3) {
