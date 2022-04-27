@@ -49,7 +49,7 @@ export default function Map() {
     mapState.map.flyTo([location.coordinates.lat, location.coordinates.lng]);
   }
   useEffect(() => {
-    console.log("location change");
+    // console.log("location change");
   }, [location]);
   const antiConflictMenu = (menu) => {
     if (menu) {
