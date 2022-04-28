@@ -1,12 +1,13 @@
 import "./App.css";
+import AOS from "aos";
 import Home from "./pages/Home";
-import Navigation from "./components/Navigation";
+import "aos/dist/aos.css";
 
+AOS.init();
 function App() {
   return (
     <div className="App">
       <Home />
-      <Navigation />
     </div>
   );
 }
