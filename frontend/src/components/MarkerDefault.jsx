@@ -18,20 +18,38 @@ export default function MarkerDefault({
   positionStation,
   marker,
   setToggleCard,
+
+  setUniqueMarker,
 }) {
-  if (marker.available_bikes <= 3) {
-    return <Marker icon={iconDanger} position={positionStation} />;
-  }
   function clickAction() {
-    console.log("tacos");
+    setUniqueMarker(marker);
     setToggleCard();
+    console.log("J'ai une utilité me supprimer pas !");
+    /* Probleme chez Pierre , ce console log s'affiche deux fois sans raison 
+    qui cause des problemes de state , vu avec bastien  */
   }
+  if (marker.available_bikes <= 3) {
+    return (
+      <Marker
+        icon={iconDanger}
+        position={positionStation}
+        eventHandlers={{
+          click: () => {
+            clickAction();
+          },
+        }}
+      />
+    );
+  }
+
   return (
     <Marker
       icon={iconDefault}
       position={positionStation}
       eventHandlers={{
-        click: clickAction,
+        click: () => {
+          clickAction();
+        },
       }}
     />
   );

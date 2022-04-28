@@ -56,6 +56,10 @@ h2 {
   text-decoration: none;
   color: #7b0828;
 }
+.navbar-container {
+  width: 1.7rem;
+  height: 1.5rem;
+}
 
 @media screen and (max-width: 780px) {
   .logo-burger {
@@ -78,6 +82,7 @@ h2 {
     width: 80vw;
     position: absolute;
     top: 0;
+    right: 7px;
     z-index: 1000;
     height: 98vh;
     border-radius: 0 2rem 2rem 0;
@@ -105,7 +110,7 @@ h2 {
   }
   .burger-logo {
     position: absolute;
-    top: 1.5rem;
+
     z-index: 1000;
     left: 1rem;
     background-color: transparent;

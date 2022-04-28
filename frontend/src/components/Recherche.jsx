@@ -29,46 +29,49 @@ export default function Recherche({ apiResult: apiStations, mapState }) {
   }
 
   return (
-    <div className="search">
-      <input
-        id="searchbar"
-        onKeyUp={searchStation}
-        type="text"
-        autoComplete="off"
-        name="search"
-        value={valueOrigin}
-        onChange={(e) => {
-          setValueOrigin(e.target.value);
-          setDisplayChange(!displayChange);
-        }}
-      />
-
-      <ul className="list">
-        {valueOrigin === ""
-          ? null
-          : filteredStations.map((station) => {
-              const nameStation = station.name
-                .toLowerCase()
-                .substr(7)
-                .split("");
-              for (let i = 0; i < nameStation.length; i += 1) {
-                if (i === 0 || nameStation[i - 1] === " ") {
-                  nameStation[i] = nameStation[i].toLocaleUpperCase();
+    <div className="searchbar-container">
+      <div className="search">
+        <input
+          id="searchbar"
+          onKeyUp={searchStation}
+          type="text"
+          autoComplete="off"
+          name="search"
+          value={valueOrigin}
+          onChange={(e) => {
+            setValueOrigin(e.target.value);
+            setDisplayChange(!displayChange);
+          }}
+        />
+      </div>
+      <div className="searchlist">
+        <ul className="list">
+          {valueOrigin === ""
+            ? null
+            : filteredStations.map((station) => {
+                const nameStation = station.name
+                  .toLowerCase()
+                  .substr(7)
+                  .split("");
+                for (let i = 0; i < nameStation.length; i += 1) {
+                  if (i === 0 || nameStation[i - 1] === " ") {
+                    nameStation[i] = nameStation[i].toLocaleUpperCase();
+                  }
                 }
-              }
-              const stationCapitalized = nameStation.join("");
+                const stationCapitalized = nameStation.join("");
 
-              return (
-                <button
-                  className={displayChange ? "item-list" : "item-list-no"}
-                  type="button"
-                  onClick={() => flyPosition(station)}
-                >
-                  {stationCapitalized}
-                </button>
-              );
-            })}
-      </ul>
+                return (
+                  <button
+                    className={displayChange ? "item-list" : "item-list-no"}
+                    type="button"
+                    onClick={() => flyPosition(station)}
+                  >
+                    {stationCapitalized}
+                  </button>
+                );
+              })}
+        </ul>
+      </div>
     </div>
   );
 }
