@@ -3,7 +3,8 @@ import React from "react";
 export default function JaugeVelo({ favouriteCard, iteration }) {
   const jaugeVeloStyle = {
     display: "flex",
-    width: "70%",
+    width: "90%",
+    height: "3em",
     backgroundColor: "#7b0828",
     borderRadius: "15px",
   };

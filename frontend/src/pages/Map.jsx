@@ -1,4 +1,9 @@
-import { MapContainer, TileLayer, ZoomControl } from "react-leaflet";
+import {
+  MapContainer,
+  TileLayer,
+  ZoomControl,
+  useMapEvents,
+} from "react-leaflet";
 import "./Map.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -44,11 +49,23 @@ export default function Map() {
   const [mapState, setMapState] = useState();
   const [toggleSearch, setToggleSearch] = useState(true);
   const [toggleCard, setToggleCard] = useState(false);
+
   const [showLinks, setShowLinks] = useState(false);
+
+  const [uniqueMarker, setUniqueMarker] = useState();
+
   function flyPositionUser() {
     mapState.map.flyTo([location.coordinates.lat, location.coordinates.lng]);
   }
-  useEffect(() => {}, [location]);
+  function Mapclick() {
+    setMapState.map = useMapEvents({
+      click() {
+        setToggleCard();
+      },
+    });
+    return null;
+  }
+
   const antiConflictMenu = (menu) => {
     if (menu) {
       setSlideState(!slideState);
@@ -60,34 +77,40 @@ export default function Map() {
   };
   return (
     <div id="map">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="44"
-        height="44"
-        viewBox="0 0 24 24"
-        strokeWidth="1.5"
-        stroke="#7b0828"
-        fill="none"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="btn-geo"
-        onClick={flyPositionUser}
-      >
-        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-        <circle cx="12" cy="12" r="9" />
-        <path d="M12 17l-1 -4l-4 -1l9 -4z" />
-      </svg>
+      <div className="btn-geo-container">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="44"
+          height="44"
+          viewBox="0 0 24 24"
+          strokeWidth="1.5"
+          stroke="#7b0828"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="btn-geo"
+          onClick={flyPositionUser}
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <circle cx="12" cy="12" r="9" />
+          <path d="M12 17l-1 -4l-4 -1l9 -4z" />
+        </svg>
+      </div>
+
       <div className="containersearch">
+        <Navigation />
         {toggleSearch ? (
           <Recherche apiResult={apiResult} mapState={mapState} />
         ) : (
           <ItinerarySearch apiResult={apiResult} mapState={mapState} />
         )}
+
         <Navigation
           setShowLinks={setShowLinks}
           showLinks={showLinks}
           antiConflictMenu={() => antiConflictMenu()}
         />
+
         <button
           className="btn-change"
           type="button"
@@ -98,6 +121,7 @@ export default function Map() {
           <img src={logoitinerary} alt="logo" />
         </button>
       </div>
+
       {location != null ? (
         <MapContainer
           center={[location.coordinates.lat, location.coordinates.lng]}
@@ -139,16 +163,22 @@ export default function Map() {
             localisationlat={location.coordinates.lat}
             localisationlng={location.coordinates.lng}
           />
+          <Mapclick />
           {apiResult.map((marker) => (
             <MarkerDefault
               positionStation={marker.position}
               marker={marker}
               setToggleCard={() => setToggleCard((status) => !status)}
+              toggleCard={toggleCard}
+              setUniqueMarker={setUniqueMarker}
             />
           ))}
-          <div className="leaflet-bottom cardstation">
-            {toggleCard ? <CardStationDrop /> : null}
-          </div>
+          {toggleCard ? (
+            <CardStationDrop
+              uniqueMarker={uniqueMarker}
+              apiResult={apiResult}
+            />
+          ) : null}
         </MapContainer>
       ) : (
         "chargement"

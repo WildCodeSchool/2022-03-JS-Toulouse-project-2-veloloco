@@ -56,16 +56,20 @@ h2 {
   text-decoration: none;
   color: #7b0828;
 }
+.navbar-container {
+  width: 30px;
+  height: 30px;
+}
 
 @media screen and (max-width: 780px) {
   .logo-burger {
-    width: 1.7rem;
-    height: 1.5rem;
+    width: 30px;
+    height: 25px;
     left: 10%;
   }
   .cross-close {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 40px;
+    height: 40px;
     margin-left: 1rem;
   }
   .cross-logo {
@@ -78,6 +82,7 @@ h2 {
     width: 80vw;
     position: absolute;
     top: 0;
+    right: 7px;
     z-index: 1000;
     height: 98vh;
     border-radius: 0 2rem 2rem 0;
@@ -105,7 +110,7 @@ h2 {
   }
   .burger-logo {
     position: absolute;
-    top: 1.5rem;
+
     z-index: 1000;
     left: 1rem;
     background-color: transparent;
@@ -143,7 +148,8 @@ h2 {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 34%;
+    height: 40%;
+    border: red solid 1px;
   }
   .navbar-links {
     display: flex;
@@ -160,13 +166,13 @@ h2 {
     font-size: 2rem;
   }
   .logo {
-    width: 6rem;
-    height: 7.5rem;
+    width: 90px;
+    height: 120px;
   }
   .image-item {
     background-color: #7b0828;
-    width: 2.7rem;
-    height: 2.7rem;
+    width: 40px;
+    height: 40px;
     border-radius: 0.5rem;
     margin-right: 0.5rem;
   }
