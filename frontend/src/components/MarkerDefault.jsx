@@ -18,20 +18,36 @@ export default function MarkerDefault({
   positionStation,
   marker,
   setToggleCard,
+
+  setUniqueMarker,
 }) {
-  if (marker.available_bikes <= 3) {
-    return <Marker icon={iconDanger} position={positionStation} />;
-  }
   function clickAction() {
-    console.log("tacos");
+    setUniqueMarker(marker);
     setToggleCard();
+    console.log("lag on pierre pc, don't delete me ");
   }
+  if (marker.available_bikes <= 3) {
+    return (
+      <Marker
+        icon={iconDanger}
+        position={positionStation}
+        eventHandlers={{
+          click: () => {
+            clickAction();
+          },
+        }}
+      />
+    );
+  }
+
   return (
     <Marker
       icon={iconDefault}
       position={positionStation}
       eventHandlers={{
-        click: clickAction,
+        click: () => {
+          clickAction();
+        },
       }}
     />
   );
