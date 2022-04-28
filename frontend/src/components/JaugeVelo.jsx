@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function JaugeVelo({ favouriteCard, iteration }) {
+export default function JaugeVelo({ proximityStation, iteration }) {
   const jaugeVeloStyle = {
     display: "flex",
     width: "90%",
@@ -10,8 +10,8 @@ export default function JaugeVelo({ favouriteCard, iteration }) {
   };
 
   let availableBikes =
-    (favouriteCard[iteration].available_bikes /
-      favouriteCard[iteration].bike_stands) *
+    (proximityStation[iteration].available_bikes /
+      proximityStation[iteration].bike_stands) *
     100;
   availableBikes += "%";
   const myavailablebikesstyle = {
@@ -23,8 +23,8 @@ export default function JaugeVelo({ favouriteCard, iteration }) {
   };
 
   let availableBikeStands =
-    (favouriteCard[iteration].available_bike_stands /
-      favouriteCard[iteration].bike_stands) *
+    (proximityStation[iteration].available_bike_stands /
+      proximityStation[iteration].bike_stands) *
     100;
   availableBikeStands += "%";
   const myavailablebikesstandsstyle = {
@@ -34,17 +34,17 @@ export default function JaugeVelo({ favouriteCard, iteration }) {
   };
 
   let deadBikes =
-    ((favouriteCard[iteration].bike_stands -
-      favouriteCard[iteration].available_bikes -
-      favouriteCard[iteration].available_bike_stands) /
-      favouriteCard[iteration].bike_stands) *
+    ((proximityStation[iteration].bike_stands -
+      proximityStation[iteration].available_bikes -
+      proximityStation[iteration].available_bike_stands) /
+      proximityStation[iteration].bike_stands) *
     100;
   deadBikes += "%";
 
   const deadBikesNumber =
-    favouriteCard[iteration].bike_stands -
-    favouriteCard[iteration].available_bikes -
-    favouriteCard[iteration].available_bike_stands;
+    proximityStation[iteration].bike_stands -
+    proximityStation[iteration].available_bikes -
+    proximityStation[iteration].available_bike_stands;
 
   const myDeadBikesStyle = {
     width: deadBikes,
@@ -55,12 +55,22 @@ export default function JaugeVelo({ favouriteCard, iteration }) {
 
   return (
     <div style={jaugeVeloStyle}>
-      <div id="available-bikes" style={myavailablebikesstyle}>
-        {favouriteCard[iteration].available_bikes}
-      </div>
-      <div id="available-bike-stands" style={myavailablebikesstandsstyle}>
-        {favouriteCard[iteration].available_bike_stands}
-      </div>
+      {proximityStation[iteration].available_bikes !== 0 ? (
+        <div id="available-bikes" style={myavailablebikesstyle}>
+          {proximityStation[iteration].available_bikes}
+        </div>
+      ) : (
+        <div />
+      )}
+
+      {proximityStation[iteration].available_bike_stands !== 0 ? (
+        <div id="available-bike-stands" style={myavailablebikesstandsstyle}>
+          {proximityStation[iteration].available_bike_stands}
+        </div>
+      ) : (
+        <div />
+      )}
+
       {deadBikesNumber !== 0 ? (
         <div style={myDeadBikesStyle}>{deadBikesNumber}</div>
       ) : (
