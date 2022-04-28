@@ -1,5 +1,6 @@
 import React from "react";
-import FavouriteCard from "./FavouriteCard";
+import FavouriteStation from "./FavouriteStation";
+import ProximityStation from "./ProximityStation";
 import "./SlideForCard.css";
 
 function SlideForCard({ userPosition }) {
@@ -7,16 +8,16 @@ function SlideForCard({ userPosition }) {
     <div className="main-collumn-slide">
       <div className="sub-collumn-slide">
         <div className="favourite-stations-cont">
-          <FavouriteCard userPos={userPosition} iteration={0} />
-          <FavouriteCard userPos={userPosition} iteration={0} />
+          <FavouriteStation iteration={0} />
+          <FavouriteStation iteration={1} />
         </div>
         <div className="separator"> </div>
         <div className="proximity-stations-cont">
-          <FavouriteCard userPos={userPosition} iteration={0} />
-          <FavouriteCard userPos={userPosition} iteration={1} />
-          <FavouriteCard userPos={userPosition} iteration={2} />
-          <FavouriteCard userPos={userPosition} iteration={3} />
-          <FavouriteCard userPos={userPosition} iteration={4} />
+          <ProximityStation userPos={userPosition} iteration={0} />
+          <ProximityStation userPos={userPosition} iteration={1} />
+          <ProximityStation userPos={userPosition} iteration={2} />
+          <ProximityStation userPos={userPosition} iteration={3} />
+          <ProximityStation userPos={userPosition} iteration={4} />
         </div>
       </div>
     </div>

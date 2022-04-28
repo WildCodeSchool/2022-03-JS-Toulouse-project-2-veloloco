@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import DisplayFavouriteCard from "./DisplayFavouriteCard";
+import DisplayProximityStation from "./DisplayProximityStation";
 import ProximityFilter from "./ProximityFilter";
 
-export default function FavouriteCard({ userPos, iteration }) {
+export default function ProximityStation({ userPos, iteration }) {
   const [cardInfos, setcardInfos] = useState(null);
   useEffect(() => {
     axios
@@ -18,7 +18,10 @@ export default function FavouriteCard({ userPos, iteration }) {
   return (
     <div>
       {cardInfos !== null ? (
-        <DisplayFavouriteCard favouriteCard={cardInfos} iteration={iteration} />
+        <DisplayProximityStation
+          proximityStation={cardInfos}
+          iteration={iteration}
+        />
       ) : (
         "Chargement..."
       )}
