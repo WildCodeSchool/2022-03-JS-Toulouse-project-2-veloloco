@@ -1,8 +1,7 @@
 .theme-mode {
   display: flex;
   flex-direction: column;
-  padding-top: 3rem;
-  margin-bottom: 9%;
+  margin: 1.5rem 0 1.5rem 0;
 }
 .dark {
   display: flex;
