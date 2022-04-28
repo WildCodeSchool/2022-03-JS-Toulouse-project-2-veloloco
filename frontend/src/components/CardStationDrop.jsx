@@ -5,6 +5,8 @@ import JaugeVelo from "./JaugeVelo";
 export default function CardStationDrop({ uniqueMarker, apiResult }) {
   const iteration = apiResult.indexOf(uniqueMarker);
   const nameStation = uniqueMarker.name.toLowerCase().substr(7).split("");
+  const adressStation = uniqueMarker.address;
+  console.log(uniqueMarker);
   return (
     <div className="leaflet-bottom cardstation">
       <div data-aos="fade-up" data-aos-duration="1000" className="card-station">
@@ -12,7 +14,7 @@ export default function CardStationDrop({ uniqueMarker, apiResult }) {
           <h2>{nameStation}</h2>
           <img
             src="../src/assets/empty-heart.png"
-            alt="Keur"
+            alt="heart"
             className="heartimg"
           />
         </div>
@@ -21,7 +23,7 @@ export default function CardStationDrop({ uniqueMarker, apiResult }) {
             <JaugeVelo iteration={iteration} favouriteCard={apiResult} />
           </div>
         </div>
-        <p>2 Rue des pates et des carbonnara 31100 Toulouse</p>
+        <p>{adressStation}</p>
       </div>
     </div>
   );

@@ -24,9 +24,7 @@ export default function MarkerDefault({
   function clickAction() {
     setUniqueMarker(marker);
     setToggleCard();
-    console.log("J'ai une utilité me supprimer pas !");
-    /* Probleme chez Pierre , ce console log s'affiche deux fois sans raison 
-    qui cause des problemes de state , vu avec bastien  */
+    console.log("lag on pierre pc, don't delete me ");
   }
   if (marker.available_bikes <= 3) {
     return (

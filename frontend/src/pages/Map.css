@@ -104,25 +104,31 @@
   }
 }
 .cardstation {
-  height: 16vh;
+  height: 16%;
   width: 100vw;
 }
 .containersearch {
   display: flex;
-
   position: absolute;
   z-index: 1001;
-  height: 11vh;
+  height: 11%;
   width: 100%;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
 }
+.btn-geo-container {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
 .btn-geo {
   z-index: 1000;
-  position: absolute;
-  top: 92%;
-  left: 86%;
+  margin: 0 10px 20px 0;
 }
 .triangle-logo {
   height: 38px;

@@ -35,7 +35,6 @@ export default function Recherche({ apiResult: apiStations }) {
       }
       if (apiStations[i].name.toLowerCase().includes(inputDestination)) {
         stations.push(apiStations[i]);
-        console.log(stations);
 
         if (stations.length > 4) {
           break;
