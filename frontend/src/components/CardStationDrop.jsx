@@ -6,7 +6,6 @@ export default function CardStationDrop({ uniqueMarker, apiResult }) {
   const iteration = apiResult.indexOf(uniqueMarker);
   const nameStation = uniqueMarker.name.toLowerCase().substr(7).split("");
   const adressStation = uniqueMarker.address;
-  console.log(uniqueMarker);
   return (
     <div className="leaflet-bottom cardstation">
       <div data-aos="fade-up" data-aos-duration="1000" className="card-station">
