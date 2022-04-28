@@ -27,14 +27,12 @@ const ProximityFilter = (userPosition, stationsList) => {
     let closer;
 
     for (let i = 0; i < coords.length; i += 1) {
-      // const coordDiffX = userCoord.x - coords[i].position.lat;
-      // const coordDiffY = userCoord.y - coords[i].position.lng;
       distance = getDistanceFromLatLonInKm(
         userCoord.x,
         userCoord.y,
         coords[i].position.lat,
         coords[i].position.lng
-      ); // Math.sqrt(coordDiffX ** 2 + coordDiffY ** 2);
+      );
       if (distance < oldDistance) {
         closer = [coords[i], i];
         oldDistance = distance;

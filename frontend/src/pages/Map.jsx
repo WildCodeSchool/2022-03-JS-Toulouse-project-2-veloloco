@@ -48,9 +48,7 @@ export default function Map() {
   function flyPositionUser() {
     mapState.map.flyTo([location.coordinates.lat, location.coordinates.lng]);
   }
-  useEffect(() => {
-    // console.log("location change");
-  }, [location]);
+  useEffect(() => {}, [location]);
   const antiConflictMenu = (menu) => {
     if (menu) {
       setSlideState(!slideState);
