@@ -4,7 +4,7 @@ export default function JaugeVelo({ favouriteCard, iteration }) {
   const jaugeVeloStyle = {
     display: "flex",
     width: "90%",
-    height: "3em",
+    height: "1.5em",
     backgroundColor: "#7b0828",
     borderRadius: "15px",
   };
@@ -54,7 +54,7 @@ export default function JaugeVelo({ favouriteCard, iteration }) {
   };
 
   return (
-    <div style={jaugeVeloStyle}>
+    <div style={jaugeVeloStyle} className="health-bar">
       <div id="available-bikes" style={myavailablebikesstyle}>
         {favouriteCard[iteration].available_bikes}
       </div>

@@ -43,6 +43,7 @@
   justify-content: space-around;
   height: 25%;
   margin: 0.5rem;
+  gap:5px;
 }
 
 .fav-button {
