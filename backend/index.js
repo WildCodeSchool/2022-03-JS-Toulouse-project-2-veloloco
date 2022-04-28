@@ -18,14 +18,13 @@ connection.connect((err) => {
   if (err) {
     console.error(`error connecting: ${err.stack}`);
   } else {
-    console.error(
+    console.log(
       `connected to database with threadId :  ${connection.threadId}`
     );
   }
 });
 
 app.listen(port, () => {
-  // eslint-disable-next-line no-restricted-syntax
   console.log(`Server listening on port ${port}`);
 });
 
