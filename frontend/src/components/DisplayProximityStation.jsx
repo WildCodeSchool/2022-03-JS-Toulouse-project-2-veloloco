@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./DisplayProximityStation.css";
+import "../assets/css/DisplayProximityStation.css";
 import JaugeVelo from "./JaugeVelo";
 
 export default function DisplayFavouriteCard({ proximityStation, iteration }) {
@@ -23,7 +23,7 @@ export default function DisplayFavouriteCard({ proximityStation, iteration }) {
           >
             {" "}
             <img
-              src="../src/assets/favourite-heart.png"
+              src="../src/assets/images/favourite-heart.png"
               alt="favourite-heart-full"
             />
           </button>
@@ -37,7 +37,7 @@ export default function DisplayFavouriteCard({ proximityStation, iteration }) {
             }}
           >
             {" "}
-            <img src="../src/assets/empty-heart.png" alt="empty-heart" />
+            <img src="../src/assets/images/empty-heart.png" alt="empty-heart" />
           </button>
         )}
       </div>
@@ -47,7 +47,7 @@ export default function DisplayFavouriteCard({ proximityStation, iteration }) {
       </div>
 
       <div className="bottom-favourite-card">
-        <JaugeVelo favouriteCard={proximityStation} iteration={iteration} />
+        <JaugeVelo proximityStation={proximityStation} iteration={iteration} />
         <h3>{Math.floor(proximityStation[iteration].distance)}m</h3>
       </div>
     </div>

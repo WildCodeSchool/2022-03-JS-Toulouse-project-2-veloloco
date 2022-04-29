@@ -4,7 +4,7 @@
   align-items: stretch;
   z-index: 1100;
   position: relative;
-  top: 100px;
+  margin-top: 4rem;
 }
 .itinerarysearch :nth-child(1) {
   margin-bottom: 10px;
@@ -37,8 +37,10 @@
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   display: flex;
+  top: 50px;
   flex-direction: column;
   gap: 3px;
+  position: absolute;
 }
 .listdestination {
   background-color: transparent;
@@ -47,6 +49,8 @@
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   display: flex;
+  top: 90px;
   flex-direction: column;
   gap: 3px;
+  position: absolute;
 }

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import DisplayFavouriteStation from "./DisplayFavouriteStation";
 
-export default function FavouriteStation({ iteration }) {
+export default function FavouriteStation({ iteration, userPos }) {
   const [cardInfos, setcardInfos] = useState(null);
   useEffect(() => {
     const URLAPI =
@@ -28,6 +28,7 @@ export default function FavouriteStation({ iteration }) {
         <DisplayFavouriteStation
           favouriteStation={cardInfos}
           iteration={iteration}
+          userPos={userPos}
         />
       ) : (
         "Chargement..."

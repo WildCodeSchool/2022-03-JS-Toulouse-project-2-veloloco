@@ -102,7 +102,6 @@ export default function Recherche({ apiResult: apiStations }) {
                   type="button"
                   onClick={() => saveValueOrigin(stationCapitalized)}
                 >
-                  <hr className="hr-item" />
                   {stationCapitalized}
                 </button>
               );
@@ -133,7 +132,6 @@ export default function Recherche({ apiResult: apiStations }) {
                   type="button"
                   onClick={() => saveValueDestination(stationCapitalized)}
                 >
-                  <hr className="hr-item" />
                   {stationCapitalized}
                 </button>
               );
