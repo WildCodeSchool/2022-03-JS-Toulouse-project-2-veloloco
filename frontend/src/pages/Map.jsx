@@ -49,7 +49,11 @@ export default function Map() {
   const [mapState, setMapState] = useState();
   const [toggleSearch, setToggleSearch] = useState(true);
   const [toggleCard, setToggleCard] = useState(false);
+
+  const [showLinks, setShowLinks] = useState(false);
+
   const [uniqueMarker, setUniqueMarker] = useState();
+
   function flyPositionUser() {
     mapState.map.flyTo([location.coordinates.lat, location.coordinates.lng]);
   }
@@ -62,9 +66,15 @@ export default function Map() {
     return null;
   }
 
-  useEffect(() => {
-    console.log("location change");
-  }, [location]);
+  const antiConflictMenu = (menu) => {
+    if (menu) {
+      setSlideState(!slideState);
+      setShowLinks(false);
+    } else if (!menu) {
+      setSlideState(false);
+      setShowLinks(!showLinks);
+    }
+  };
   return (
     <div id="map">
       <div className="btn-geo-container">
@@ -95,6 +105,12 @@ export default function Map() {
           <ItinerarySearch apiResult={apiResult} mapState={mapState} />
         )}
 
+        <Navigation
+          setShowLinks={setShowLinks}
+          showLinks={showLinks}
+          antiConflictMenu={() => antiConflictMenu()}
+        />
+
         <button
           className="btn-change"
           type="button"
@@ -124,7 +140,7 @@ export default function Map() {
               <button
                 type="button"
                 className="slide-button"
-                onClick={() => setSlideState(!slideState)}
+                onClick={() => antiConflictMenu(true)}
               >
                 <img
                   src="../src/assets/TRIANGLE.png"
