@@ -4,15 +4,21 @@ import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 import "leaflet-routing-machine";
 import { useMap } from "react-leaflet";
 
-export default function Routing() {
+export default function Routing({ originStation }) {
   const map = useMap();
+  console.log(map);
   // eslint-disable-next-line no-unused-vars
-
+  const origin = originStation;
+  console.log("lol");
+  console.log(origin);
   useEffect(() => {
     if (!map) return;
     /* Genere route selon deux coordonees */
     const routingControl = L.Routing.control({
-      waypoints: [L.latLng(43.60068, 1.420117), L.latLng(43.603699, 1.444699)],
+      waypoints: [
+        L.latLng(origin.originStation.position),
+        L.latLng(origin.destinationStation.position),
+      ],
       routeWhileDragging: true,
       lineOptions: {
         styles: [

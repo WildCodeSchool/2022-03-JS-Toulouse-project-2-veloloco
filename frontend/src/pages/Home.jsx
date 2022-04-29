@@ -7,7 +7,10 @@ export default function Home() {
     <Router>
       <div>
         <Routes>
-          <Route path="/itinerary" element={<Itinerary />} />
+          <Route
+            path="/itinerary/:destination/:origin"
+            element={<Itinerary />}
+          />
           <Route path="/" element={<Map />} />
         </Routes>
       </div>

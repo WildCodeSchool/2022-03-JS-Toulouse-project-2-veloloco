@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../assets/css/itinerarysearch.css";
 
@@ -10,6 +10,13 @@ export default function Recherche({ apiResult: apiStations }) {
   const [inputDestination, setInputDestination] = useState("");
   const [displayChange, setDisplayChange] = useState(true);
   const [userFinishResult, setUserFinishResult] = useState(false);
+  const [idStations, setIdStations] = useState([]);
+  const [idStationOrigin, setIdStationOrigin] = useState();
+  const [idStationDestination, setIdStationDestination] = useState();
+  useEffect(() => {
+    setIdStations([idStationOrigin, idStationDestination]);
+  }, [idStationDestination, idStationOrigin]);
+
   function searchStationOrigin() {
     const stationsOrigin = [];
     for (let i = 0; i < apiStations.length; i += 1) {
@@ -43,15 +50,19 @@ export default function Recherche({ apiResult: apiStations }) {
     }
     setFilteredStationsDestination([...stations]);
   }
-  function saveValueOrigin(stationCapitalized) {
+  function saveValueOrigin(stationCapitalized, numberStationOrigin) {
     setDisplayChange(!displayChange);
     setInputOrigin(stationCapitalized);
     setUserFinishResult(!userFinishResult);
+    setIdStationOrigin(numberStationOrigin);
+    console.log(idStations);
   }
-  function saveValueDestination(stationCapitalized) {
+  function saveValueDestination(stationCapitalized, numberStationDestination) {
     setDisplayChange(!displayChange);
     setInputDestination(stationCapitalized);
+    setIdStationDestination(numberStationDestination);
   }
+  console.log(idStations);
   return (
     <div className="itinerarysearch">
       <input
@@ -96,18 +107,22 @@ export default function Recherche({ apiResult: apiStations }) {
                 }
               }
               const stationCapitalized = nameStationOrigin.join("");
+              const numberStationOrigin = station.number;
+
               return (
                 <button
                   className={displayChange ? "item-list" : "item-list-no"}
                   type="button"
-                  onClick={() => saveValueOrigin(stationCapitalized)}
+                  onClick={() =>
+                    saveValueOrigin(stationCapitalized, numberStationOrigin)
+                  }
                 >
-                  <hr className="hr-item" />
                   {stationCapitalized}
                 </button>
               );
             })}
       </ul>
+
       <ul className="listdestination">
         {inputDestination === ""
           ? null
@@ -123,6 +138,8 @@ export default function Recherche({ apiResult: apiStations }) {
                 }
               }
               const stationCapitalized = nameStationDestination.join("");
+              const numberStationDestination = station.number;
+
               return (
                 <button
                   className={
@@ -131,15 +148,19 @@ export default function Recherche({ apiResult: apiStations }) {
                       : "item-list-no-destination"
                   }
                   type="button"
-                  onClick={() => saveValueDestination(stationCapitalized)}
+                  onClick={() =>
+                    saveValueDestination(
+                      stationCapitalized,
+                      numberStationDestination
+                    )
+                  }
                 >
-                  <hr className="hr-item" />
                   {stationCapitalized}
                 </button>
               );
             })}
       </ul>
-      <Link to="/itinerary/">
+      <Link to={`/itinerary/${idStationDestination}/${idStationOrigin}`}>
         <button className="btn-route" type="button">
           go
         </button>
