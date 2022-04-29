@@ -1,15 +1,20 @@
 import React, { useState } from "react";
-import "./DisplayFavouriteCard.css";
+import "./DisplayProximityStation.css";
 import JaugeVelo from "./JaugeVelo";
 
-export default function DisplayFavouriteCard({ favouriteCard, iteration }) {
-  const [fav, setFav] = useState(false);
-
+export default function DisplayFavouriteStation({
+  favouriteStation,
+  iteration,
+}) {
+  const [fav, setFav] = useState(true);
+  console.log(iteration);
   return (
     <div className="card-station-comp">
-      <div className="top-favourite-card">
-        <h3>n°{favouriteCard[iteration].number}</h3>
-        <h2>{favouriteCard[iteration].name.split(" - ").slice(1).join("-")}</h2>
+      <div className="top-proximity-card">
+        <h3>n°{favouriteStation[iteration].number}</h3>
+        <h2>
+          {favouriteStation[iteration].name.split(" - ").slice(1).join("-")}
+        </h2>
 
         {fav && (
           <button
@@ -40,13 +45,13 @@ export default function DisplayFavouriteCard({ favouriteCard, iteration }) {
         )}
       </div>
 
-      <div className="middle-favourite-card">
-        <h2>{favouriteCard[iteration].address}</h2>
+      <div className="middle-proximity-card">
+        <h2>{favouriteStation[iteration].address}</h2>
       </div>
 
-      <div className="bottom-favourite-card">
-        <JaugeVelo favouriteCard={favouriteCard} iteration={iteration} />
-        <h3>{Math.floor(favouriteCard[iteration].distance)}m</h3>
+      <div className="bottom-proximity-card">
+        <JaugeVelo proximityStation={favouriteStation} iteration={1} />
+        <h3>5km</h3>
       </div>
     </div>
   );
