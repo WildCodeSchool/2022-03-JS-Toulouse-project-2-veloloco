@@ -80,7 +80,7 @@ h2 {
     width: 80vw;
     position: absolute;
     top: 0;
-    right: 7px;
+    left: 0;
     z-index: 1000;
     height: 98vh;
     border-radius: 0 2rem 2rem 0;
@@ -90,7 +90,6 @@ h2 {
     backdrop-filter: blur(1px) saturate(200%);
     -webkit-backdrop-filter: blur(1px) saturate(200%);
     background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 12px;
     border: 1px solid rgba(209, 213, 219, 0.3);
   }
   .show-nav {
@@ -100,10 +99,10 @@ h2 {
   }
   @keyframes openAnimation {
     0% {
-      right: 100vw;
+      left: -85%;
     }
     100% {
-      right: 0;
+      left: 0;
     }
   }
   .burger-logo {
@@ -117,14 +116,14 @@ h2 {
     animation-name: closeAnimation;
     animation-duration: 0.75s;
     animation-iteration-count: 1;
-    right: 100vw;
+    left: -85%;
   }
   @keyframes closeAnimation {
     0% {
-      right: 20vw;
+      left: 0;
     }
     100% {
-      right: 100vw;
+      left: -85%;
     }
   }
   .logo-title {
