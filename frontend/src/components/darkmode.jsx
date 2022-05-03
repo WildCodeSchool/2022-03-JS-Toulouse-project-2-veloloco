@@ -1,11 +1,17 @@
 import React from "react";
+import L from "leaflet";
+import { LayersControl, useMapEvent } from "react-leaflet";
 
-export default function DarkMode() {
+export default function DarkMode({ setDarkMode, darkmode, mapState }) {
   return (
     <div className="theme-mode">
       <div className="dark">
         <label htmlFor="dark" className="switch">
-          <input id="dark" type="checkbox" />
+          <input
+            id="dark"
+            type="checkbox"
+            onChange={() => setDarkMode(!darkmode)}
+          />
           <span className="slider round"> </span>
         </label>
 

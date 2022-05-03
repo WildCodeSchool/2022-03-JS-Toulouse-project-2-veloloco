@@ -7,6 +7,8 @@ import {
 import "./Map.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import LayerChange from "../components/LayerChange";
 import MarkerDefault from "../components/MarkerDefault";
 import logoitinerary from "../assets/images/itinerary.png";
 import Recherche from "../components/Recherche";
@@ -49,7 +51,9 @@ export default function Map() {
   const [mapState, setMapState] = useState();
   const [toggleSearch, setToggleSearch] = useState(true);
   const [toggleCard, setToggleCard] = useState(false);
-
+  const [idStationOrigin, setIdStationOrigin] = useState();
+  const [idStationDestination, setIdStationDestination] = useState();
+  const [darkmode, setDarkMode] = useState(false);
   const [showLinks, setShowLinks] = useState(false);
 
   const [uniqueMarker, setUniqueMarker] = useState();
@@ -75,6 +79,7 @@ export default function Map() {
       setShowLinks(!showLinks);
     }
   };
+  console.log(darkmode);
   return (
     <div id="map">
       <div className="btn-geo-container">
@@ -98,26 +103,62 @@ export default function Map() {
       </div>
 
       <div className="containersearch">
-        <Navigation
-          setShowLinks={setShowLinks}
-          showLinks={showLinks}
-          antiConflictMenu={() => antiConflictMenu()}
-        />
+        {mapState ? (
+          <Navigation
+            setShowLinks={setShowLinks}
+            showLinks={showLinks}
+            antiConflictMenu={() => antiConflictMenu()}
+            setDarkMode={setDarkMode}
+            darkmode={darkmode}
+            mapState={mapState}
+          />
+        ) : null}
         {toggleSearch ? (
           <Recherche apiResult={apiResult} mapState={mapState} />
         ) : (
-          <ItinerarySearch apiResult={apiResult} mapState={mapState} />
+          <ItinerarySearch
+            apiResult={apiResult}
+            mapState={mapState}
+            setIdStationOrigin={setIdStationOrigin}
+            setIdStationDestination={setIdStationDestination}
+          />
         )}
 
-        <button
-          className="btn-change"
-          type="button"
-          onClick={() => {
-            setToggleSearch(!toggleSearch);
-          }}
+        <div
+          className={
+            toggleSearch ? "btn-container-true" : "btn-container-false"
+          }
         >
-          <img src={logoitinerary} alt="logo" />
-        </button>
+          {toggleSearch ? null : (
+            <Link to={`/itinerary/${idStationDestination}/${idStationOrigin}`}>
+              <button
+                data-aos="fade-left"
+                data-aos-offset="500"
+                data-aos-duration="500"
+                className="btn-route"
+                type="button"
+              >
+                <img
+                  className="img-btn-route"
+                  src="/src/assets/images/Vector.png"
+                  alt="logo"
+                />
+              </button>
+            </Link>
+          )}
+          <button
+            className="btn-change"
+            data-aos="fade-left"
+            data-aos-offset="500"
+            data-aos-duration="1000"
+            type="button"
+            onClick={() => {
+              setToggleSearch(!toggleSearch);
+            }}
+          >
+            <img src={logoitinerary} alt="logo" />
+          </button>
+        </div>
       </div>
 
       {location != null ? (
@@ -153,10 +194,8 @@ export default function Map() {
             </div>
             <SlideForCard slideState={slideState} userPosition={location} />
           </div>
-          <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
+          <LayerChange darkmode={darkmode} />
+
           <Geo
             localisationlat={location.coordinates.lat}
             localisationlng={location.coordinates.lng}

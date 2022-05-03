@@ -4,7 +4,7 @@ import "../assets/css/recherche.css";
 
 export default function Recherche({ apiResult: apiStations, mapState }) {
   const [filteredStations, setFilteredStations] = useState([]);
-  const [displayChange, setDisplayChange] = useState(true);
+  const [displayChange, setDisplayChange] = useState(false);
   const [valueOrigin, setValueOrigin] = useState("");
   function searchStation() {
     const stations = [];
@@ -27,11 +27,12 @@ export default function Recherche({ apiResult: apiStations, mapState }) {
     setDisplayChange(!displayChange);
     setValueOrigin("");
   }
+  console.log(displayChange);
   // TODO rajouter cette ligne de code pour cacher les bails quand le burger est ouvert
   // className={showLinks ? "TA_CLASSE display-none" : "TA_CLASSE"}
   return (
     <div className="searchbar-container">
-      <div className="search">
+      <div data-aos="fade-down" data-aos-duration="1000" className="search">
         <input
           id="searchbar"
           onKeyUp={searchStation}
@@ -41,12 +42,12 @@ export default function Recherche({ apiResult: apiStations, mapState }) {
           value={valueOrigin}
           onChange={(e) => {
             setValueOrigin(e.target.value);
-            setDisplayChange(!displayChange);
+            setDisplayChange(true);
           }}
         />
       </div>
       <div className="searchlist">
-        <ul className="list">
+        <div className="list">
           {valueOrigin === ""
             ? null
             : filteredStations.map((station) => {
@@ -64,6 +65,9 @@ export default function Recherche({ apiResult: apiStations, mapState }) {
                 return (
                   <button
                     className={displayChange ? "item-list" : "item-list-no"}
+                    data-aos={displayChange ? "fade-down" : null}
+                    data-aos-offset="500"
+                    data-aos-duration="500"
                     type="button"
                     onClick={() => flyPosition(station)}
                   >
@@ -71,7 +75,7 @@ export default function Recherche({ apiResult: apiStations, mapState }) {
                   </button>
                 );
               })}
-        </ul>
+        </div>
       </div>
     </div>
   );

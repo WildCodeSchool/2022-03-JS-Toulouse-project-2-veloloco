@@ -11,14 +11,24 @@ import Instagram from "../assets/images/logo-insta.png";
 import "../assets/css/Navigation.css";
 import "../assets/css/darkMode.css";
 import "../assets/css/contact.css";
-import DarkMode from "./thememode/darkmode";
+import DarkMode from "./darkmode";
 
 export default function Navigation(props) {
-  const { setShowLinks, showLinks, antiConflictMenu } = props;
+  const {
+    setShowLinks,
+    showLinks,
+    antiConflictMenu,
+    setDarkMode,
+    darkmode,
+    mapState,
+  } = props;
   return (
     <div className="navbar-container">
       <button
         type="button"
+        data-aos="fade-right"
+        data-aos-offset="500"
+        data-aos-duration="1000"
         className={showLinks ? "burger-logo display-none" : "burger-logo"}
         onClick={() => antiConflictMenu(false)}
       >
@@ -81,7 +91,11 @@ export default function Navigation(props) {
           </ul>
         </div>
         <hr className="hr-burgertop" />
-        <DarkMode />
+        <DarkMode
+          setDarkMode={setDarkMode}
+          darkmode={darkmode}
+          mapState={mapState}
+        />
         <hr className="hr-burgerbottom" />
         <div className="contact">
           <h5>Contact us (please do not)</h5>

@@ -1,22 +1,21 @@
-import { DivIcon } from "leaflet";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../assets/css/itinerarysearch.css";
 
-export default function Recherche({ apiResult: apiStations }) {
+export default function Recherche({
+  apiResult: apiStations,
+  setIdStationOrigin,
+  setIdStationDestination,
+}) {
   const [filteredStationsOrigin, setFilteredStationsOrigin] = useState([]);
   const [filteredStationsDestination, setFilteredStationsDestination] =
     useState([]);
   const [inputOrigin, setInputOrigin] = useState("");
   const [inputDestination, setInputDestination] = useState("");
-  const [displayChange, setDisplayChange] = useState(true);
+  const [displayChange, setDisplayChange] = useState(false);
+  const [displayChangeDestination, setDisplayChangeDestination] =
+    useState(false);
   const [userFinishResult, setUserFinishResult] = useState(false);
-  const [idStations, setIdStations] = useState([]);
-  const [idStationOrigin, setIdStationOrigin] = useState();
-  const [idStationDestination, setIdStationDestination] = useState();
-  useEffect(() => {
-    setIdStations([idStationOrigin, idStationDestination]);
-  }, [idStationDestination, idStationOrigin]);
 
   function searchStationOrigin() {
     const stationsOrigin = [];
@@ -58,13 +57,13 @@ export default function Recherche({ apiResult: apiStations }) {
     setIdStationOrigin(numberStationOrigin);
   }
   function saveValueDestination(stationCapitalized, numberStationDestination) {
-    setDisplayChange(!displayChange);
+    setDisplayChangeDestination(!displayChangeDestination);
     setInputDestination(stationCapitalized);
     setIdStationDestination(numberStationDestination);
   }
-
+  console.log(displayChange);
   return (
-    <div className="itinerarysearch">
+    <div data-aos="fade-down" className="itinerarysearch">
       <input
         id="searchbar"
         onKeyUp={searchStationOrigin}
@@ -73,7 +72,7 @@ export default function Recherche({ apiResult: apiStations }) {
         value={inputOrigin}
         onChange={(e) => {
           setInputOrigin(e.target.value);
-          setDisplayChange(!displayChange);
+          setDisplayChange(true);
           setUserFinishResult(!userFinishResult);
         }}
         autoComplete="off"
@@ -87,13 +86,13 @@ export default function Recherche({ apiResult: apiStations }) {
         value={inputDestination}
         onChange={(e) => {
           setInputDestination(e.target.value);
-          setDisplayChange(!displayChange);
+          setDisplayChangeDestination(!displayChangeDestination);
         }}
         autoComplete="off"
         placeholder="Arrivee"
       />
       <div className="list">
-        {userFinishResult === true
+        {inputOrigin === ""
           ? null
           : filteredStationsOrigin.map((station) => {
               const nameStationOrigin = station.name
@@ -123,7 +122,7 @@ export default function Recherche({ apiResult: apiStations }) {
             })}
       </div>
 
-      <div className="list">
+      <div className="destination-list">
         {inputDestination === ""
           ? null
           : filteredStationsDestination.map((station) => {
@@ -142,7 +141,11 @@ export default function Recherche({ apiResult: apiStations }) {
 
               return (
                 <button
-                  className={displayChange ? "item-list" : "item-list-no"}
+                  className={
+                    displayChangeDestination && displayChange === false
+                      ? "item-list-destination"
+                      : "item-list-no-destination"
+                  }
                   type="button"
                   onClick={() =>
                     saveValueDestination(
@@ -156,11 +159,6 @@ export default function Recherche({ apiResult: apiStations }) {
               );
             })}
       </div>
-      <Link to={`/itinerary/${idStationDestination}/${idStationOrigin}`}>
-        <button className="btn-route" type="button">
-          go
-        </button>
-      </Link>
     </div>
   );
 }
