@@ -55,7 +55,10 @@ export default function Map() {
   const [uniqueMarker, setUniqueMarker] = useState();
 
   function flyPositionUser() {
-    mapState.map.flyTo([location.coordinates.lat, location.coordinates.lng]);
+    mapState.map.flyTo(
+      [location.coordinates.lat, location.coordinates.lng],
+      17
+    );
   }
   function Mapclick() {
     setMapState.map = useMapEvents({
