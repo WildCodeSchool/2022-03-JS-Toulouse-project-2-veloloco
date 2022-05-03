@@ -7,7 +7,7 @@ export default function DisplayFavouriteStation({
   iteration,
 }) {
   const [fav, setFav] = useState(true);
-  console.log(iteration);
+
   return (
     <div className="card-station-comp">
       <div className="top-proximity-card">

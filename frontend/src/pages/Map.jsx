@@ -98,18 +98,16 @@ export default function Map() {
       </div>
 
       <div className="containersearch">
-        <Navigation />
-        {toggleSearch ? (
-          <Recherche apiResult={apiResult} mapState={mapState} />
-        ) : (
-          <ItinerarySearch apiResult={apiResult} mapState={mapState} />
-        )}
-
         <Navigation
           setShowLinks={setShowLinks}
           showLinks={showLinks}
           antiConflictMenu={() => antiConflictMenu()}
         />
+        {toggleSearch ? (
+          <Recherche apiResult={apiResult} mapState={mapState} />
+        ) : (
+          <ItinerarySearch apiResult={apiResult} mapState={mapState} />
+        )}
 
         <button
           className="btn-change"

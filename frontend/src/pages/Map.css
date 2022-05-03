@@ -7,7 +7,9 @@
   --map-tiles-filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg)
     saturate(0.3) brightness(0.5);
 }
-
+#map {
+  width: 100vw;
+}
 .tile {
   filter: var(--map-tiles-filter, none);
   z-index: 1;
@@ -115,7 +117,8 @@
   width: 100%;
   flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
+  justify-content: space-around;
 }
 .btn-geo-container {
   height: 100vh;
@@ -142,6 +145,6 @@
 .slide-button-cont {
   height: 0px;
 }
-.display-none{
+.display-none {
   display: none;
 }

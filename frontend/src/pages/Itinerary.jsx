@@ -4,12 +4,14 @@ import "leaflet/dist/leaflet.css";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import LayerChange from "../components/LayerChange";
+
 import Routing from "../components/Routing";
 
 export default function Itinerary() {
   const position = [43.599731, 1.432891];
   const params = useParams();
+  const [originStation, setOriginStation] = useState();
+  const [destinationStation, setDestinationStation] = useState();
 
   const [apiResult, setApiResult] = useState([]);
   useEffect(() => {
@@ -22,33 +24,59 @@ export default function Itinerary() {
       });
   }, []);
 
-  const originStation = apiResult.find(
-    (station) => station.number === parseInt(params.origin, 10)
-  );
-
-  const destinationStation = apiResult.find(
-    (station) => station.number === parseInt(params.destination, 10)
-  );
+  useEffect(() => {
+    setTimeout(() => {
+      setOriginStation(
+        apiResult.find(
+          (station) => station.number === parseInt(params.origin, 10)
+        )
+      );
+    }, 1500);
+    setDestinationStation(
+      apiResult.find(
+        (station) => station.number === parseInt(params.destination, 10)
+      )
+    );
+  }, [apiResult]);
 
   const [mapItineraryState, setMapItineraryState] = useState();
-  console.log(mapItineraryState);
+  console.log(originStation);
   return (
-    <MapContainer
-      center={position}
-      zoom={13}
-      style={{ height: "100vh" }}
-      whenCreated={(map) => setMapItineraryState({ map })}
-    >
-      <TileLayer
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      {useEffect(() => {
-        <Routing
-          originStation={originStation}
-          destinationStation={destinationStation}
-        />;
-      })}
-    </MapContainer>
+    <>
+      <div />
+      {originStation && destinationStation ? (
+        <MapContainer
+          center={position}
+          zoom={13}
+          style={{ height: "100vh" }}
+          whenCreated={(map) => setMapItineraryState({ map })}
+        >
+          <TileLayer
+            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+
+          <Routing
+            originStation={originStation}
+            destinationStation={destinationStation}
+            mapItineraryState={mapItineraryState}
+          />
+        </MapContainer>
+      ) : (
+        <div className="loader-container">
+          <h1 className="loader-text">Chargement en cours ...</h1>
+          <div className="lds-roller">
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+          </div>
+        </div>
+      )}
+    </>
   );
 }

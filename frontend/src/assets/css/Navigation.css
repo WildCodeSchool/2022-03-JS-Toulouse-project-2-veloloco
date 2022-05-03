@@ -149,7 +149,6 @@ h2 {
     flex-direction: column;
     justify-content: space-around;
     height: 40%;
-    border: red solid 1px;
   }
   .navbar-links {
     display: flex;
@@ -181,7 +180,7 @@ h2 {
     padding: 0.6rem;
   }
   .hr-burgertop {
-    margin-top: 70px;
+    margin-top: 40px;
     border: none;
     width: 90%;
     border-bottom: 1px solid #5a5a5a96;

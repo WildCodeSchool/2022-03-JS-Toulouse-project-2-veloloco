@@ -1,3 +1,4 @@
+import { DivIcon } from "leaflet";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../assets/css/itinerarysearch.css";
@@ -55,14 +56,13 @@ export default function Recherche({ apiResult: apiStations }) {
     setInputOrigin(stationCapitalized);
     setUserFinishResult(!userFinishResult);
     setIdStationOrigin(numberStationOrigin);
-    console.log(idStations);
   }
   function saveValueDestination(stationCapitalized, numberStationDestination) {
     setDisplayChange(!displayChange);
     setInputDestination(stationCapitalized);
     setIdStationDestination(numberStationDestination);
   }
-  console.log(idStations);
+
   return (
     <div className="itinerarysearch">
       <input
@@ -92,7 +92,7 @@ export default function Recherche({ apiResult: apiStations }) {
         autoComplete="off"
         placeholder="Arrivee"
       />
-      <ul className="listorigin">
+      <div className="list">
         {userFinishResult === true
           ? null
           : filteredStationsOrigin.map((station) => {
@@ -121,9 +121,9 @@ export default function Recherche({ apiResult: apiStations }) {
                 </button>
               );
             })}
-      </ul>
+      </div>
 
-      <ul className="listdestination">
+      <div className="list">
         {inputDestination === ""
           ? null
           : filteredStationsDestination.map((station) => {
@@ -142,11 +142,7 @@ export default function Recherche({ apiResult: apiStations }) {
 
               return (
                 <button
-                  className={
-                    displayChange
-                      ? "item-list-destination"
-                      : "item-list-no-destination"
-                  }
+                  className={displayChange ? "item-list" : "item-list-no"}
                   type="button"
                   onClick={() =>
                     saveValueDestination(
@@ -159,7 +155,7 @@ export default function Recherche({ apiResult: apiStations }) {
                 </button>
               );
             })}
-      </ul>
+      </div>
       <Link to={`/itinerary/${idStationDestination}/${idStationOrigin}`}>
         <button className="btn-route" type="button">
           go

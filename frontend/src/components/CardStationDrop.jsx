@@ -19,7 +19,7 @@ export default function CardStationDrop({ uniqueMarker, apiResult }) {
         </div>
         <div className="card-paragraph">
           <div className="jauge">
-            <JaugeVelo iteration={iteration} favouriteCard={apiResult} />
+            <JaugeVelo iteration={iteration} proximityStation={apiResult} />
           </div>
         </div>
         <p>{adressStation}</p>
