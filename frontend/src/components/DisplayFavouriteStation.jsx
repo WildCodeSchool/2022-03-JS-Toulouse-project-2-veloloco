@@ -5,11 +5,31 @@ import JaugeVelo from "./JaugeVelo";
 export default function DisplayFavouriteStation({
   favouriteStation,
   iteration,
+  mapState,
+  setSlideState,
 }) {
   const [fav, setFav] = useState(true);
   console.log(iteration);
+
+  function flyPositionStation() {
+    setSlideState(false);
+    mapState.map.flyTo(
+      [
+        favouriteStation[iteration].position.lat,
+        favouriteStation[iteration].position.lng,
+      ],
+      17
+    );
+  }
+  console.log(favouriteStation);
   return (
-    <div className="card-station-comp">
+    <div
+      className="card-station-comp"
+      role="button"
+      onKeyDown={flyPositionStation}
+      onClick={flyPositionStation}
+      tabIndex={0}
+    >
       <div className="top-proximity-card">
         <h3>n°{favouriteStation[iteration].number}</h3>
         <h2>

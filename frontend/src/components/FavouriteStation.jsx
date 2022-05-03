@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import DisplayFavouriteStation from "./DisplayFavouriteStation";
 
-export default function FavouriteStation({ iteration }) {
+export default function FavouriteStation({
+  iteration,
+  mapState,
+  setSlideState,
+}) {
   const [cardInfos, setcardInfos] = useState(null);
   useEffect(() => {
     const URLAPI =
@@ -26,8 +30,10 @@ export default function FavouriteStation({ iteration }) {
     <div>
       {cardInfos !== null ? (
         <DisplayFavouriteStation
+          setSlideState={setSlideState}
           favouriteStation={cardInfos}
           iteration={iteration}
+          mapState={mapState}
         />
       ) : (
         "Chargement..."

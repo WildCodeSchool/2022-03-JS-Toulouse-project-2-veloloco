@@ -156,7 +156,13 @@ export default function Map() {
                 />
               </button>
             </div>
-            <SlideForCard slideState={slideState} userPosition={location} />
+            <SlideForCard
+              slideState={slideState}
+              setSlideState={setSlideState}
+              userPosition={location}
+              setMapState={setMapState}
+              mapState={mapState}
+            />
           </div>
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
