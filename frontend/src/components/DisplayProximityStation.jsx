@@ -9,15 +9,17 @@ export default function DisplayFavouriteCard({
   setSlideState,
 }) {
   const [fav, setFav] = useState(false);
-  function flyPositionStation() {
-    setSlideState(false);
-    mapState.map.flyTo(
-      [
-        proximityStation[iteration].position.lat,
-        proximityStation[iteration].position.lng,
-      ],
-      17
-    );
+  function flyPositionStation(event) {
+    if (event.target.name !== "keur") {
+      setSlideState(false);
+      mapState.map.flyTo(
+        [
+          proximityStation[iteration].position.lat,
+          proximityStation[iteration].position.lng,
+        ],
+        17
+      );
+    }
   }
   return (
     <div
@@ -35,6 +37,7 @@ export default function DisplayFavouriteCard({
 
         {fav && (
           <button
+            name="keur"
             type="button"
             className="fav-button"
             onClick={() => {
@@ -43,6 +46,7 @@ export default function DisplayFavouriteCard({
           >
             {" "}
             <img
+              name="keur"
               src="../src/assets/favourite-heart.png"
               alt="favourite-heart-full"
             />
@@ -50,6 +54,7 @@ export default function DisplayFavouriteCard({
         )}
         {!fav && (
           <button
+            name="keur"
             type="button"
             className="fav-button"
             onClick={() => {
@@ -57,7 +62,11 @@ export default function DisplayFavouriteCard({
             }}
           >
             {" "}
-            <img src="../src/assets/empty-heart.png" alt="empty-heart" />
+            <img
+              name="keur"
+              src="../src/assets/empty-heart.png"
+              alt="empty-heart"
+            />
           </button>
         )}
       </div>
