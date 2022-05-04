@@ -2,7 +2,12 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import DisplayFavouriteStation from "./DisplayFavouriteStation";
 
-export default function FavouriteStation({ iteration, userPos }) {
+export default function FavouriteStation({
+  iteration,
+  mapState,
+  setSlideState,
+  userPos,
+}) {
   const [cardInfos, setcardInfos] = useState(null);
   useEffect(() => {
     const URLAPI =
@@ -26,8 +31,10 @@ export default function FavouriteStation({ iteration, userPos }) {
     <div>
       {cardInfos !== null ? (
         <DisplayFavouriteStation
+          setSlideState={setSlideState}
           favouriteStation={cardInfos}
           iteration={iteration}
+          mapState={mapState}
           userPos={userPos}
         />
       ) : (

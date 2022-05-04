@@ -55,7 +55,10 @@ export default function Map() {
   const [uniqueMarker, setUniqueMarker] = useState();
 
   function flyPositionUser() {
-    mapState.map.flyTo([location.coordinates.lat, location.coordinates.lng]);
+    mapState.map.flyTo(
+      [location.coordinates.lat, location.coordinates.lng],
+      17
+    );
   }
   function Mapclick() {
     setMapState.map = useMapEvents({
@@ -151,7 +154,13 @@ export default function Map() {
                 />
               </button>
             </div>
-            <SlideForCard slideState={slideState} userPosition={location} />
+            <SlideForCard
+              slideState={slideState}
+              setSlideState={setSlideState}
+              userPosition={location}
+              setMapState={setMapState}
+              mapState={mapState}
+            />
           </div>
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -171,6 +180,7 @@ export default function Map() {
               setUniqueMarker={setUniqueMarker}
             />
           ))}
+          {/* TODO quand une carte du menu defilant est cliqué, ouvrir sa carte station drop */}
           {toggleCard ? (
             <CardStationDrop
               uniqueMarker={uniqueMarker}

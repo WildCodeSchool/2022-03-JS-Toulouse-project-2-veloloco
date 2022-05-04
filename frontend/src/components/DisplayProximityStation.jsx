@@ -2,11 +2,33 @@ import React, { useState } from "react";
 import "../assets/css/DisplayProximityStation.css";
 import JaugeVelo from "./JaugeVelo";
 
-export default function DisplayFavouriteCard({ proximityStation, iteration }) {
+export default function DisplayFavouriteCard({
+  mapState,
+  proximityStation,
+  iteration,
+  setSlideState,
+}) {
   const [fav, setFav] = useState(false);
-
+  function flyPositionStation(event) {
+    if (event.target.name !== "keur") {
+      setSlideState(false);
+      mapState.map.flyTo(
+        [
+          proximityStation[iteration].position.lat,
+          proximityStation[iteration].position.lng,
+        ],
+        17
+      );
+    }
+  }
   return (
-    <div className="card-station-comp">
+    <div
+      className="card-station-comp"
+      role="button"
+      onKeyDown={flyPositionStation}
+      onClick={flyPositionStation}
+      tabIndex={0}
+    >
       <div className="top-proximity-card">
         <h3>n°{proximityStation[iteration].number}</h3>
         <h2>
@@ -15,6 +37,7 @@ export default function DisplayFavouriteCard({ proximityStation, iteration }) {
 
         {fav && (
           <button
+            name="keur"
             type="button"
             className="fav-button"
             onClick={() => {
@@ -23,13 +46,15 @@ export default function DisplayFavouriteCard({ proximityStation, iteration }) {
           >
             {" "}
             <img
-              src="../src/assets/images/favourite-heart.png"
+              name="keur"
+              src="../src/assets/favourite-heart.png"
               alt="favourite-heart-full"
             />
           </button>
         )}
         {!fav && (
           <button
+            name="keur"
             type="button"
             className="fav-button"
             onClick={() => {
@@ -37,7 +62,11 @@ export default function DisplayFavouriteCard({ proximityStation, iteration }) {
             }}
           >
             {" "}
-            <img src="../src/assets/images/empty-heart.png" alt="empty-heart" />
+            <img
+              name="keur"
+              src="../src/assets/empty-heart.png"
+              alt="empty-heart"
+            />
           </button>
         )}
       </div>

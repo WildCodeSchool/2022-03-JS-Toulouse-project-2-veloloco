@@ -3,7 +3,12 @@ import axios from "axios";
 import DisplayProximityStation from "./DisplayProximityStation";
 import ProximityFilter from "../assets/algos/ProximityFilter";
 
-export default function ProximityStation({ userPos, iteration }) {
+export default function ProximityStation({
+  mapState,
+  setSlideState,
+  userPos,
+  iteration,
+}) {
   const [cardInfos, setcardInfos] = useState(null);
   useEffect(() => {
     axios
@@ -21,6 +26,8 @@ export default function ProximityStation({ userPos, iteration }) {
         <DisplayProximityStation
           proximityStation={cardInfos}
           iteration={iteration}
+          mapState={mapState}
+          setSlideState={setSlideState}
         />
       ) : (
         "Chargement..."
