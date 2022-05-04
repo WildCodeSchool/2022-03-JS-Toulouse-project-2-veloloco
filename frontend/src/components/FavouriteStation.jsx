@@ -11,16 +11,18 @@ export default function FavouriteStation({ iteration }) {
     const promise1 = axios.get(URLAPI);
     const promise2 = axios.get(URLBDD);
 
-    Promise.all([promise1, promise2]).then((values) => {
-      const stationsAPI = values[0].data;
+    Promise.all([promise1, promise2])
+      .then((values) => {
+        const stationsAPI = values[0].data;
 
-      const favouriteBDD = values[1].data.map((favourite) => favourite.id);
+        const favouriteBDD = values[1].data.map((favourite) => favourite.id);
 
-      const favouriteStationFiltered = stationsAPI.filter((station) => {
-        return favouriteBDD.includes(station.number);
-      });
-      setcardInfos(favouriteStationFiltered);
-    });
+        const favouriteStationFiltered = stationsAPI.filter((station) => {
+          return favouriteBDD.includes(station.number);
+        });
+        setcardInfos(favouriteStationFiltered);
+      })
+      .catch((err) => console.error(err));
   }, []);
   return (
     <div>

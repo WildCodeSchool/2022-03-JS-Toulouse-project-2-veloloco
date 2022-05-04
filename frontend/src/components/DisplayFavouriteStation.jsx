@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import "./DisplayProximityStation.css";
 import JaugeVelo from "./JaugeVelo";
@@ -7,7 +8,32 @@ export default function DisplayFavouriteStation({
   iteration,
 }) {
   const [fav, setFav] = useState(true);
-  console.log(iteration);
+  const URLBDD = "http://localhost:5500/favourite-stations/";
+  const handleClickFavourite = () => {
+    if (!fav) {
+      axios
+        .post(URLBDD, {
+          id: favouriteStation[iteration].number,
+        })
+        .then((values) => {
+          if (values) {
+            console.log("Station added !");
+          } else console.log("Error in data insertion");
+          setFav(!fav);
+        })
+        .catch((err) => console.error(err));
+    } else if (fav) {
+      axios
+        .delete(
+          `http://localhost:5500/favourite-stations/${favouriteStation[iteration].number}`
+        )
+        .then(() => {
+          console.log("Station withdrawn !");
+          setFav(!fav);
+        });
+    }
+  };
+
   return (
     <div className="card-station-comp">
       <div className="top-proximity-card">
@@ -20,9 +46,7 @@ export default function DisplayFavouriteStation({
           <button
             type="button"
             className="fav-button"
-            onClick={() => {
-              setFav(!fav);
-            }}
+            onClick={handleClickFavourite}
           >
             {" "}
             <img
@@ -35,9 +59,7 @@ export default function DisplayFavouriteStation({
           <button
             type="button"
             className="fav-button"
-            onClick={() => {
-              setFav(!fav);
-            }}
+            onClick={handleClickFavourite}
           >
             {" "}
             <img src="../src/assets/empty-heart.png" alt="empty-heart" />
