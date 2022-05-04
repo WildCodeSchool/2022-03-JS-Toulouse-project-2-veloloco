@@ -1,8 +1,6 @@
 import React from "react";
-import L from "leaflet";
-import { LayersControl, useMapEvent } from "react-leaflet";
 
-export default function DarkMode({ setDarkMode, darkmode, mapState }) {
+export default function DarkMode({ setDarkMode, darkmode }) {
   return (
     <div className="theme-mode">
       <div className="dark">

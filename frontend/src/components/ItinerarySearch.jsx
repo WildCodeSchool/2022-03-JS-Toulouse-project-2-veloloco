@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+
 import "../assets/css/itinerarysearch.css";
 
 export default function Recherche({
@@ -87,12 +87,13 @@ export default function Recherche({
         onChange={(e) => {
           setInputDestination(e.target.value);
           setDisplayChangeDestination(!displayChangeDestination);
+          setDisplayChange(false);
         }}
         autoComplete="off"
         placeholder="Arrivee"
       />
-      <div className="list">
-        {inputOrigin === ""
+      <div className="origin-list">
+        {inputOrigin === "" && displayChange === true
           ? null
           : filteredStationsOrigin.map((station) => {
               const nameStationOrigin = station.name
@@ -112,6 +113,8 @@ export default function Recherche({
                 <button
                   className={displayChange ? "item-list" : "item-list-no"}
                   type="button"
+                  data-aos={displayChange ? "fade-down" : null}
+                  data-aos-duration="500"
                   onClick={() =>
                     saveValueOrigin(stationCapitalized, numberStationOrigin)
                   }
@@ -123,7 +126,7 @@ export default function Recherche({
       </div>
 
       <div className="destination-list">
-        {inputDestination === ""
+        {inputDestination === "" && displayChange === false
           ? null
           : filteredStationsDestination.map((station) => {
               const nameStationDestination = station.name
@@ -141,8 +144,10 @@ export default function Recherche({
 
               return (
                 <button
+                  data-aos={displayChange ? null : "fade-down"}
+                  data-aos-duration="500"
                   className={
-                    displayChangeDestination && displayChange === false
+                    displayChange === false
                       ? "item-list-destination"
                       : "item-list-no-destination"
                   }

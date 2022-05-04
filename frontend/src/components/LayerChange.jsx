@@ -9,7 +9,6 @@ export default function LayerChange({ darkmode }) {
   L.tileLayer
     .colorFilter(
       "https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.png",
-
       {
         maxZoom: 16,
         attribution:

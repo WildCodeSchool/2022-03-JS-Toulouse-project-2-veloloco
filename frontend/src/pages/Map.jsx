@@ -1,9 +1,4 @@
-import {
-  MapContainer,
-  TileLayer,
-  ZoomControl,
-  useMapEvents,
-} from "react-leaflet";
+import { MapContainer, ZoomControl, useMapEvents } from "react-leaflet";
 import "./Map.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -17,6 +12,7 @@ import SlideForCard from "../components/SlideForCard";
 import ItinerarySearch from "../components/ItinerarySearch";
 import CardStationDrop from "../components/CardStationDrop";
 import Navigation from "../components/Navigation";
+import Loader from "../components/Loader";
 
 export default function Map() {
   const [location, setLocation] = useState(null);
@@ -55,7 +51,7 @@ export default function Map() {
   const [idStationDestination, setIdStationDestination] = useState();
   const [darkmode, setDarkMode] = useState(false);
   const [showLinks, setShowLinks] = useState(false);
-
+  const [readyOrNot, setReadyOrNot] = useState(false);
   const [uniqueMarker, setUniqueMarker] = useState();
 
   function flyPositionUser() {
@@ -82,6 +78,9 @@ export default function Map() {
   console.log(darkmode);
   return (
     <div id="map">
+      {readyOrNot ? null : (
+        <Loader readyOrNot={readyOrNot} setReadyOrNot={setReadyOrNot} />
+      )}
       <div className="btn-geo-container">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -168,11 +167,7 @@ export default function Map() {
           whenCreated={(map) => setMapState({ map })}
           zoomControl={false}
         >
-          <ZoomControl
-            position="bottomleft"
-            zoomInText="&#128069;"
-            zoomOutText="&#128078;"
-          />
+          <ZoomControl position="bottomleft" />
           {/* TODO empecher le zoom de map pour pouvoir scroll le slideer de droite */}
           <div className={slideState ? "right-slide-on" : "right-slide-off"}>
             <div className="slide-button-cont">

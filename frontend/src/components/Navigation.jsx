@@ -26,9 +26,6 @@ export default function Navigation(props) {
     <div className="navbar-container">
       <button
         type="button"
-        data-aos="fade-right"
-        data-aos-offset="500"
-        data-aos-duration="1000"
         className={showLinks ? "burger-logo display-none" : "burger-logo"}
         onClick={() => antiConflictMenu(false)}
       >
