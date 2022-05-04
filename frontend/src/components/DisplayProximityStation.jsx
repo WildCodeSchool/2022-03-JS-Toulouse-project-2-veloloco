@@ -10,7 +10,7 @@ export default function DisplayFavouriteCard({
 }) {
   const [fav, setFav] = useState(false);
   function flyPositionStation(event) {
-    if (event.target.name !== "keur") {
+    if (event.target.name !== "img-coeur") {
       setSlideState(false);
       mapState.map.flyTo(
         [
@@ -37,7 +37,7 @@ export default function DisplayFavouriteCard({
 
         {fav && (
           <button
-            name="keur"
+            name="img-coeur"
             type="button"
             className="fav-button"
             onClick={() => {
@@ -46,7 +46,7 @@ export default function DisplayFavouriteCard({
           >
             {" "}
             <img
-              name="keur"
+              name="img-coeur"
               src="../src/assets/favourite-heart.png"
               alt="favourite-heart-full"
             />
@@ -54,7 +54,7 @@ export default function DisplayFavouriteCard({
         )}
         {!fav && (
           <button
-            name="keur"
+            name="img-coeur"
             type="button"
             className="fav-button"
             onClick={() => {
@@ -63,7 +63,7 @@ export default function DisplayFavouriteCard({
           >
             {" "}
             <img
-              name="keur"
+              name="img-coeur"
               src="../src/assets/images/empty-heart.png"
               alt="empty-heart"
             />
