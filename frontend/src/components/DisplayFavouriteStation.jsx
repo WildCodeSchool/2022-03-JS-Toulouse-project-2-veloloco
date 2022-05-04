@@ -50,7 +50,7 @@ export default function DisplayFavouriteStation({
             {" "}
             <img
               name="img-coeur"
-              src="../src/assets/favourite-heart.png"
+              src="../src/assets/images/favourite-heart.png"
               alt="favourite-heart-full"
             />
           </button>
