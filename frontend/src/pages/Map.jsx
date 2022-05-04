@@ -4,7 +4,7 @@ import {
   ZoomControl,
   useMapEvents,
 } from "react-leaflet";
-import "./Map.css";
+import "../assets/css/Map.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import MarkerDefault from "../components/MarkerDefault";
@@ -55,7 +55,10 @@ export default function Map() {
   const [uniqueMarker, setUniqueMarker] = useState();
 
   function flyPositionUser() {
-    mapState.map.flyTo([location.coordinates.lat, location.coordinates.lng]);
+    mapState.map.flyTo(
+      [location.coordinates.lat, location.coordinates.lng],
+      17
+    );
   }
   function Mapclick() {
     setMapState.map = useMapEvents({
@@ -98,18 +101,16 @@ export default function Map() {
       </div>
 
       <div className="containersearch">
-        <Navigation />
-        {toggleSearch ? (
-          <Recherche apiResult={apiResult} mapState={mapState} />
-        ) : (
-          <ItinerarySearch apiResult={apiResult} mapState={mapState} />
-        )}
-
         <Navigation
           setShowLinks={setShowLinks}
           showLinks={showLinks}
           antiConflictMenu={() => antiConflictMenu()}
         />
+        {toggleSearch ? (
+          <Recherche apiResult={apiResult} mapState={mapState} />
+        ) : (
+          <ItinerarySearch apiResult={apiResult} mapState={mapState} />
+        )}
 
         <button
           className="btn-change"
@@ -143,7 +144,7 @@ export default function Map() {
                 onClick={() => antiConflictMenu(true)}
               >
                 <img
-                  src="../src/assets/TRIANGLE.png"
+                  src="../src/assets/images/TRIANGLE.png"
                   className={
                     slideState
                       ? "triangle-logo triangle-on"
@@ -153,7 +154,13 @@ export default function Map() {
                 />
               </button>
             </div>
-            <SlideForCard slideState={slideState} userPosition={location} />
+            <SlideForCard
+              slideState={slideState}
+              setSlideState={setSlideState}
+              userPosition={location}
+              setMapState={setMapState}
+              mapState={mapState}
+            />
           </div>
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -173,6 +180,7 @@ export default function Map() {
               setUniqueMarker={setUniqueMarker}
             />
           ))}
+          {/* TODO quand une carte du menu defilant est cliqué, ouvrir sa carte station drop */}
           {toggleCard ? (
             <CardStationDrop
               uniqueMarker={uniqueMarker}

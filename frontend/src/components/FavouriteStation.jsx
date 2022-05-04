@@ -2,7 +2,12 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import DisplayFavouriteStation from "./DisplayFavouriteStation";
 
-export default function FavouriteStation({ iteration }) {
+export default function FavouriteStation({
+  iteration,
+  mapState,
+  setSlideState,
+  userPos,
+}) {
   const [cardInfos, setcardInfos] = useState(null);
   useEffect(() => {
     const URLAPI =
@@ -11,25 +16,26 @@ export default function FavouriteStation({ iteration }) {
     const promise1 = axios.get(URLAPI);
     const promise2 = axios.get(URLBDD);
 
-    Promise.all([promise1, promise2])
-      .then((values) => {
-        const stationsAPI = values[0].data;
+    Promise.all([promise1, promise2]).then((values) => {
+      const stationsAPI = values[0].data;
 
-        const favouriteBDD = values[1].data.map((favourite) => favourite.id);
+      const favouriteBDD = values[1].data.map((favourite) => favourite.id);
 
-        const favouriteStationFiltered = stationsAPI.filter((station) => {
-          return favouriteBDD.includes(station.number);
-        });
-        setcardInfos(favouriteStationFiltered);
-      })
-      .catch((err) => console.error(err));
+      const favouriteStationFiltered = stationsAPI.filter((station) => {
+        return favouriteBDD.includes(station.number);
+      });
+      setcardInfos(favouriteStationFiltered);
+    });
   }, []);
   return (
     <div>
       {cardInfos !== null ? (
         <DisplayFavouriteStation
+          setSlideState={setSlideState}
           favouriteStation={cardInfos}
           iteration={iteration}
+          mapState={mapState}
+          userPos={userPos}
         />
       ) : (
         "Chargement..."

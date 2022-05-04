@@ -1,11 +1,15 @@
 import axios from "axios";
 import React, { useState } from "react";
-import "./DisplayProximityStation.css";
+import "../assets/css/DisplayProximityStation.css";
 import JaugeVelo from "./JaugeVelo";
+import getDistanceFromLatLonInKm from "../assets/algos/getDistanceFromLatLonInKm";
 
 export default function DisplayFavouriteStation({
   favouriteStation,
   iteration,
+  mapState,
+  setSlideState,
+  userPos,
 }) {
   const [fav, setFav] = useState(true);
   const URLBDD = "http://localhost:5500/favourite-stations/";
@@ -15,54 +19,74 @@ export default function DisplayFavouriteStation({
         .post(URLBDD, {
           id: favouriteStation[iteration].number,
         })
-        .then((values) => {
-          if (values) {
-            console.log("Station added !");
-          } else console.log("Error in data insertion");
+        .then(() => {
           setFav(!fav);
-        })
-        .catch((err) => console.error(err));
+        });
     } else if (fav) {
       axios
         .delete(
           `http://localhost:5500/favourite-stations/${favouriteStation[iteration].number}`
         )
         .then(() => {
-          console.log("Station withdrawn !");
           setFav(!fav);
         });
     }
   };
 
+  function flyPositionStation(event) {
+    if (event.target.name !== "img-coeur") {
+      setSlideState(false);
+      mapState.map.flyTo(
+        [
+          favouriteStation[iteration].position.lat,
+          favouriteStation[iteration].position.lng,
+        ],
+        17
+      );
+    }
+  }
+
   return (
-    <div className="card-station-comp">
+    <div
+      className="card-station-comp"
+      role="button"
+      onKeyDown={flyPositionStation}
+      onClick={flyPositionStation}
+      tabIndex={0}
+    >
       <div className="top-proximity-card">
         <h3>n°{favouriteStation[iteration].number}</h3>
         <h2>
           {favouriteStation[iteration].name.split(" - ").slice(1).join("-")}
         </h2>
-
         {fav && (
           <button
+            name="img-coeur"
             type="button"
             className="fav-button"
             onClick={handleClickFavourite}
           >
             {" "}
             <img
-              src="../src/assets/favourite-heart.png"
+              name="img-coeur"
+              src="../src/assets/images/favourite-heart.png"
               alt="favourite-heart-full"
             />
           </button>
         )}
         {!fav && (
           <button
+            name="img-coeur"
             type="button"
             className="fav-button"
             onClick={handleClickFavourite}
           >
             {" "}
-            <img src="../src/assets/empty-heart.png" alt="empty-heart" />
+            <img
+              name="img-coeur"
+              src="../src/assets/images/empty-heart.png"
+              alt="empty-heart"
+            />
           </button>
         )}
       </div>
@@ -73,7 +97,18 @@ export default function DisplayFavouriteStation({
 
       <div className="bottom-proximity-card">
         <JaugeVelo proximityStation={favouriteStation} iteration={1} />
-        <h3>5km</h3>
+
+        <h3>
+          {Math.floor(
+            getDistanceFromLatLonInKm(
+              favouriteStation[iteration].position.lat,
+              favouriteStation[iteration].position.lng,
+              userPos.coordinates.lat,
+              userPos.coordinates.lng
+            )
+          )}
+          m
+        </h3>
       </div>
     </div>
   );

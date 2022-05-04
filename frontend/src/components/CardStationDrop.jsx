@@ -16,10 +16,7 @@ export default function CardStationDrop({ uniqueMarker, apiResult }) {
         .post(URLBDD, {
           id: apiResult[iteration].number,
         })
-        .then((values) => {
-          if (values) {
-            console.log("Station added !");
-          } else console.log("Error in data insertion");
+        .then(() => {
           setFav(!fav);
         })
         .catch((err) => console.error(err));
@@ -29,7 +26,6 @@ export default function CardStationDrop({ uniqueMarker, apiResult }) {
           `http://localhost:5500/favourite-stations/${apiResult[iteration].number}`
         )
         .then(() => {
-          console.log("Station withdrawn !");
           setFav(!fav);
         });
     }
