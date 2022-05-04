@@ -43,11 +43,10 @@ app.get("/favourite-stations", (req, response) => {
 app.get("/favourite-stations/:id", (req, response) => {
   const { favouriteStationId } = req.params;
   connection.query(
-    "SELECT * from favourite_station ",
+    "SELECT * from favourite_station",
     [favouriteStationId],
     (err, result) => {
       if (err) {
-        console.error(err);
         response.status(500).send("Error retrieving data from database");
       } else {
         response.json(result);
