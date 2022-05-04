@@ -20,12 +20,9 @@ export default function CardStationDrop({ uniqueMarker, apiResult }) {
     return Math.floor(Math.random() * max);
   }
   useEffect(() => {
-    axios
-      .get(url, config)
-      // .then((response) => console.log(response))
-      .then((res) => {
-        setPhotoLink(res.data.photos[getRandomInt(78)].src.tiny);
-      });
+    axios.get(url, config).then((res) => {
+      setPhotoLink(res.data.photos[getRandomInt(78)].src.tiny);
+    });
   }, []);
 
   return (
