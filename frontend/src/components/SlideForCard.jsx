@@ -12,11 +12,13 @@ function SlideForCard({ setSlideState, userPosition, mapState }) {
             iteration={0}
             mapState={mapState}
             setSlideState={setSlideState}
+            userPos={userPosition}
           />
           <FavouriteStation
             iteration={1}
             mapState={mapState}
             setSlideState={setSlideState}
+            userPos={userPosition}
           />
         </div>
         <div className="separator"> </div>

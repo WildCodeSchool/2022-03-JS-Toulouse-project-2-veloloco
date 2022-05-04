@@ -64,7 +64,7 @@ export default function DisplayFavouriteCard({
             {" "}
             <img
               name="keur"
-              src="../src/assets/empty-heart.png"
+              src="../src/assets/images/empty-heart.png"
               alt="empty-heart"
             />
           </button>
