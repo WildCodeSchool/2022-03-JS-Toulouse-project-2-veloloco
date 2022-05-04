@@ -24,13 +24,13 @@
   align-items: center;
   margin: 0 2rem 0.3rem 0;
   font-size: 1rem;
-  color: #7B0828;
+  color: #7b0828;
 }
 h2 {
   font-size: 1.2rem;
 }
 
-button {
+.cross-logo {
   visibility: hidden;
 }
 .navbar-logo {
@@ -57,7 +57,7 @@ button {
   height: 6rem;
 }
 .image-item {
-  background-color: #7B0828;
+  background-color: #7b0828;
   width: 2.7rem;
   height: 2.7rem;
   border-radius: 0.5rem;
@@ -67,11 +67,14 @@ button {
   font-size: 1.1rem;
   padding: 0.6rem;
   text-decoration: none;
-  color: #7B0828;
+  color: #7b0828;
 }
 .navbar-container {
   width: 30px;
   height: 30px;
+}
+.burger-logo {
+  visibility: hidden;
 }
 @media screen and (max-width: 780px) {
   .logo-burger {
@@ -79,7 +82,7 @@ button {
     height: 25px;
     left: 10%;
   }
-  button {
+  .cross-logo {
     visibility: visible;
   }
   .cross-close {
@@ -124,6 +127,7 @@ button {
     left: 1rem;
     background-color: transparent;
     border: transparent;
+    visibility: visible;
   }
   .hide-nav {
     animation-name: closeAnimation;
@@ -146,7 +150,7 @@ button {
     align-items: center;
     margin: 0 1rem 0.3rem 0;
     font-size: 1rem;
-    color: #7B0828;
+    color: #7b0828;
   }
   .title-burger {
     font-size: 1.2rem;
@@ -176,7 +180,7 @@ button {
     height: 120px;
   }
   .image-item {
-    background-color: #7B0828;
+    background-color: #7b0828;
     width: 40px;
     height: 40px;
     border-radius: 0.5rem;
