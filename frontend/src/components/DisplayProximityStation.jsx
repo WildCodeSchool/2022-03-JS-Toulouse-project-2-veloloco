@@ -47,7 +47,7 @@ export default function DisplayFavouriteCard({
             {" "}
             <img
               name="img-coeur"
-              src="../src/assets/favourite-heart.png"
+              src="../src/assets/images/favourite-heart.png"
               alt="favourite-heart-full"
             />
           </button>
