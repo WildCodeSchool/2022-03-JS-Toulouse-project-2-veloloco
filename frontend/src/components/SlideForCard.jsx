@@ -1,13 +1,14 @@
 import React from "react";
 import FavouriteStation from "./FavouriteStation";
 import ProximityStation from "./ProximityStation";
-import "./SlideForCard.css";
+import "../assets/css/SlideForCard.css";
 
 function SlideForCard({ setSlideState, userPosition, mapState }) {
   return (
     <div className="main-collumn-slide">
       <div className="sub-collumn-slide">
         <div className="favourite-stations-cont">
+
           <FavouriteStation
             iteration={0}
             mapState={mapState}

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./DisplayProximityStation.css";
+import "../assets/css/DisplayProximityStation.css";
 import JaugeVelo from "./JaugeVelo";
 
 export default function DisplayFavouriteCard({
@@ -46,8 +46,10 @@ export default function DisplayFavouriteCard({
           >
             {" "}
             <img
+
               name="keur"
               src="../src/assets/favourite-heart.png"
+
               alt="favourite-heart-full"
             />
           </button>
@@ -62,11 +64,13 @@ export default function DisplayFavouriteCard({
             }}
           >
             {" "}
+
             <img
               name="keur"
               src="../src/assets/empty-heart.png"
               alt="empty-heart"
             />
+
           </button>
         )}
       </div>
@@ -75,9 +79,9 @@ export default function DisplayFavouriteCard({
         <h2>{proximityStation[iteration].address}</h2>
       </div>
 
-      <div className="bottom-proximity-card">
+      <div className="bottom-favourite-card">
         <JaugeVelo proximityStation={proximityStation} iteration={iteration} />
-        <h3>5km</h3>
+        <h3>{Math.floor(proximityStation[iteration].distance)}m</h3>
       </div>
     </div>
   );

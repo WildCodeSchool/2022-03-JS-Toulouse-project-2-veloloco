@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import "./DisplayProximityStation.css";
+import "../assets/css/DisplayProximityStation.css";
 import JaugeVelo from "./JaugeVelo";
+import getDistanceFromLatLonInKm from "../assets/algos/getDistanceFromLatLonInKm";
 
 export default function DisplayFavouriteStation({
   favouriteStation,
   iteration,
+
   mapState,
   setSlideState,
 }) {
@@ -23,6 +25,7 @@ export default function DisplayFavouriteStation({
       );
     }
   }
+
   return (
     <div
       className="card-station-comp"
@@ -49,6 +52,7 @@ export default function DisplayFavouriteStation({
             <img
               name="keur"
               src="../src/assets/favourite-heart.png"
+
               alt="favourite-heart-full"
             />
           </button>
@@ -63,11 +67,13 @@ export default function DisplayFavouriteStation({
             }}
           >
             {" "}
+
             <img
               name="keur"
               src="../src/assets/empty-heart.png"
               alt="empty-heart"
             />
+
           </button>
         )}
       </div>
@@ -78,7 +84,18 @@ export default function DisplayFavouriteStation({
 
       <div className="bottom-proximity-card">
         <JaugeVelo proximityStation={favouriteStation} iteration={1} />
-        <h3>5km</h3>
+
+        <h3>
+          {Math.floor(
+            getDistanceFromLatLonInKm(
+              favouriteStation[iteration].position.lat,
+              favouriteStation[iteration].position.lng,
+              userPos.coordinates.lat,
+              userPos.coordinates.lng
+            )
+          )}
+          m
+        </h3>
       </div>
     </div>
   );

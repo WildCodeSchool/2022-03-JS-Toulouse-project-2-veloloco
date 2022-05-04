@@ -4,7 +4,7 @@ import {
   ZoomControl,
   useMapEvents,
 } from "react-leaflet";
-import "./Map.css";
+import "../assets/css/Map.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import MarkerDefault from "../components/MarkerDefault";
@@ -101,18 +101,16 @@ export default function Map() {
       </div>
 
       <div className="containersearch">
-        <Navigation />
-        {toggleSearch ? (
-          <Recherche apiResult={apiResult} mapState={mapState} />
-        ) : (
-          <ItinerarySearch apiResult={apiResult} mapState={mapState} />
-        )}
-
         <Navigation
           setShowLinks={setShowLinks}
           showLinks={showLinks}
           antiConflictMenu={() => antiConflictMenu()}
         />
+        {toggleSearch ? (
+          <Recherche apiResult={apiResult} mapState={mapState} />
+        ) : (
+          <ItinerarySearch apiResult={apiResult} mapState={mapState} />
+        )}
 
         <button
           className="btn-change"
@@ -146,7 +144,7 @@ export default function Map() {
                 onClick={() => antiConflictMenu(true)}
               >
                 <img
-                  src="../src/assets/TRIANGLE.png"
+                  src="../src/assets/images/TRIANGLE.png"
                   className={
                     slideState
                       ? "triangle-logo triangle-on"
