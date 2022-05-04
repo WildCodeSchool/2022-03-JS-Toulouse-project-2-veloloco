@@ -6,14 +6,13 @@ import getDistanceFromLatLonInKm from "../assets/algos/getDistanceFromLatLonInKm
 export default function DisplayFavouriteStation({
   favouriteStation,
   iteration,
-
   mapState,
   setSlideState,
+  userPos,
 }) {
   const [fav, setFav] = useState(true);
 
   function flyPositionStation(event) {
-    console.log(event.target.name);
     if (event.target.name !== "keur") {
       setSlideState(false);
       mapState.map.flyTo(
@@ -52,7 +51,6 @@ export default function DisplayFavouriteStation({
             <img
               name="keur"
               src="../src/assets/favourite-heart.png"
-
               alt="favourite-heart-full"
             />
           </button>
@@ -67,13 +65,11 @@ export default function DisplayFavouriteStation({
             }}
           >
             {" "}
-
             <img
               name="keur"
               src="../src/assets/empty-heart.png"
               alt="empty-heart"
             />
-
           </button>
         )}
       </div>

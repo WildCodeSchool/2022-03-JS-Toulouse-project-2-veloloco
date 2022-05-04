@@ -46,10 +46,8 @@ export default function DisplayFavouriteCard({
           >
             {" "}
             <img
-
               name="keur"
               src="../src/assets/favourite-heart.png"
-
               alt="favourite-heart-full"
             />
           </button>
@@ -64,13 +62,11 @@ export default function DisplayFavouriteCard({
             }}
           >
             {" "}
-
             <img
               name="keur"
               src="../src/assets/empty-heart.png"
               alt="empty-heart"
             />
-
           </button>
         )}
       </div>
