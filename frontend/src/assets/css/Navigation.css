@@ -24,7 +24,7 @@
   align-items: center;
   margin: 0 2rem 0.3rem 0;
   font-size: 1rem;
-  color: #7b0828;
+  color: #7B0828;
 }
 h2 {
   font-size: 1.2rem;
@@ -56,9 +56,8 @@ button {
   width: 6rem;
   height: 6rem;
 }
-
 .image-item {
-  background-color: #7b0828;
+  background-color: #7B0828;
   width: 2.7rem;
   height: 2.7rem;
   border-radius: 0.5rem;
@@ -68,13 +67,12 @@ button {
   font-size: 1.1rem;
   padding: 0.6rem;
   text-decoration: none;
-  color: #7b0828;
+  color: #7B0828;
 }
 .navbar-container {
   width: 30px;
   height: 30px;
 }
-
 @media screen and (max-width: 780px) {
   .logo-burger {
     width: 30px;
@@ -95,7 +93,7 @@ button {
     width: 80vw;
     position: absolute;
     top: 0;
-    right: 7px;
+    left: 0;
     z-index: 1000;
     height: 98vh;
     border-radius: 0 2rem 2rem 0;
@@ -105,7 +103,6 @@ button {
     backdrop-filter: blur(1px) saturate(200%);
     -webkit-backdrop-filter: blur(1px) saturate(200%);
     background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 12px;
     border: 1px solid rgba(209, 213, 219, 0.3);
   }
   .show-nav {
@@ -115,15 +112,14 @@ button {
   }
   @keyframes openAnimation {
     0% {
-      right: 100vw;
+      left: -85%;
     }
     100% {
-      right: 0;
+      left: 0;
     }
   }
   .burger-logo {
     position: absolute;
-
     z-index: 1000;
     left: 1rem;
     background-color: transparent;
@@ -133,18 +129,16 @@ button {
     animation-name: closeAnimation;
     animation-duration: 0.75s;
     animation-iteration-count: 1;
-    right: 100vw;
+    left: -85%;
   }
-
   @keyframes closeAnimation {
     0% {
-      right: 20vw;
+      left: 0;
     }
     100% {
-      right: 100vw;
+      left: -85%;
     }
   }
-
   .logo-title {
     display: flex;
     flex-direction: row;
@@ -152,7 +146,7 @@ button {
     align-items: center;
     margin: 0 1rem 0.3rem 0;
     font-size: 1rem;
-    color: #7b0828;
+    color: #7B0828;
   }
   .title-burger {
     font-size: 1.2rem;
@@ -162,7 +156,6 @@ button {
     flex-direction: column;
     justify-content: space-around;
     height: 40%;
-    border: red solid 1px;
   }
   .navbar-links {
     display: flex;
@@ -183,7 +176,7 @@ button {
     height: 120px;
   }
   .image-item {
-    background-color: #7b0828;
+    background-color: #7B0828;
     width: 40px;
     height: 40px;
     border-radius: 0.5rem;
@@ -194,7 +187,7 @@ button {
     padding: 0.6rem;
   }
   .hr-burgertop {
-    margin-top: 70px;
+    margin-top: 40px;
     border: none;
     width: 90%;
     border-bottom: 1px solid #5a5a5a96;

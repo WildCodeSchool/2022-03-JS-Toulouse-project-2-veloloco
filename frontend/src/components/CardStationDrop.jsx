@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "../assets/css/cardstationdrop.css";
 import axios from "axios";
-import JaugeVelo from "./JaugeVelo";
 import PhotoCard from "./PhotoCard";
+import JaugeVelo from "./JaugeVelo";
 
 export default function CardStationDrop({ uniqueMarker, apiResult }) {
   const iteration = apiResult.indexOf(uniqueMarker);
