@@ -56,22 +56,6 @@ export default function CardStationDrop({ uniqueMarker, apiResult }) {
           <div className="name-jauge">
             <div className="header-card">
               <h2 className="name-station">{nameStation}</h2>
-              <img
-                src="../src/assets/empty-heart.png"
-                alt="heart"
-                className="heartimg"
-              />
-            </div>
-
-            <div className="card-paragraph">
-              <div className="jauge">
-                <JaugeVelo iteration={iteration} proximityStation={apiResult} />
-              </div>
-              <p className="adress-station">{adressStation}</p>
-            </div>
-
-            <div className="header-card">
-              <h2>{nameStation}</h2>
               {fav && (
                 <button
                   type="button"
@@ -80,7 +64,7 @@ export default function CardStationDrop({ uniqueMarker, apiResult }) {
                 >
                   {" "}
                   <img
-                    src="../src/assets/favourite-heart.png"
+                    src="../src/assets/images/favourite-heart.png"
                     alt="favourite-heart-full"
                   />
                 </button>
@@ -92,7 +76,10 @@ export default function CardStationDrop({ uniqueMarker, apiResult }) {
                   onClick={handleClickFavourite}
                 >
                   {" "}
-                  <img src="../src/assets/empty-heart.png" alt="empty-heart" />
+                  <img
+                    src="../src/assets/images/empty-heart.png"
+                    alt="empty-heart"
+                  />
                 </button>
               )}
             </div>
@@ -100,6 +87,7 @@ export default function CardStationDrop({ uniqueMarker, apiResult }) {
               <div className="jauge">
                 <JaugeVelo station={apiResult[iteration]} />
               </div>
+              <p className="adress-station">{adressStation}</p>
             </div>
           </div>
         </div>

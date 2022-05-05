@@ -8,6 +8,7 @@ import ProximityFilter from "../assets/algos/ProximityFilter";
 function SlideForCard({ setSlideState, userPosition, mapState }) {
   const [isFavourite, setisFavourite] = useState(null);
   const [BDDlist, setBDDlist] = useState([]);
+  const [isHidden, setisHidden] = useState(false);
   useEffect(() => {
     const URLAPI =
       "https:/api.jcdecaux.com/vls/v1/stations?contract=toulouse&apiKey=ac948d6ebb42f6edfe3322e2089d50095869b8e3";
@@ -38,9 +39,27 @@ function SlideForCard({ setSlideState, userPosition, mapState }) {
         setcardInfos(ProximityFilter(userPosition, response.data));
       });
   }, []);
-  // caca!
+
+  const handleHiddenButton = () => {
+    setisHidden(!isHidden);
+  };
+
   return (
     <div className="main-collumn-slide">
+      <div className="la-leyenda">
+        <h2>Légende</h2>
+        {isHidden && (
+          <button type="button" onClick={handleHiddenButton}>
+            <img src="../src/assets/images/downarrow.png" alt="down arrow" />
+          </button>
+        )}
+        {!isHidden && (
+          <button type="button" onClick={handleHiddenButton}>
+            <img src="../src/assets/images/uparrow.png" alt="up arrow" />
+          </button>
+        )}
+      </div>
+      <div className="slide-menu-title-fav">Mes favoris</div>
       <div className="sub-collumn-slide">
         {isFavourite !== null
           ? isFavourite.map((favouriteStation) => (
@@ -56,6 +75,7 @@ function SlideForCard({ setSlideState, userPosition, mapState }) {
           : "Chargement..."}
 
         <div className="separator"> </div>
+        <div className="slide-menu-title-prox">Mes stations proches</div>
         {cardInfos !== null ? (
           <div className="proximity-stations-cont">
             {cardInfos.map((stationObj) =>

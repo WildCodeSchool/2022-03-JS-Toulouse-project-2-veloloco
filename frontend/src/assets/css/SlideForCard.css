@@ -28,3 +28,26 @@
   border-bottom: 1px solid #5a5a5a96;
   box-shadow: 0 0 20px 8px rgba(51, 51, 51, 0.6);
 }
+
+.slide-menu-title-fav {
+  font-size: 24px;
+  font-weight: bold;
+  padding-top: 1rem;
+}
+
+.slide-menu-title-prox {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.la-leyenda {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 0 20px 8px rgba(51, 51, 51, 0.6);
+}
+
+.la-leyenda button {
+  border: none;
+  background-color: white;
+}
