@@ -24,7 +24,10 @@ export default function MarkerDefault({
   function clickAction() {
     setUniqueMarker(marker);
     setToggleCard();
-    console.log("lag on pierre pc, don't delete me ");
+    console.log(
+      "%c lag on pierre pc, don't delete me ",
+      "color: #c635f2; font-size: 20pt;"
+    );
   }
   if (marker.available_bikes <= 3) {
     return (

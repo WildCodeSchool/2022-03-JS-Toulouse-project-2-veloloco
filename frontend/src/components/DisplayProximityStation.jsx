@@ -17,7 +17,6 @@ export default function DisplayFavouriteCard({
       const stationObj = { ...proximityStation[iteration] };
       delete stationObj.distance;
       setUniqueMarker(stationObj);
-      // setIdCardDrop(proximityStation[iteration].number);
       setToggleCard(true);
 
       mapState.map.flyTo(

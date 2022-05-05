@@ -79,7 +79,6 @@ export default function Map() {
       setShowLinks(!showLinks);
     }
   };
-  console.log(toggleCard);
   return (
     <div id="map">
       <div className="btn-geo-container">
@@ -184,12 +183,10 @@ export default function Map() {
               setUniqueMarker={setUniqueMarker}
             />
           ))}
-          {/* TODO quand une carte du menu defilant est cliqué, ouvrir sa carte station drop */}
           {toggleCard ? (
             <CardStationDrop
               uniqueMarker={uniqueMarker} //
               apiResult={apiResult} // tableau d'objet entier
-              // idSelectedCard={idCardDrop}
             />
           ) : null}
         </MapContainer>
