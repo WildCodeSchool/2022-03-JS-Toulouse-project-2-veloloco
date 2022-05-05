@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "../assets/css/DisplayProximityStation.css";
-import JaugeVelo from "./JaugeVelo";
+// import JaugeVelo from "./JaugeVelo";
 
 export default function DisplayFavouriteCard({
   mapState,
-  proximityStation,
-  iteration,
+  stationObj,
   setSlideState,
 }) {
   const [fav, setFav] = useState(false);
@@ -15,16 +14,14 @@ export default function DisplayFavouriteCard({
     if (!fav) {
       axios
         .post(URLBDD, {
-          id: proximityStation[iteration].number,
+          id: stationObj.number,
         })
         .then(() => {
           setFav(!fav);
         });
     } else if (fav) {
       axios
-        .delete(
-          `http://localhost:5500/favourite-stations/${proximityStation[iteration].number}`
-        )
+        .delete(`http://localhost:5500/favourite-stations/${stationObj.number}`)
         .then(() => {
           setFav(!fav);
         });
@@ -35,10 +32,7 @@ export default function DisplayFavouriteCard({
     if (event.target.name !== "img-coeur") {
       setSlideState(false);
       mapState.map.flyTo(
-        [
-          proximityStation[iteration].position.lat,
-          proximityStation[iteration].position.lng,
-        ],
+        [stationObj.position.lat, stationObj.position.lng],
         17
       );
     }
@@ -52,10 +46,8 @@ export default function DisplayFavouriteCard({
       tabIndex={0}
     >
       <div className="top-proximity-card">
-        <h3>n°{proximityStation[iteration].number}</h3>
-        <h2>
-          {proximityStation[iteration].name.split(" - ").slice(1).join("-")}
-        </h2>
+        <h3>n°{stationObj.number}</h3>
+        <h2>{stationObj.name.split(" - ").slice(1).join("-")}</h2>
 
         {fav && (
           <button
@@ -90,12 +82,12 @@ export default function DisplayFavouriteCard({
       </div>
 
       <div className="middle-proximity-card">
-        <h2>{proximityStation[iteration].address}</h2>
+        <h2>{stationObj.address}</h2>
       </div>
 
       <div className="bottom-favourite-card">
-        <JaugeVelo proximityStation={proximityStation} iteration={iteration} />
-        <h3>{Math.floor(proximityStation[iteration].distance)}m</h3>
+        {/* <JaugeVelo proximityStation={proximityStation} iteration={iteration} /> */}
+        <h3>{Math.floor(stationObj.distance)}m</h3>
       </div>
     </div>
   );
