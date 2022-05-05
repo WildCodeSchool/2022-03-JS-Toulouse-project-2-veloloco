@@ -1,8 +1,9 @@
 import axios from "axios";
 import React, { useState } from "react";
 import "../assets/css/DisplayProximityStation.css";
-import JaugeVelo from "./JaugeVelo";
+
 import getDistanceFromLatLonInKm from "../assets/algos/getDistanceFromLatLonInKm";
+import JaugeVelo from "./JaugeVelo";
 
 export default function DisplayFavouriteStation({
   favouriteStation,
