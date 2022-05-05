@@ -1,11 +1,21 @@
 .navbar {
   display: flex;
   flex-direction: column;
-  height: 98vh;
-  border-radius: 0 2rem 2rem 0;
+  width: 300px;
+  position: absolute;
+  top: 0;
+  left: 4px;
+  z-index: 1000;
+  height: 100vh;
+
   box-shadow: 0 0 2.5em;
-  margin: 0.5rem 5rem 0.5rem 0.5rem;
-  font-family: var(--nunito);
+  margin: 0rem 5rem 0.5rem 0rem;
+  background-color: white;
+  backdrop-filter: blur(1px) saturate(200%);
+  -webkit-backdrop-filter: blur(1px) saturate(200%);
+  background-color: rgba(255, 255, 255, 0.7);
+
+  border: 1px solid rgba(209, 213, 219, 0.3);
 }
 .logo-title {
   display: flex;
@@ -18,6 +28,10 @@
 }
 h2 {
   font-size: 1.2rem;
+}
+
+.cross-logo {
+  visibility: hidden;
 }
 .navbar-logo {
   display: flex;
@@ -59,20 +73,22 @@ h2 {
   width: 30px;
   height: 30px;
 }
+.burger-logo {
+  visibility: hidden;
+}
 @media screen and (max-width: 780px) {
   .logo-burger {
     width: 30px;
     height: 25px;
     left: 10%;
   }
+  .cross-logo {
+    visibility: visible;
+  }
   .cross-close {
     width: 40px;
     height: 40px;
     margin-left: 1rem;
-  }
-  .cross-logo {
-    background-color: transparent;
-    border: transparent;
   }
   .navbar {
     display: flex;
@@ -111,6 +127,7 @@ h2 {
     left: 1rem;
     background-color: transparent;
     border: transparent;
+    visibility: visible;
   }
   .hide-nav {
     animation-name: closeAnimation;
