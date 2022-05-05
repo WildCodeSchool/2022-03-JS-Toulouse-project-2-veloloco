@@ -22,7 +22,6 @@ const ProximityFilter = (userPosition, stationsList) => {
         oldDistance = distance;
       }
     }
-    console.log(closer);
     closer[0].distance = oldDistance;
     return closer;
   };

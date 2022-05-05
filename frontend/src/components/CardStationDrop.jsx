@@ -37,8 +37,7 @@ export default function CardStationDrop({ uniqueMarker, apiResult }) {
         })
         .then(() => {
           setFav(!fav);
-        })
-        .catch((err) => console.error(err));
+        });
     } else if (fav) {
       axios
         .delete(
