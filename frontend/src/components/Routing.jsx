@@ -4,7 +4,7 @@ import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 import "leaflet-routing-machine";
 import { useMap } from "react-leaflet";
 
-import "lrm-graphhopper"; // Adds L.Routing.GraphHopper onto L.Routing
+import "lrm-graphhopper";
 
 export default function Routing({
   originStation,
@@ -13,17 +13,16 @@ export default function Routing({
 }) {
   const map = useMap(mapItineraryState);
 
-  // eslint-disable-next-line no-unused-vars
-
   useEffect(() => {
     if (!map) return;
-    /* Genere route selon deux coordonees */
+
     const routingControl = L.Routing.control({
       waypoints: [
         L.latLng(originStation.position),
         L.latLng(destinationStation.position),
       ],
-      router: L.Routing.graphHopper(import.meta.env.API_MAP),
+
+      router: L.Routing.graphHopper(import.meta.env.VITE_API_MAP),
 
       routeWhileDragging: true,
       lineOptions: {

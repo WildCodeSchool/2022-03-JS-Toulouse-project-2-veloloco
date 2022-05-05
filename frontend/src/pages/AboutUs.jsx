@@ -34,21 +34,31 @@ export default function AboutUs() {
               alt="img"
             />
           </div>
-          <h2>Michel Tacos</h2>
-          <h3>Les tacos c&#39;est la vie</h3>
+          <h2>Antoine Belloni</h2>
+          <h3>
+            {" "}
+            <i>
+              &quot;Con velo loco no hay problemo ! &quot; <br />
+              &#40;C&#39;est faux&#41;
+            </i>
+          </h3>
           <div className="member-icons">
-            <img
-              type="logo"
-              name="github"
-              src="/src/assets/images/github-logo-24.png"
-              alt="logo"
-            />
-            <img
-              name="linkedin"
-              type="logo"
-              src="/src/assets/images/linkedin-square-logo-24.png"
-              alt="logo"
-            />
+            <a href="https://github.com/Aristotia">
+              <img
+                type="logo"
+                name="github"
+                src="/src/assets/images/github-logo-24.png"
+                alt="logo"
+              />
+            </a>
+            <a href="https://www.linkedin.com/in/antoine-belloni-7b132160/">
+              <img
+                name="linkedin"
+                type="logo"
+                src="/src/assets/images/linkedin-square-logo-24.png"
+                alt="logo"
+              />
+            </a>
           </div>
         </div>
 
@@ -92,21 +102,27 @@ export default function AboutUs() {
               alt="img"
             />
           </div>
-          <h2>Michel Tacos</h2>
-          <h3>Les tacos c&#39;est la vie</h3>
+          <h2>François Pobelle</h2>
+          <h3>
+            <i>&quot;Dream Big&quot;</i>
+          </h3>
           <div className="member-icons">
-            <img
-              type="logo"
-              name="github"
-              src="/src/assets/images/github-logo-24.png"
-              alt="logo"
-            />
-            <img
-              name="linkedin"
-              type="logo"
-              src="/src/assets/images/linkedin-square-logo-24.png"
-              alt="logo"
-            />
+            <a href="https://github.com/francois2008">
+              <img
+                type="logo"
+                name="github"
+                src="/src/assets/images/github-logo-24.png"
+                alt="logo"
+              />
+            </a>
+            <a href="https://www.linkedin.com/in/fran%C3%A7ois-pobelle/">
+              <img
+                name="linkedin"
+                type="logo"
+                src="/src/assets/images/linkedin-square-logo-24.png"
+                alt="logo"
+              />
+            </a>
           </div>
         </div>
         <div className="card-member">
@@ -117,21 +133,27 @@ export default function AboutUs() {
               alt="img"
             />
           </div>
-          <h2>Michel Tacos</h2>
-          <h3>Les tacos c&#39;est la vie</h3>
+          <h2>Breogan Bertelet</h2>
+          <h3>
+            <i>&quot;Bicycletteeeeeeeeuuuuuh&quot;</i>
+          </h3>
           <div className="member-icons">
-            <img
-              type="logo"
-              name="github"
-              src="/src/assets/images/github-logo-24.png"
-              alt="logo"
-            />
-            <img
-              name="linkedin"
-              type="logo"
-              src="/src/assets/images/linkedin-square-logo-24.png"
-              alt="logo"
-            />
+            <a href="https://github.com/BreoganBP">
+              <img
+                type="logo"
+                name="github"
+                src="/src/assets/images/github-logo-24.png"
+                alt="logo"
+              />
+            </a>
+            <a href="https://www.linkedin.com/in/br%C3%A9ogan-bertelet-627347180/">
+              <img
+                name="linkedin"
+                type="logo"
+                src="/src/assets/images/linkedin-square-logo-24.png"
+                alt="logo"
+              />
+            </a>
           </div>
         </div>
       </div>

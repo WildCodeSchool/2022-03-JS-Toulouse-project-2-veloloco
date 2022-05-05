@@ -51,7 +51,8 @@ export default function Map() {
   const [idStationDestination, setIdStationDestination] = useState();
   const [darkmode, setDarkMode] = useState(false);
   const [showLinks, setShowLinks] = useState(false);
-  const [readyOrNot, setReadyOrNot] = useState(false);
+  const alreadyConnected = localStorage.getItem("alreadyConnected") || false;
+  const [readyOrNot, setReadyOrNot] = useState(alreadyConnected);
   const [uniqueMarker, setUniqueMarker] = useState();
   const [valueFirstName, setValueFirstName] = useState("");
   const [valueLastName, setValueLastName] = useState("");
@@ -79,7 +80,6 @@ export default function Map() {
       setShowLinks(!showLinks);
     }
   };
-  localStorage.setItem("monState", readyOrNot);
 
   return (
     <div id="map">
@@ -217,6 +217,7 @@ export default function Map() {
             <Mapclick />
             {apiResult.map((marker) => (
               <MarkerDefault
+                key={marker.number}
                 positionStation={marker.position}
                 marker={marker}
                 setToggleCard={() => setToggleCard((status) => !status)}
