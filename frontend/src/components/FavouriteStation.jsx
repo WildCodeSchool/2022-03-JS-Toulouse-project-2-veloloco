@@ -7,6 +7,8 @@ export default function FavouriteStation({
   mapState,
   setSlideState,
   userPos,
+  setToggleCard,
+  setUniqueMarker,
 }) {
   const [cardInfos, setcardInfos] = useState(null);
   useEffect(() => {
@@ -36,6 +38,8 @@ export default function FavouriteStation({
           iteration={iteration}
           mapState={mapState}
           userPos={userPos}
+          setToggleCard={setToggleCard}
+          setUniqueMarker={setUniqueMarker}
         />
       ) : (
         "Chargement..."

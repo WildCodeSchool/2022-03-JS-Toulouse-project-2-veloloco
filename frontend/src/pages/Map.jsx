@@ -49,6 +49,7 @@ export default function Map() {
   const [mapState, setMapState] = useState();
   const [toggleSearch, setToggleSearch] = useState(true);
   const [toggleCard, setToggleCard] = useState(false);
+  // const [idCardDrop, setIdCardDrop] = useState(0);
 
   const [showLinks, setShowLinks] = useState(false);
 
@@ -78,6 +79,7 @@ export default function Map() {
       setShowLinks(!showLinks);
     }
   };
+  console.log(toggleCard);
   return (
     <div id="map">
       <div className="btn-geo-container">
@@ -160,6 +162,8 @@ export default function Map() {
               userPosition={location}
               setMapState={setMapState}
               mapState={mapState}
+              setToggleCard={setToggleCard}
+              setUniqueMarker={setUniqueMarker}
             />
           </div>
           <TileLayer
@@ -183,8 +187,9 @@ export default function Map() {
           {/* TODO quand une carte du menu defilant est cliqué, ouvrir sa carte station drop */}
           {toggleCard ? (
             <CardStationDrop
-              uniqueMarker={uniqueMarker}
-              apiResult={apiResult}
+              uniqueMarker={uniqueMarker} //
+              apiResult={apiResult} // tableau d'objet entier
+              // idSelectedCard={idCardDrop}
             />
           ) : null}
         </MapContainer>

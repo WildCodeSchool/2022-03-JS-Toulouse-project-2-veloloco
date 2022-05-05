@@ -7,11 +7,19 @@ export default function DisplayFavouriteCard({
   proximityStation,
   iteration,
   setSlideState,
+  setToggleCard,
+  setUniqueMarker,
 }) {
   const [fav, setFav] = useState(false);
   function flyPositionStation(event) {
     if (event.target.name !== "img-coeur") {
       setSlideState(false);
+      const stationObj = { ...proximityStation[iteration] };
+      delete stationObj.distance;
+      setUniqueMarker(stationObj);
+      // setIdCardDrop(proximityStation[iteration].number);
+      setToggleCard(true);
+
       mapState.map.flyTo(
         [
           proximityStation[iteration].position.lat,

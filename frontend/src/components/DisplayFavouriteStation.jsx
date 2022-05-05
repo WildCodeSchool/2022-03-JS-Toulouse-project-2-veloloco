@@ -9,12 +9,16 @@ export default function DisplayFavouriteStation({
   mapState,
   setSlideState,
   userPos,
+  setToggleCard,
+  setUniqueMarker,
 }) {
   const [fav, setFav] = useState(true);
 
   function flyPositionStation(event) {
     if (event.target.name !== "img-coeur") {
       setSlideState(false);
+      setUniqueMarker(favouriteStation[iteration]);
+      setToggleCard(true);
       mapState.map.flyTo(
         [
           favouriteStation[iteration].position.lat,

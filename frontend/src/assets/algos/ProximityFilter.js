@@ -34,6 +34,7 @@ const ProximityFilter = (userPosition, stationsList) => {
     closestList.push(closerFounder(list, userPos)[0]);
     list.splice(closerFounder(list, userPos)[1], 1);
   }
+  console.log(closestList)
   return closestList;
 };
 

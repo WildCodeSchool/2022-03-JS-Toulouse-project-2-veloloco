@@ -3,7 +3,13 @@ import FavouriteStation from "./FavouriteStation";
 import ProximityStation from "./ProximityStation";
 import "../assets/css/SlideForCard.css";
 
-function SlideForCard({ setSlideState, userPosition, mapState }) {
+function SlideForCard({
+  setSlideState,
+  userPosition,
+  mapState,
+  setToggleCard,
+  setUniqueMarker,
+}) {
   return (
     <div className="main-collumn-slide">
       <div className="sub-collumn-slide">
@@ -13,12 +19,16 @@ function SlideForCard({ setSlideState, userPosition, mapState }) {
             mapState={mapState}
             setSlideState={setSlideState}
             userPos={userPosition}
+            setToggleCard={setToggleCard}
+            setUniqueMarker={setUniqueMarker}
           />
           <FavouriteStation
             iteration={1}
             mapState={mapState}
             setSlideState={setSlideState}
             userPos={userPosition}
+            setToggleCard={setToggleCard}
+            setUniqueMarker={setUniqueMarker}
           />
         </div>
         <div className="separator"> </div>
@@ -28,30 +38,40 @@ function SlideForCard({ setSlideState, userPosition, mapState }) {
             iteration={0}
             mapState={mapState}
             setSlideState={setSlideState}
+            setToggleCard={setToggleCard}
+            setUniqueMarker={setUniqueMarker}
           />
           <ProximityStation
             userPos={userPosition}
             iteration={1}
             mapState={mapState}
             setSlideState={setSlideState}
+            setToggleCard={setToggleCard}
+            setUniqueMarker={setUniqueMarker}
           />
           <ProximityStation
             userPos={userPosition}
             iteration={2}
             mapState={mapState}
             setSlideState={setSlideState}
+            setToggleCard={setToggleCard}
+            setUniqueMarker={setUniqueMarker}
           />
           <ProximityStation
             userPos={userPosition}
             iteration={3}
             mapState={mapState}
             setSlideState={setSlideState}
+            setToggleCard={setToggleCard}
+            setUniqueMarker={setUniqueMarker}
           />
           <ProximityStation
             userPos={userPosition}
             iteration={4}
             mapState={mapState}
             setSlideState={setSlideState}
+            setToggleCard={setToggleCard}
+            setUniqueMarker={setUniqueMarker}
           />
         </div>
       </div>
