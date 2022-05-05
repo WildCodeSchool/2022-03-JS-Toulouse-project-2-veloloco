@@ -5,7 +5,10 @@ import PhotoCard from "./PhotoCard";
 import JaugeVelo from "./JaugeVelo";
 
 export default function CardStationDrop({ uniqueMarker, apiResult }) {
-  const iteration = apiResult.indexOf(uniqueMarker);
+  const iteration = apiResult.findIndex(
+    (station) => station.number === uniqueMarker.number
+  );
+
   const nameStation = uniqueMarker.name.toLowerCase().substr(7).split("");
   const adressStation = uniqueMarker.address;
 
