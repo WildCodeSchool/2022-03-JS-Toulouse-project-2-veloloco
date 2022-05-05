@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import "../assets/css/DisplayProximityStation.css";
 import JaugeVelo from "./JaugeVelo";
@@ -11,6 +12,26 @@ export default function DisplayFavouriteStation({
   userPos,
 }) {
   const [fav, setFav] = useState(true);
+  const URLBDD = "http://localhost:5500/favourite-stations/";
+  const handleClickFavourite = () => {
+    if (!fav) {
+      axios
+        .post(URLBDD, {
+          id: favouriteStation[iteration].number,
+        })
+        .then(() => {
+          setFav(!fav);
+        });
+    } else if (fav) {
+      axios
+        .delete(
+          `http://localhost:5500/favourite-stations/${favouriteStation[iteration].number}`
+        )
+        .then(() => {
+          setFav(!fav);
+        });
+    }
+  };
 
   function flyPositionStation(event) {
     if (event.target.name !== "img-coeur") {
@@ -43,9 +64,7 @@ export default function DisplayFavouriteStation({
             name="img-coeur"
             type="button"
             className="fav-button"
-            onClick={() => {
-              setFav(!fav);
-            }}
+            onClick={handleClickFavourite}
           >
             {" "}
             <img
@@ -60,9 +79,7 @@ export default function DisplayFavouriteStation({
             name="img-coeur"
             type="button"
             className="fav-button"
-            onClick={() => {
-              setFav(!fav);
-            }}
+            onClick={handleClickFavourite}
           >
             {" "}
             <img
