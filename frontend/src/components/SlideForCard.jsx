@@ -46,7 +46,7 @@ function SlideForCard({ setSlideState, userPosition, mapState }) {
 
   return (
     <div className="main-collumn-slide">
-      <div className="la-leyenda-container">
+      <div className="legend-container">
         <h2>Légende</h2>
         {isHidden && (
           <button type="button" onClick={handleHiddenButton}>
@@ -60,10 +60,10 @@ function SlideForCard({ setSlideState, userPosition, mapState }) {
         )}
       </div>
       {!isHidden && (
-        <div className="la-leyenda-content">
-          <div className="leyenda-available-bikes">2</div>
-          <div className="leyenda-available-bikes-standings">2</div>
-          <div className="leyenda-dead-bikes">7</div>
+        <div className="legend-content">
+          <div className="legend-available-bikes">2</div>
+          <div className="legend-available-bikes-standings">2</div>
+          <div className="legend-dead-bikes">7</div>
         </div>
       )}
       <div className="slide-menu-title-fav">Mes favoris</div>
