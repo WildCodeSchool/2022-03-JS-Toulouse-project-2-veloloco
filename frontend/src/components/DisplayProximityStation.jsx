@@ -33,9 +33,9 @@ export default function DisplayFavouriteCard({
   function flyPositionStation(event) {
     if (event.target.name !== "img-coeur") {
       setSlideState(false);
-      const stationObj = { ...proximityStation[iteration] };
-      delete stationObj.distance;
-      setUniqueMarker(stationObj);
+      const stationOb = { ...stationObj };
+      delete stationOb.distance;
+      setUniqueMarker(stationOb);
       setToggleCard(true);
 
       mapState.map.flyTo(

@@ -15,8 +15,6 @@ export default function FavouriteStation({
           favouriteStation={favouriteStation}
           mapState={mapState}
           userPos={userPos}
-          setToggleCard={setToggleCard}
-          setUniqueMarker={setUniqueMarker}
         />
       ) : (
         "Chargement..."
