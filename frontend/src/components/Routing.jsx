@@ -4,15 +4,27 @@ import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 import "leaflet-routing-machine";
 import { useMap } from "react-leaflet";
 
-export default function Routing() {
-  const map = useMap();
+import "lrm-graphhopper"; // Adds L.Routing.GraphHopper onto L.Routing
+
+export default function Routing({
+  originStation,
+  destinationStation,
+  mapItineraryState,
+}) {
+  const map = useMap(mapItineraryState);
+
   // eslint-disable-next-line no-unused-vars
 
   useEffect(() => {
     if (!map) return;
     /* Genere route selon deux coordonees */
     const routingControl = L.Routing.control({
-      waypoints: [L.latLng(43.60068, 1.420117), L.latLng(43.603699, 1.444699)],
+      waypoints: [
+        L.latLng(originStation.position),
+        L.latLng(destinationStation.position),
+      ],
+      router: L.Routing.graphHopper(import.meta.env.API_MAP),
+
       routeWhileDragging: true,
       lineOptions: {
         styles: [
@@ -24,9 +36,12 @@ export default function Routing() {
       },
       addWaypoints: false,
       draggableWaypoints: false,
-      fitSelectedRoutes: false,
+      fitSelectedRoutes: true,
       showAlternatives: false,
     }).addTo(map);
+
+    routingControl.getRouter().options.urlParameters.vehicle = "bike";
+    routingControl.route();
 
     // eslint-disable-next-line consistent-return
     return () => map.removeControl(routingControl);
