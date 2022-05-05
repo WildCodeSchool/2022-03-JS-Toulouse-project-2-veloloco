@@ -30,6 +30,16 @@ app.listen(port, () => {
 
 app.use(express.json());
 
+app.get("/user", (req, response) => {
+  connection.query("SELECT * FROM user", (err, result) => {
+    if (err) {
+      response.status(500).send("Error retrieving data from database");
+    } else {
+      response.json(result);
+    }
+  });
+});
+
 app.get("/favourite-stations", (req, response) => {
   connection.query("SELECT * from favourite_station", (err, result) => {
     if (err) {
@@ -39,7 +49,20 @@ app.get("/favourite-stations", (req, response) => {
     }
   });
 });
-
+app.post("/user", (req, response) => {
+  const { id, firstname, lastname } = req.body;
+  connection.query(
+    "INSERT INTO user VALUES (? , ?, ? )",
+    [id, firstname, lastname],
+    (err, result) => {
+      if (err) {
+        response.status(500).send("Error retrieving data from database");
+      } else {
+        response.json(result);
+      }
+    }
+  );
+});
 app.get("/favourite-stations/:id", (req, response) => {
   const { favouriteStationId } = req.params;
   connection.query(
@@ -75,10 +98,10 @@ app.post("/favourite-stations", (req, res) => {
 });
 
 app.delete("/favourite-stations/:id", (req, res) => {
-  const { id } = req.params;
+  const favouriteStationId = req.params.id;
   connection.query(
     "DELETE FROM favourite_station WHERE id = ?",
-    [id],
+    [favouriteStationId],
     (err) => {
       if (err) {
         res.status(500).send(err);

@@ -16,6 +16,8 @@
     "leaflet": "^1.7.1",
     "leaflet-routing-machine": "^3.2.12",
     "leaflet.locatecontrol": "^0.76.0",
+    "leaflet.tilelayer.colorfilter": "^1.2.5",
+    "lrm-graphhopper": "^1.3.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-leaflet": "3.1.0",

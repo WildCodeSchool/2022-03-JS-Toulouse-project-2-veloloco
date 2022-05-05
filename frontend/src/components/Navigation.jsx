@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import LogoVelo from "../assets/images/logo.png";
 import LogoBurger from "../assets/images/Menu hamburger.png";
 import LogoTopsecret from "../assets/images/logo-topsecret-about.png";
@@ -11,10 +12,17 @@ import Instagram from "../assets/images/logo-insta.png";
 import "../assets/css/Navigation.css";
 import "../assets/css/darkMode.css";
 import "../assets/css/contact.css";
-import DarkMode from "./thememode/darkmode";
+import DarkMode from "./darkmode";
 
 export default function Navigation(props) {
-  const { setShowLinks, showLinks, antiConflictMenu } = props;
+  const {
+    setShowLinks,
+    showLinks,
+    antiConflictMenu,
+    setDarkMode,
+    darkmode,
+    mapState,
+  } = props;
   return (
     <div className="navbar-container">
       <button
@@ -74,14 +82,18 @@ export default function Navigation(props) {
                 src={LogoAboutUs}
                 alt="Logo About Us"
               />
-              <a href="/" className="navbar-link">
-                About us
-              </a>
+              <Link className="navbar-link" to="/aboutus">
+                About Us
+              </Link>
             </li>
           </ul>
         </div>
         <hr className="hr-burgertop" />
-        <DarkMode />
+        <DarkMode
+          setDarkMode={setDarkMode}
+          darkmode={darkmode}
+          mapState={mapState}
+        />
         <hr className="hr-burgerbottom" />
         <div className="contact">
           <h5>Contact us (please do not)</h5>

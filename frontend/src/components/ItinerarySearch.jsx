@@ -1,15 +1,22 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+
 import "../assets/css/itinerarysearch.css";
 
-export default function Recherche({ apiResult: apiStations }) {
+export default function Recherche({
+  apiResult: apiStations,
+  setIdStationOrigin,
+  setIdStationDestination,
+}) {
   const [filteredStationsOrigin, setFilteredStationsOrigin] = useState([]);
   const [filteredStationsDestination, setFilteredStationsDestination] =
     useState([]);
   const [inputOrigin, setInputOrigin] = useState("");
   const [inputDestination, setInputDestination] = useState("");
-  const [displayChange, setDisplayChange] = useState(true);
+  const [displayChange, setDisplayChange] = useState(false);
+  const [displayChangeDestination, setDisplayChangeDestination] =
+    useState(false);
   const [userFinishResult, setUserFinishResult] = useState(false);
+
   function searchStationOrigin() {
     const stationsOrigin = [];
     for (let i = 0; i < apiStations.length; i += 1) {
@@ -43,17 +50,20 @@ export default function Recherche({ apiResult: apiStations }) {
     }
     setFilteredStationsDestination([...stations]);
   }
-  function saveValueOrigin(stationCapitalized) {
+  function saveValueOrigin(stationCapitalized, numberStationOrigin) {
     setDisplayChange(!displayChange);
     setInputOrigin(stationCapitalized);
     setUserFinishResult(!userFinishResult);
+    setIdStationOrigin(numberStationOrigin);
   }
-  function saveValueDestination(stationCapitalized) {
-    setDisplayChange(!displayChange);
+  function saveValueDestination(stationCapitalized, numberStationDestination) {
+    setDisplayChangeDestination(!displayChangeDestination);
     setInputDestination(stationCapitalized);
+    setIdStationDestination(numberStationDestination);
   }
+
   return (
-    <div className="itinerarysearch">
+    <div data-aos="fade-down" className="itinerarysearch">
       <input
         id="searchbar"
         onKeyUp={searchStationOrigin}
@@ -62,7 +72,7 @@ export default function Recherche({ apiResult: apiStations }) {
         value={inputOrigin}
         onChange={(e) => {
           setInputOrigin(e.target.value);
-          setDisplayChange(!displayChange);
+          setDisplayChange(true);
           setUserFinishResult(!userFinishResult);
         }}
         autoComplete="off"
@@ -76,13 +86,14 @@ export default function Recherche({ apiResult: apiStations }) {
         value={inputDestination}
         onChange={(e) => {
           setInputDestination(e.target.value);
-          setDisplayChange(!displayChange);
+          setDisplayChangeDestination(!displayChangeDestination);
+          setDisplayChange(false);
         }}
         autoComplete="off"
         placeholder="Arrivee"
       />
-      <ul className="listorigin">
-        {userFinishResult === true
+      <div className="origin-list">
+        {inputOrigin === "" && displayChange === true
           ? null
           : filteredStationsOrigin.map((station) => {
               const nameStationOrigin = station.name
@@ -96,19 +107,26 @@ export default function Recherche({ apiResult: apiStations }) {
                 }
               }
               const stationCapitalized = nameStationOrigin.join("");
+              const numberStationOrigin = station.number;
+
               return (
                 <button
                   className={displayChange ? "item-list" : "item-list-no"}
                   type="button"
-                  onClick={() => saveValueOrigin(stationCapitalized)}
+                  data-aos={displayChange ? "fade-down" : null}
+                  data-aos-duration="500"
+                  onClick={() =>
+                    saveValueOrigin(stationCapitalized, numberStationOrigin)
+                  }
                 >
                   {stationCapitalized}
                 </button>
               );
             })}
-      </ul>
-      <ul className="listdestination">
-        {inputDestination === ""
+      </div>
+
+      <div className="destination-list">
+        {inputDestination === "" && displayChange === false
           ? null
           : filteredStationsDestination.map((station) => {
               const nameStationDestination = station.name
@@ -122,26 +140,30 @@ export default function Recherche({ apiResult: apiStations }) {
                 }
               }
               const stationCapitalized = nameStationDestination.join("");
+              const numberStationDestination = station.number;
+
               return (
                 <button
+                  data-aos={displayChange ? null : "fade-down"}
+                  data-aos-duration="500"
                   className={
-                    displayChange
+                    displayChange === false
                       ? "item-list-destination"
                       : "item-list-no-destination"
                   }
                   type="button"
-                  onClick={() => saveValueDestination(stationCapitalized)}
+                  onClick={() =>
+                    saveValueDestination(
+                      stationCapitalized,
+                      numberStationDestination
+                    )
+                  }
                 >
                   {stationCapitalized}
                 </button>
               );
             })}
-      </ul>
-      <Link to="/itinerary/">
-        <button className="btn-route" type="button">
-          go
-        </button>
-      </Link>
+      </div>
     </div>
   );
 }

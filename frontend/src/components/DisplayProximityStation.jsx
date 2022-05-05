@@ -7,6 +7,8 @@ export default function DisplayFavouriteCard({
   mapState,
   stationObj,
   setSlideState,
+  setToggleCard,
+  setUniqueMarker,
 }) {
   const [fav, setFav] = useState(false);
   const URLBDD = "http://localhost:5500/favourite-stations/";
@@ -31,6 +33,11 @@ export default function DisplayFavouriteCard({
   function flyPositionStation(event) {
     if (event.target.name !== "img-coeur") {
       setSlideState(false);
+      const stationObj = { ...proximityStation[iteration] };
+      delete stationObj.distance;
+      setUniqueMarker(stationObj);
+      setToggleCard(true);
+
       mapState.map.flyTo(
         [stationObj.position.lat, stationObj.position.lng],
         17
