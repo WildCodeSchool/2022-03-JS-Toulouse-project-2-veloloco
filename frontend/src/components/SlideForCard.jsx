@@ -8,7 +8,7 @@ import ProximityFilter from "../assets/algos/ProximityFilter";
 function SlideForCard({ setSlideState, userPosition, mapState }) {
   const [isFavourite, setisFavourite] = useState(null);
   const [BDDlist, setBDDlist] = useState([]);
-  const [isHidden, setisHidden] = useState(false);
+  const [isHidden, setisHidden] = useState(true);
   useEffect(() => {
     const URLAPI =
       "https:/api.jcdecaux.com/vls/v1/stations?contract=toulouse&apiKey=ac948d6ebb42f6edfe3322e2089d50095869b8e3";
@@ -46,7 +46,7 @@ function SlideForCard({ setSlideState, userPosition, mapState }) {
 
   return (
     <div className="main-collumn-slide">
-      <div className="la-leyenda">
+      <div className="la-leyenda-container">
         <h2>Légende</h2>
         {isHidden && (
           <button type="button" onClick={handleHiddenButton}>
@@ -59,6 +59,13 @@ function SlideForCard({ setSlideState, userPosition, mapState }) {
           </button>
         )}
       </div>
+      {!isHidden && (
+        <div className="la-leyenda-content">
+          <div className="leyenda-available-bikes">2</div>
+          <div className="leyenda-available-bikes-standings">2</div>
+          <div className="leyenda-dead-bikes">7</div>
+        </div>
+      )}
       <div className="slide-menu-title-fav">Mes favoris</div>
       <div className="sub-collumn-slide">
         {isFavourite !== null

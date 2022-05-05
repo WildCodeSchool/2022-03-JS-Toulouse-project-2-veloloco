@@ -40,14 +40,37 @@
   font-weight: bold;
 }
 
-.la-leyenda {
+.la-leyenda-container {
   padding: 1rem;
   display: flex;
   justify-content: space-between;
   box-shadow: 0 0 20px 8px rgba(51, 51, 51, 0.6);
 }
 
-.la-leyenda button {
+.la-leyenda-container button {
   border: none;
   background-color: white;
+}
+
+.leyenda-available-bikes{
+  width: 200px;
+  color:black;
+  background-color: #32936f;
+}
+
+.leyenda-available-bikes-standings{
+  width: 200px;
+  color:white;
+  background-color: #7B0828;
+}
+
+.leyenda-dead-bikes{
+  width: 200px;
+  color:white;
+  background-color: grey;
+}
+
+.la-leyenda-content {
+  display: flex;
+  flex-direction: column;
 }
