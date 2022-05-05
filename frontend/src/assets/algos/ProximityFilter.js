@@ -8,7 +8,7 @@ const ProximityFilter = (userPosition, stationsList) => {
   const closerFounder = (coords, userCoord) => {
     let distance = 0;
     let oldDistance = 1000;
-    let closer;
+    let closer = [];
 
     for (let i = 0; i < coords.length; i += 1) {
       distance = getDistanceFromLatLonInKm(
@@ -31,6 +31,9 @@ const ProximityFilter = (userPosition, stationsList) => {
   const closestList = [];
 
   for (let k = 0; k < 5; k += 1) {
+    if (list.length === 0) {
+      break;
+    }
     closestList.push(closerFounder(list, userPos)[0]);
     list.splice(closerFounder(list, userPos)[1], 1);
   }

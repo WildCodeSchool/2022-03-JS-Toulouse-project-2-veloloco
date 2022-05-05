@@ -27,7 +27,7 @@ export default function Map() {
   };
 
   const error = (err) => {
-    console.error(err);
+    console.error("error #%d", err);
   };
   const option = {
     enableHighAccurancy: true,
@@ -206,6 +206,8 @@ export default function Map() {
                 userPosition={location}
                 setMapState={setMapState}
                 mapState={mapState}
+                setToggleCard={setToggleCard}
+                setUniqueMarker={setUniqueMarker}
               />
             </div>
             <LayerChange darkmode={darkmode} />
