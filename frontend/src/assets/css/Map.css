@@ -7,8 +7,10 @@
   --map-tiles-filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg)
     saturate(0.3) brightness(0.5);
 }
-
-.tile {
+#map {
+  width: 100vw;
+}
+.leaflet-tile {
   filter: var(--map-tiles-filter, none);
   z-index: 1;
 }
@@ -32,8 +34,9 @@
 }
 .btn-change {
   z-index: 1101;
-
   border-radius: 50%;
+  height: 35px;
+  width: 50px;
   -webkit-backdrop-filter: blur(1px) saturate(200%);
   background-color: #7b082971;
   border-radius: 12px;
@@ -69,7 +72,7 @@
   .right-slide-off {
     position: relative;
     left: 100%;
-    z-index: 999999;
+    z-index: 1100;
     width: 80%;
     top: 1%;
     height: 98%;
@@ -118,7 +121,8 @@
   width: 100%;
   flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
+  justify-content: space-around;
 }
 .btn-geo-container {
   height: 100vh;
@@ -145,6 +149,30 @@
 .slide-button-cont {
   height: 0px;
 }
-.display-none{
+.display-none {
   display: none;
+}
+.btn-container-false {
+  display: flex;
+  flex-direction: column-reverse;
+  margin-top: 55px;
+  gap: 15px;
+}
+.btn-container-true {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.btn-route {
+  z-index: 1101;
+  border-radius: 50%;
+  -webkit-backdrop-filter: blur(1px) saturate(200%);
+  background-color: #7b082971;
+  border-radius: 12px;
+  border: 1px solid rgba(209, 213, 219, 0.3);
+  height: 35px;
+  width: 50px;
+}
+.img-btn-route {
+  margin-top: 3px;
 }

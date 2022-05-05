@@ -14,10 +14,23 @@
   flex-direction: column;
   font-family: var(--nunito);
 }
+.photo-city {
+  display: flex;
+  flex-direction: row;
+  width: 70vw;
+}
+.image-city {
+  width: 5rem;
+  height: 100%;
+  border-radius: 5px;
+}
+.name-jauge {
+  display: flex;
+  flex-direction: column;
+}
 .card-paragraph {
   display: flex;
   align-items: center;
-
   justify-content: space-around;
 }
 .jauge {
@@ -26,12 +39,91 @@
 .header-card {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
-  gap: 6.5rem;
+  gap: 0.8rem;
   align-items: center;
   font-size: 15px;
+  width: 100%;
 }
 .heartimg {
   height: 30px;
-  margin-right: 10px;
+  margin: 0 8px 15px 0;
+}
+.adress-station {
+  font-size: 15px;
+  font-weight: bolder;
+}
+@media screen and (min-width: 780px) {
+  .card-station {
+    display: flex;
+    align-items: center;
+    width: calc(100% - 610px);
+    position: absolute;
+    left: 310px;
+    border-radius: 0;
+  }
+  .name-jauge {
+    display: flex;
+    flex-direction: column;
+  }
+  .header-card {
+    display: flex;
+  }
+  .card-paragraph {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .photo-city {
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+  }
+  .jauge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 31rem;
+    height: 2rem;
+    margin: 0;
+  }
+  .image-city {
+    width: 11rem;
+    height: 100%;
+    border-radius: 5px;
+    margin-left: 0rem;
+  }
+  .adress-station {
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: bolder;
+    margin: 0;
+  }
+  .name-station {
+    font-size: 1.4rem;
+    font-weight: bolder;
+    width: 400px;
+    margin-right: 2.4rem;
+  }
+  .image-city {
+    width: 9rem;
+    height: 9rem;
+    border-radius: 5px;
+  }
+}
+.listorigin {
+  backdrop-filter: blur(2px) saturate(200%);
+  -webkit-backdrop-filter: blur(2px) saturate(200%);
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  border: 1px solid rgba(209, 213, 219, 0.3);
+}
+.listdestination {
+  backdrop-filter: blur(2px) saturate(200%);
+  -webkit-backdrop-filter: blur(2px) saturate(200%);
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  border: 1px solid rgba(209, 213, 219, 0.3);
 }
