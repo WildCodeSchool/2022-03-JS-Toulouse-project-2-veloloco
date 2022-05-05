@@ -8,6 +8,8 @@ export default function ProximityStation({
   setSlideState,
   userPos,
   iteration,
+  setToggleCard,
+  setUniqueMarker,
 }) {
   const [cardInfos, setcardInfos] = useState(null);
   useEffect(() => {
@@ -28,6 +30,8 @@ export default function ProximityStation({
           iteration={iteration}
           mapState={mapState}
           setSlideState={setSlideState}
+          setToggleCard={setToggleCard}
+          setUniqueMarker={setUniqueMarker}
         />
       ) : (
         "Chargement..."
