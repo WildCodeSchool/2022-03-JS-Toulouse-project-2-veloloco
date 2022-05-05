@@ -49,7 +49,6 @@ export default function Map() {
   const [mapState, setMapState] = useState();
   const [toggleSearch, setToggleSearch] = useState(true);
   const [toggleCard, setToggleCard] = useState(false);
-  // const [idCardDrop, setIdCardDrop] = useState(0);
 
   const [showLinks, setShowLinks] = useState(false);
 
@@ -185,8 +184,8 @@ export default function Map() {
           ))}
           {toggleCard ? (
             <CardStationDrop
-              uniqueMarker={uniqueMarker} //
-              apiResult={apiResult} // tableau d'objet entier
+              uniqueMarker={uniqueMarker}
+              apiResult={apiResult}
             />
           ) : null}
         </MapContainer>
