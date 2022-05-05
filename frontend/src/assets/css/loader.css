@@ -53,10 +53,29 @@
   display: inline-block;
   outline: none;
   border-radius: 20px;
-  border: 2px solid #d90429;
-  background: #d90429;
+  border: 2px solid #7b0828;
+  background: #7b0828;
+  margin: 20px 0 0 0;
 }
 .continue :hover {
   background: #fff;
   color: #d90429;
+}
+.text-color {
+  color: #7b0828;
+}
+.text-warning {
+  margin: 10px 0 10px 0;
+  font-size: 1.2rem;
+}
+
+.form-firstname {
+  font-size: 1.3rem;
+  color: #7b0828;
+  font-weight: bold;
+}
+.form-lastname {
+  font-size: 1.3rem;
+  color: #7b0828;
+  font-weight: bold;
 }

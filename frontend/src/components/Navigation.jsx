@@ -12,6 +12,7 @@ import "../assets/css/Navigation.css";
 import "../assets/css/darkMode.css";
 import "../assets/css/contact.css";
 import DarkMode from "./darkmode";
+import { Link } from "react-router-dom";
 
 export default function Navigation(props) {
   const {
@@ -81,9 +82,9 @@ export default function Navigation(props) {
                 src={LogoAboutUs}
                 alt="Logo About Us"
               />
-              <a href="/" className="navbar-link">
-                About us
-              </a>
+              <Link className="navbar-link" to="/aboutus">
+                About Us
+              </Link>
             </li>
           </ul>
         </div>

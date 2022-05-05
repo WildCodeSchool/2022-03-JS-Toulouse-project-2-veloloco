@@ -1,0 +1,95 @@
+.aboutus-container {
+  background: url(../images/wickedbackground.png);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: center;
+  color: white;
+  font-family: var(--nunito);
+  gap: 50px;
+}
+.card-container {
+  width: 80%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+.image {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: stretch;
+}
+.card-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  backdrop-filter: blur(15px) saturate(200%);
+  -webkit-backdrop-filter: blur(15px) saturate(200%);
+  background-color: transparent;
+  border-radius: 12px;
+
+  box-shadow: 21px -23px 21px 8px rgba(0, 0, 0, 0.288);
+  margin-bottom: 30px;
+  gap: 20px;
+}
+.image-span {
+  transition: transform 0.2s;
+  transform: translate(1rem, 1rem);
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  display: block;
+  border: 1px solid #ddd;
+  z-index: 0;
+}
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+.aboutus-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+.member-icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  height: 100%;
+  width: 100%;
+}
+.header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.btn-header-container {
+  display: flex;
+  width: 33%;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.btn-header {
+  border-radius: 12px;
+  background-color: transparent;
+  border: black solid 1px;
+}
+.img-btn-header {
+  margin-top: 5px;
+}

@@ -23,7 +23,7 @@ export default function Routing({
         L.latLng(originStation.position),
         L.latLng(destinationStation.position),
       ],
-      router: L.Routing.graphHopper("c11022cc-4f6a-4370-a3b6-d2021c79b19d"),
+      router: L.Routing.graphHopper(import.meta.env.API_MAP),
 
       routeWhileDragging: true,
       lineOptions: {

@@ -1,5 +1,5 @@
 import { MapContainer, TileLayer } from "react-leaflet";
-import "./Itinerary.css";
+import "../assets/css/Itinerary.css";
 import "leaflet/dist/leaflet.css";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";

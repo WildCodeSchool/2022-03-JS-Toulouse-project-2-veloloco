@@ -27,7 +27,7 @@ export default function Recherche({ apiResult: apiStations, mapState }) {
     setDisplayChange(!displayChange);
     setValueOrigin("");
   }
-  console.log(displayChange);
+
   // TODO rajouter cette ligne de code pour cacher les bails quand le burger est ouvert
   // className={showLinks ? "TA_CLASSE display-none" : "TA_CLASSE"}
   return (

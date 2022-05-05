@@ -12,7 +12,7 @@ export default function CardStationDrop({ uniqueMarker, apiResult }) {
         <div className="header-card">
           <h2>{nameStation}</h2>
           <img
-            src="../src/assets/empty-heart.png"
+            src="../src/assets/images/empty-heart.png"
             alt="heart"
             className="heartimg"
           />

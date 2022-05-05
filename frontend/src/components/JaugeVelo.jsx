@@ -3,9 +3,9 @@ import React from "react";
 export default function JaugeVelo({ proximityStation, iteration }) {
   const jaugeVeloStyle = {
     display: "flex",
-    width: "90%",
+    width: "80%",
     height: "1.5em",
-    backgroundColor: "#7B0828",
+    backgroundColor: "#7b0828",
     borderRadius: "15px",
   };
   let availableBikes =

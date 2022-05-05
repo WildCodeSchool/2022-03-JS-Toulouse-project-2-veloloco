@@ -1,5 +1,5 @@
 import { MapContainer, ZoomControl, useMapEvents } from "react-leaflet";
-import "./Map.css";
+import "../assets/css/Map.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -53,9 +53,13 @@ export default function Map() {
   const [showLinks, setShowLinks] = useState(false);
   const [readyOrNot, setReadyOrNot] = useState(false);
   const [uniqueMarker, setUniqueMarker] = useState();
-
+  const [valueFirstName, setValueFirstName] = useState("");
+  const [valueLastName, setValueLastName] = useState("");
   function flyPositionUser() {
-    mapState.map.flyTo([location.coordinates.lat, location.coordinates.lng]);
+    mapState.map.flyTo(
+      [location.coordinates.lat, location.coordinates.lng],
+      17
+    );
   }
   function Mapclick() {
     setMapState.map = useMapEvents({
@@ -75,146 +79,161 @@ export default function Map() {
       setShowLinks(!showLinks);
     }
   };
-  console.log(darkmode);
+  localStorage.setItem("monState", readyOrNot);
+
   return (
     <div id="map">
       {readyOrNot ? null : (
-        <Loader readyOrNot={readyOrNot} setReadyOrNot={setReadyOrNot} />
+        <Loader
+          readyOrNot={readyOrNot}
+          setReadyOrNot={setReadyOrNot}
+          valueFirstName={valueFirstName}
+          valueLastName={valueLastName}
+          setValueLastName={setValueLastName}
+          setValueFirstName={setValueFirstName}
+        />
       )}
-      <div className="btn-geo-container">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="44"
-          height="44"
-          viewBox="0 0 24 24"
-          strokeWidth="1.5"
-          stroke="#7b0828"
-          fill="none"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="btn-geo"
-          onClick={flyPositionUser}
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <circle cx="12" cy="12" r="9" />
-          <path d="M12 17l-1 -4l-4 -1l9 -4z" />
-        </svg>
-      </div>
+      {location != null ? (
+        <>
+          <div className="btn-geo-container">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="44"
+              height="44"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="#7b0828"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="btn-geo"
+              onClick={flyPositionUser}
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <circle cx="12" cy="12" r="9" />
+              <path d="M12 17l-1 -4l-4 -1l9 -4z" />
+            </svg>
+          </div>
+          <div className="containersearch">
+            {mapState ? (
+              <Navigation
+                setShowLinks={setShowLinks}
+                showLinks={showLinks}
+                antiConflictMenu={() => antiConflictMenu()}
+                setDarkMode={setDarkMode}
+                darkmode={darkmode}
+                mapState={mapState}
+              />
+            ) : null}
+            {toggleSearch ? (
+              <Recherche apiResult={apiResult} mapState={mapState} />
+            ) : (
+              <ItinerarySearch
+                apiResult={apiResult}
+                mapState={mapState}
+                setIdStationOrigin={setIdStationOrigin}
+                setIdStationDestination={setIdStationDestination}
+              />
+            )}
 
-      <div className="containersearch">
-        {mapState ? (
-          <Navigation
-            setShowLinks={setShowLinks}
-            showLinks={showLinks}
-            antiConflictMenu={() => antiConflictMenu()}
-            setDarkMode={setDarkMode}
-            darkmode={darkmode}
-            mapState={mapState}
-          />
-        ) : null}
-        {toggleSearch ? (
-          <Recherche apiResult={apiResult} mapState={mapState} />
-        ) : (
-          <ItinerarySearch
-            apiResult={apiResult}
-            mapState={mapState}
-            setIdStationOrigin={setIdStationOrigin}
-            setIdStationDestination={setIdStationDestination}
-          />
-        )}
-
-        <div
-          className={
-            toggleSearch ? "btn-container-true" : "btn-container-false"
-          }
-        >
-          {toggleSearch ? null : (
-            <Link to={`/itinerary/${idStationDestination}/${idStationOrigin}`}>
+            <div
+              className={
+                toggleSearch ? "btn-container-true" : "btn-container-false"
+              }
+            >
+              {toggleSearch ? null : (
+                <Link
+                  to={`/itinerary/${idStationDestination}/${idStationOrigin}`}
+                >
+                  <button
+                    data-aos="fade-left"
+                    data-aos-offset="500"
+                    data-aos-duration="500"
+                    className="btn-route"
+                    type="button"
+                  >
+                    <img
+                      className="img-btn-route"
+                      src="/src/assets/images/Vector.png"
+                      alt="logo"
+                    />
+                  </button>
+                </Link>
+              )}
               <button
+                className="btn-change"
                 data-aos="fade-left"
                 data-aos-offset="500"
-                data-aos-duration="500"
-                className="btn-route"
+                data-aos-duration="1000"
                 type="button"
+                onClick={() => {
+                  setToggleSearch(!toggleSearch);
+                }}
               >
-                <img
-                  className="img-btn-route"
-                  src="/src/assets/images/Vector.png"
-                  alt="logo"
-                />
-              </button>
-            </Link>
-          )}
-          <button
-            className="btn-change"
-            data-aos="fade-left"
-            data-aos-offset="500"
-            data-aos-duration="1000"
-            type="button"
-            onClick={() => {
-              setToggleSearch(!toggleSearch);
-            }}
-          >
-            <img src={logoitinerary} alt="logo" />
-          </button>
-        </div>
-      </div>
-
-      {location != null ? (
-        <MapContainer
-          center={[location.coordinates.lat, location.coordinates.lng]}
-          zoom={20}
-          whenCreated={(map) => setMapState({ map })}
-          zoomControl={false}
-        >
-          <ZoomControl position="bottomleft" />
-          {/* TODO empecher le zoom de map pour pouvoir scroll le slideer de droite */}
-          <div className={slideState ? "right-slide-on" : "right-slide-off"}>
-            <div className="slide-button-cont">
-              <button
-                type="button"
-                className="slide-button"
-                onClick={() => antiConflictMenu(true)}
-              >
-                <img
-                  src="../src/assets/TRIANGLE.png"
-                  className={
-                    slideState
-                      ? "triangle-logo triangle-on"
-                      : "triangle-logo triangle-off"
-                  }
-                  alt="triangle logo"
-                />
+                <img src={logoitinerary} alt="logo" />
               </button>
             </div>
-            <SlideForCard slideState={slideState} userPosition={location} />
           </div>
-          <LayerChange darkmode={darkmode} />
+          <MapContainer
+            center={[location.coordinates.lat, location.coordinates.lng]}
+            zoom={20}
+            whenCreated={(map) => setMapState({ map })}
+            zoomControl={false}
+          >
+            <ZoomControl position="bottomleft" />
+            {/* TODO empecher le zoom de map pour pouvoir scroll le slideer de droite */}
+            <div className={slideState ? "right-slide-on" : "right-slide-off"}>
+              <div className="slide-button-cont">
+                <button
+                  type="button"
+                  className="slide-button"
+                  onClick={() => antiConflictMenu(true)}
+                >
+                  <img
+                    src="../src/assets/images/TRIANGLE.png"
+                    className={
+                      slideState
+                        ? "triangle-logo triangle-on"
+                        : "triangle-logo triangle-off"
+                    }
+                    alt="triangle logo"
+                  />
+                </button>
+              </div>
+              <SlideForCard
+                slideState={slideState}
+                setSlideState={setSlideState}
+                userPosition={location}
+                setMapState={setMapState}
+                mapState={mapState}
+              />
+            </div>
+            <LayerChange darkmode={darkmode} />
 
-          <Geo
-            localisationlat={location.coordinates.lat}
-            localisationlng={location.coordinates.lng}
-          />
-          <Mapclick />
-          {apiResult.map((marker) => (
-            <MarkerDefault
-              positionStation={marker.position}
-              marker={marker}
-              setToggleCard={() => setToggleCard((status) => !status)}
-              toggleCard={toggleCard}
-              setUniqueMarker={setUniqueMarker}
+            <Geo
+              localisationlat={location.coordinates.lat}
+              localisationlng={location.coordinates.lng}
             />
-          ))}
-          {toggleCard ? (
-            <CardStationDrop
-              uniqueMarker={uniqueMarker}
-              apiResult={apiResult}
-            />
-          ) : null}
-        </MapContainer>
-      ) : (
-        "chargement"
-      )}
+            <Mapclick />
+            {apiResult.map((marker) => (
+              <MarkerDefault
+                positionStation={marker.position}
+                marker={marker}
+                setToggleCard={() => setToggleCard((status) => !status)}
+                toggleCard={toggleCard}
+                setUniqueMarker={setUniqueMarker}
+              />
+            ))}
+            {/* TODO quand une carte du menu defilant est cliqué, ouvrir sa carte station drop */}
+            {toggleCard ? (
+              <CardStationDrop
+                uniqueMarker={uniqueMarker}
+                apiResult={apiResult}
+              />
+            ) : null}
+          </MapContainer>
+        </>
+      ) : null}
     </div>
   );
 }

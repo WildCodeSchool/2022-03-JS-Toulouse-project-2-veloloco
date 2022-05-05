@@ -42,7 +42,6 @@ h2 {
   width: 6rem;
   height: 6rem;
 }
-
 .image-item {
   background-color: #7b0828;
   width: 2.7rem;
@@ -60,7 +59,6 @@ h2 {
   width: 30px;
   height: 30px;
 }
-
 @media screen and (max-width: 780px) {
   .logo-burger {
     width: 30px;
@@ -82,8 +80,8 @@ h2 {
     width: 80vw;
     position: absolute;
     top: 0;
-    right: 7px;
-    z-index: 1300;
+    left: 0;
+    z-index: 1200;
     height: 98vh;
     border-radius: 0 2rem 2rem 0;
     box-shadow: 0 0 2.5em;
@@ -92,7 +90,6 @@ h2 {
     backdrop-filter: blur(1px) saturate(200%);
     -webkit-backdrop-filter: blur(1px) saturate(200%);
     background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 12px;
     border: 1px solid rgba(209, 213, 219, 0.3);
   }
   .show-nav {
@@ -102,15 +99,14 @@ h2 {
   }
   @keyframes openAnimation {
     0% {
-      right: 100vw;
+      left: -85%;
     }
     100% {
-      right: 0;
+      left: 0;
     }
   }
   .burger-logo {
     position: absolute;
-
     z-index: 1000;
     left: 1rem;
     background-color: transparent;
@@ -120,18 +116,16 @@ h2 {
     animation-name: closeAnimation;
     animation-duration: 0.75s;
     animation-iteration-count: 1;
-    right: 100vw;
+    left: -85%;
   }
-
   @keyframes closeAnimation {
     0% {
-      right: 20vw;
+      left: 0;
     }
     100% {
-      right: 100vw;
+      left: -85%;
     }
   }
-
   .logo-title {
     display: flex;
     flex-direction: row;
