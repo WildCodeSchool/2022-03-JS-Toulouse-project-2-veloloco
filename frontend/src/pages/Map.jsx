@@ -27,7 +27,7 @@ export default function Map() {
   };
 
   const error = (err) => {
-    console.error(err);
+    console.error("error #%d", err);
   };
   const option = {
     enableHighAccurancy: true,
@@ -173,7 +173,6 @@ export default function Map() {
                 <img src={logoitinerary} alt="logo" />
               </button>
             </div>
-
           </div>
           <MapContainer
             center={[location.coordinates.lat, location.coordinates.lng]}
@@ -202,13 +201,13 @@ export default function Map() {
                 </button>
               </div>
               <SlideForCard
-              slideState={slideState}
-              setSlideState={setSlideState}
-              userPosition={location}
-              setMapState={setMapState}
-              mapState={mapState}
-              setToggleCard={setToggleCard}
-              setUniqueMarker={setUniqueMarker}
+                slideState={slideState}
+                setSlideState={setSlideState}
+                userPosition={location}
+                setMapState={setMapState}
+                mapState={mapState}
+                setToggleCard={setToggleCard}
+                setUniqueMarker={setUniqueMarker}
               />
             </div>
             <LayerChange darkmode={darkmode} />
