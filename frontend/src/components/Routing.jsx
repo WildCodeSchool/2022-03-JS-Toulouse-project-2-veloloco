@@ -41,7 +41,6 @@ export default function Routing({
     }).addTo(map);
     routingControl.on("routesfound", function (e) {
       const { routes } = e;
-
       const { summary } = routes[0];
       console.log(summary);
     });

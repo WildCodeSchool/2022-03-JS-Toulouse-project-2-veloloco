@@ -40,7 +40,7 @@ export default function Itinerary() {
   }, [apiResult]);
 
   const [mapItineraryState, setMapItineraryState] = useState();
-  console.log(originStation);
+
   return (
     <>
       <div />

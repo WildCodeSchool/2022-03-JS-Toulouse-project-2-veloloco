@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import LogoVelo from "../assets/images/logo.png";
 import LogoBurger from "../assets/images/Menu hamburger.png";
 import LogoTopsecret from "../assets/images/logo-topsecret-about.png";
@@ -12,7 +13,6 @@ import "../assets/css/Navigation.css";
 import "../assets/css/darkMode.css";
 import "../assets/css/contact.css";
 import DarkMode from "./darkmode";
-import { Link } from "react-router-dom";
 
 export default function Navigation(props) {
   const {

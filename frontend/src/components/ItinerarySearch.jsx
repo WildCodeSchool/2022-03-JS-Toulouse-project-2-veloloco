@@ -61,7 +61,7 @@ export default function Recherche({
     setInputDestination(stationCapitalized);
     setIdStationDestination(numberStationDestination);
   }
-  console.log(displayChange);
+
   return (
     <div data-aos="fade-down" className="itinerarysearch">
       <input
