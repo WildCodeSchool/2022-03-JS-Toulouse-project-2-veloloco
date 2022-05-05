@@ -30,7 +30,7 @@ const ProximityFilter = (userPosition, stationsList) => {
 
   const closestList = [];
 
-  for (let k = 0; k < 5; k += 1) {
+  for (let k = 0; k < 3; k += 1) {
     closestList.push(closerFounder(list, userPos)[0]);
     list.splice(closerFounder(list, userPos)[1], 1);
   }

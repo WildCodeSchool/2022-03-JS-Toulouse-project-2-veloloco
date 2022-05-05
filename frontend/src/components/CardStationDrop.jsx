@@ -44,7 +44,7 @@ export default function CardStationDrop({ uniqueMarker, apiResult }) {
             >
               {" "}
               <img
-                src="../src/assets/favourite-heart.png"
+                src="../src/assets/images/favourite-heart.png"
                 alt="favourite-heart-full"
               />
             </button>
@@ -56,13 +56,16 @@ export default function CardStationDrop({ uniqueMarker, apiResult }) {
               onClick={handleClickFavourite}
             >
               {" "}
-              <img src="../src/assets/empty-heart.png" alt="empty-heart" />
+              <img
+                src="../src/assets/images/empty-heart.png"
+                alt="empty-heart"
+              />
             </button>
           )}
         </div>
         <div className="card-paragraph">
           <div className="jauge">
-            <JaugeVelo iteration={iteration} proximityStation={apiResult} />
+            <JaugeVelo station={apiResult[iteration]} />
           </div>
         </div>
         <p>{adressStation}</p>

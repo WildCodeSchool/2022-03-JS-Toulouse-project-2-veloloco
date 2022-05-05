@@ -2,19 +2,17 @@ import React from "react";
 import DisplayFavouriteStation from "./DisplayFavouriteStation";
 
 export default function FavouriteStation({
-  iteration,
   mapState,
   setSlideState,
   userPos,
-  isFavourite,
+  favouriteStation,
 }) {
   return (
     <div>
-      {isFavourite !== null ? (
+      {favouriteStation ? (
         <DisplayFavouriteStation
           setSlideState={setSlideState}
-          favouriteStation={isFavourite}
-          iteration={iteration}
+          favouriteStation={favouriteStation}
           mapState={mapState}
           userPos={userPos}
         />

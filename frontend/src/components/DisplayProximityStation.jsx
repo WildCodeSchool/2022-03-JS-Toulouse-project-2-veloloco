@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "../assets/css/DisplayProximityStation.css";
-// import JaugeVelo from "./JaugeVelo";
+import JaugeVelo from "./JaugeVelo";
 
 export default function DisplayFavouriteCard({
   mapState,
@@ -86,7 +86,7 @@ export default function DisplayFavouriteCard({
       </div>
 
       <div className="bottom-favourite-card">
-        {/* <JaugeVelo proximityStation={proximityStation} iteration={iteration} /> */}
+        <JaugeVelo station={stationObj} />
         <h3>{Math.floor(stationObj.distance)}m</h3>
       </div>
     </div>

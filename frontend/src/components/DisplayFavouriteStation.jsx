@@ -90,7 +90,7 @@ export default function DisplayFavouriteStation({
       </div>
 
       <div className="bottom-proximity-card">
-        <JaugeVelo proximityStation={favouriteStation} />
+        <JaugeVelo station={favouriteStation} />
 
         <h3>
           {Math.floor(
