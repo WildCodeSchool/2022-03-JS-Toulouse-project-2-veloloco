@@ -13,13 +13,13 @@ export default function Loader({
   function callBDD(e) {
     e.preventDefault();
     setReadyOrNot(!readyOrNot);
+    localStorage.setItem("alreadyConnected", true);
     axios
       .post("http://localhost:5500/user", {
         id: null,
         firstName: valueFirstName,
         lastName: valueLastName,
       })
-
       .catch(function (error) {
         console.error(error);
       });
