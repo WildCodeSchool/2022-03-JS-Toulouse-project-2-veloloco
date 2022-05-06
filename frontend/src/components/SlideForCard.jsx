@@ -72,6 +72,7 @@ function SlideForCard({ setSlideState, userPosition, mapState }) {
           ? isFavourite.map((favouriteStation) => (
               <div className="favourite-stations-cont">
                 <FavouriteStation
+                  key={favouriteStation.number}
                   favouriteStation={favouriteStation}
                   mapState={mapState}
                   setSlideState={setSlideState}
@@ -88,6 +89,7 @@ function SlideForCard({ setSlideState, userPosition, mapState }) {
             {cardInfos.map((stationObj) =>
               !BDDlist.includes(stationObj.number) ? (
                 <ProximityStation
+                  key={stationObj.number}
                   stationObj={stationObj}
                   mapState={mapState}
                   setSlideState={setSlideState}

@@ -60,6 +60,7 @@ export default function Recherche({
     setDisplayChangeDestination(!displayChangeDestination);
     setInputDestination(stationCapitalized);
     setIdStationDestination(numberStationDestination);
+    setDisplayChange(true);
   }
 
   return (

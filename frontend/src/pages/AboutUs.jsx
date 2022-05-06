@@ -36,7 +36,6 @@ export default function AboutUs() {
           </div>
           <h2>Antoine Belloni</h2>
           <h3>
-            {" "}
             <i>
               &quot;Con velo loco no hay problemo ! &quot; <br />
               &#40;C&#39;est faux&#41;
@@ -72,7 +71,6 @@ export default function AboutUs() {
           </div>
           <h2>Pierre Berger</h2>
           <h3>
-            {" "}
             <i>&quot;It&#39;s Birtney Bitch&quot;</i>
           </h3>
           <div className="member-icons">
