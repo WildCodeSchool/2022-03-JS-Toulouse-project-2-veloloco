@@ -70,7 +70,10 @@ function SlideForCard({ setSlideState, userPosition, mapState }) {
       <div className="sub-collumn-slide">
         {isFavourite !== null
           ? isFavourite.map((favouriteStation) => (
-              <div className="favourite-stations-cont">
+              <div
+                key={favouriteStation.number}
+                className="favourite-stations-cont"
+              >
                 <FavouriteStation
                   key={favouriteStation.number}
                   favouriteStation={favouriteStation}

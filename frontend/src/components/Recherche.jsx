@@ -69,6 +69,7 @@ export default function Recherche({ apiResult: apiStations, mapState }) {
                     data-aos-offset="500"
                     data-aos-duration="500"
                     type="button"
+                    key={station.number}
                     onClick={() => flyPosition(station)}
                   >
                     {stationCapitalized}

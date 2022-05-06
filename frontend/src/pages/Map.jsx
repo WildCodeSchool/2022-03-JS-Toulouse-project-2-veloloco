@@ -54,8 +54,9 @@ export default function Map() {
   const alreadyConnected = localStorage.getItem("alreadyConnected") || false;
   const [readyOrNot, setReadyOrNot] = useState(alreadyConnected);
   const [uniqueMarker, setUniqueMarker] = useState();
-  const [valueFirstName, setValueFirstName] = useState("");
-  const [valueLastName, setValueLastName] = useState("");
+  const [valueFirstName, setValueFirstName] = useState();
+  const [valueLastName, setValueLastName] = useState();
+
   function flyPositionUser() {
     mapState.map.flyTo(
       [location.coordinates.lat, location.coordinates.lng],
@@ -80,6 +81,8 @@ export default function Map() {
       setShowLinks(!showLinks);
     }
   };
+
+  console.log(localStorage.getItem("user"));
 
   return (
     <div id="map">

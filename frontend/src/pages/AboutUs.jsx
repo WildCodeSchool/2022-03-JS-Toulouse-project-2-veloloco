@@ -71,7 +71,7 @@ export default function AboutUs() {
           </div>
           <h2>Pierre Berger</h2>
           <h3>
-            <i>&quot;It&#39;s Birtney Bitch&quot;</i>
+            <i>&quot;It&#39;s Britney Bitch&quot;</i>
           </h3>
           <div className="member-icons">
             <a href="https://github.com/Pierre-Berger">
