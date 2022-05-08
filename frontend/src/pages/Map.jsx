@@ -82,7 +82,8 @@ export default function Map() {
     }
   };
 
-  console.log(localStorage.getItem("user"));
+  const userConnected = localStorage.getItem("user");
+   
 
   return (
     <div id="map">
