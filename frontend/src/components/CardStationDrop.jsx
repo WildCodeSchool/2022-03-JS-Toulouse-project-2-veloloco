@@ -59,32 +59,6 @@ export default function CardStationDrop({ uniqueMarker, apiResult }) {
           <div className="name-jauge">
             <div className="header-card">
               <h2 className="name-station">{nameStation}</h2>
-              {fav && (
-                <button
-                  type="button"
-                  className="fav-button"
-                  onClick={handleClickFavourite}
-                >
-                  {" "}
-                  <img
-                    src="../src/assets/images/favourite-heart.png"
-                    alt="favourite-heart-full"
-                  />
-                </button>
-              )}
-              {!fav && (
-                <button
-                  type="button"
-                  className="fav-button"
-                  onClick={handleClickFavourite}
-                >
-                  {" "}
-                  <img
-                    src="../src/assets/images/empty-heart.png"
-                    alt="empty-heart"
-                  />
-                </button>
-              )}
             </div>
             <div className="card-paragraph">
               <div className="jauge">
@@ -92,6 +66,35 @@ export default function CardStationDrop({ uniqueMarker, apiResult }) {
               </div>
               <p className="adress-station">{adressStation}</p>
             </div>
+          </div>
+          <div className="heart-fav">
+            {fav && (
+              <button
+                type="button"
+                className="fav-button"
+                onClick={handleClickFavourite}
+              >
+                {" "}
+                <img
+                  src="../src/assets/images/favourite-heart.png"
+                  alt="favourite-heart-full"
+                />
+              </button>
+            )}
+            {!fav && (
+              <button
+                type="button"
+                className="fav-button"
+                onClick={handleClickFavourite}
+              >
+                {" "}
+                <img
+                  className="image-heart"
+                  src="../src/assets/images/empty-heart.png"
+                  alt="empty-heart"
+                />
+              </button>
+            )}
           </div>
         </div>
       </div>
