@@ -41,13 +41,13 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 34%;
 }
 .navbar-links {
   display: flex;
   flex-direction: column;
-  height: 40rem;
-  justify-content: space-between;
+  gap: 30px;
+  margin-top: 50px;
+  justify-content: flex-start;
   list-style-type: none;
   align-items: flex-start;
 }
@@ -82,6 +82,12 @@ h2 {
 .marker-container {
   display: flex;
   flex-direction: column;
+  margin: 30px 0 20px 20px;
+  gap: 20px;
+}
+.marker-container span {
+  display: flex;
+  gap: 30px;
 }
 @media screen and (max-width: 780px) {
   .logo-burger {
@@ -93,6 +99,7 @@ h2 {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-top: 40px;
   }
   .marker-container span {
     display: flex;
@@ -113,8 +120,8 @@ h2 {
     border: 0;
   }
   .cross-close {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     margin-left: 1rem;
     background-color: transparent;
   }
@@ -183,20 +190,29 @@ h2 {
   .title-burger {
     font-size: 1.2rem;
   }
+  .navbar-links {
+    display: flex;
+    flex-direction: column;
+    height: 40rem;
+    justify-content: flex-start;
+    list-style-type: none;
+    align-items: flex-start;
+    margin-top: 30px;
+  }
   .navbar-logo {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 40%;
+    margin-top: 20px;
   }
   .navbar-links {
     display: flex;
     flex-direction: column;
     height: 75%;
-    justify-content: space-between;
+    justify-content: flex-start;
     list-style-type: none;
     align-items: flex-start;
-    gap: 30px;
+    gap: 40px;
   }
   .navbar-item {
     display: flex;

@@ -17,41 +17,43 @@
 .photo-city {
   display: flex;
   flex-direction: row;
-  width: 70vw;
+  width: 100vw;
+  height: 100%;
 }
 .image-city {
-  width: 5rem;
+  width: 25vw;
   height: 100%;
   border-radius: 5px;
 }
 .name-jauge {
   display: flex;
   flex-direction: column;
-}
-.card-paragraph {
-  display: flex;
   align-items: center;
-  justify-content: space-around;
+  margin-left: 0.5rem;
+  width: 60vw;
 }
 .jauge {
-  width: 300px;
+  display: flex;
+  width: 65vw;
+  justify-content: center;
 }
 .header-card {
   display: flex;
   flex-direction: row;
-  gap: 0.8rem;
   align-items: center;
   font-size: 15px;
-  width: 100%;
-}
-.heartimg {
-  height: 30px;
-  margin: 0 8px 15px 0;
+  margin: 0.5rem 0;
 }
 .adress-station {
   font-size: 15px;
   font-weight: bolder;
+  margin: 0.5rem 0;
 }
+.image-heart {
+  height: 60px;
+  width: 60px;
+}
+
 @media screen and (min-width: 780px) {
   .card-station {
     display: flex;
@@ -67,12 +69,10 @@
   }
   .header-card {
     display: flex;
+    justify-content: space-between;
+    padding: 0;
   }
-  .card-paragraph {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+
   .photo-city {
     display: flex;
     gap: 0.5rem;
@@ -82,27 +82,26 @@
   }
   .jauge {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    width: 31rem;
-    height: 2rem;
-    margin: 0;
+    width: 30vw;
+    margin: 0.5rem 0;
   }
-  .image-city {
-    width: 11rem;
-    height: 100%;
+  .photo-city .image-city {
+    width: 196px;
+    height: 196px;
     border-radius: 5px;
     margin-left: 0rem;
   }
   .adress-station {
     display: flex;
     align-items: center;
-    font-size: 1.3rem;
+    justify-content: center;
+    font-size: 2rem;
     font-weight: bolder;
-    margin: 0;
+    margin: 1rem 0;
   }
   .name-station {
-    font-size: 1.4rem;
+    font-size: 2rem;
     font-weight: bolder;
     width: 400px;
     margin-right: 2.4rem;
@@ -126,4 +125,8 @@
   background-color: rgba(255, 255, 255, 0.6);
   border-radius: 12px;
   border: 1px solid rgba(209, 213, 219, 0.3);
+}
+.image-heart {
+  height: 30px;
+  width: 30px;
 }

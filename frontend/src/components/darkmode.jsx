@@ -1,6 +1,12 @@
 import React from "react";
 
-export default function DarkMode({ setDarkMode, darkmode }) {
+export default function DarkMode({ darkmode, setDarkMode }) {
+  console.log(darkmode);
+  function toggleDarkmode() {
+    setDarkMode(darkmode === "0" ? "1" : "0");
+    localStorage.setItem("darkmode", darkmode === "0" ? "1" : "0");
+  }
+
   return (
     <div className="theme-mode">
       <div className="dark">
@@ -8,7 +14,8 @@ export default function DarkMode({ setDarkMode, darkmode }) {
           <input
             id="dark"
             type="checkbox"
-            onChange={() => setDarkMode(!darkmode)}
+            onChange={toggleDarkmode}
+            defaultChecked={darkmode === "1"}
           />
           <span className="slider round"> </span>
         </label>

@@ -49,7 +49,9 @@ export default function Map() {
   const [toggleCard, setToggleCard] = useState(false);
   const [idStationOrigin, setIdStationOrigin] = useState();
   const [idStationDestination, setIdStationDestination] = useState();
-  const [darkmode, setDarkMode] = useState(false);
+
+  const storageDarkmode = localStorage.getItem("darkmode") || "0";
+  const [darkmode, setDarkMode] = useState(storageDarkmode);
   const [showLinks, setShowLinks] = useState(false);
   const alreadyConnected = localStorage.getItem("alreadyConnected") || false;
   const [readyOrNot, setReadyOrNot] = useState(alreadyConnected);

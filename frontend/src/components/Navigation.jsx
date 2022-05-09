@@ -65,25 +65,9 @@ export default function Navigation(props) {
         <div className="navbar-logo">
           <ul className="navbar-links">
             <li className="navbar-item">
-              <img
-                className="image-item"
-                src={LogoTopsecret}
-                alt="Logo Top-secret"
-              />
-              <a href="/" className="navbar-link">
-                TOP-SECRET
-              </a>
-            </li>
-            <li className="navbar-item">
               <img className="image-item" src={bike} alt="Logo Vélo Toulouse" />
               <a href="/" className="navbar-link">
                 Vélo-Toulouse
-              </a>
-            </li>
-            <li className="navbar-item">
-              <img className="image-item" src={heart} alt="Logo Favoris" />
-              <a href="/" className="navbar-link">
-                Favoris
               </a>
             </li>
             <li className="navbar-item">
@@ -118,9 +102,15 @@ export default function Navigation(props) {
           <h5>Contact us (please do not)</h5>
           <h6>Licence</h6>
           <div className="logo-social">
-            <img src={Facebook} alt="logo facebook" />
-            <img src={Twitter} alt="logo twitter" />
-            <img src={Instagram} alt="logo instagram" />
+            <a href="https://www.facebook.com/WildCodeSchool/">
+              <img src={Facebook} alt="logo facebook" />
+            </a>
+            <a href="https://twitter.com/wildcodeschool">
+              <img src={Twitter} alt="logo twitter" />
+            </a>
+            <a href="https://www.instagram.com/wildcodeschoolofficial/?hl=en">
+              <img src={Instagram} alt="logo instagram" />
+            </a>
           </div>
         </div>
       </div>
