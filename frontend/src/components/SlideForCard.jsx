@@ -5,7 +5,13 @@ import ProximityStation from "./ProximityStation";
 import "../assets/css/SlideForCard.css";
 import ProximityFilter from "../assets/algos/ProximityFilter";
 
-function SlideForCard({ setSlideState, userPosition, mapState }) {
+function SlideForCard({
+  setSlideState,
+  userPosition,
+  mapState,
+  setUniqueMarker,
+  setToggleCard,
+}) {
   const [isFavourite, setisFavourite] = useState(null);
   const [BDDlist, setBDDlist] = useState([]);
   const [isHidden, setisHidden] = useState(true);
@@ -94,6 +100,8 @@ function SlideForCard({ setSlideState, userPosition, mapState }) {
                   mapState={mapState}
                   setSlideState={setSlideState}
                   userPos={userPosition}
+                  setUniqueMarker={setUniqueMarker}
+                  setToggleCard={setToggleCard}
                 />
               </div>
             ))
@@ -109,6 +117,8 @@ function SlideForCard({ setSlideState, userPosition, mapState }) {
                   stationObj={stationObj}
                   mapState={mapState}
                   setSlideState={setSlideState}
+                  setUniqueMarker={setUniqueMarker}
+                  setToggleCard={setToggleCard}
                 />
               ) : null
             )}

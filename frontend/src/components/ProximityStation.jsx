@@ -6,6 +6,8 @@ export default function ProximityStation({
   setSlideState,
   cardInfos,
   stationObj,
+  setUniqueMarker,
+  setToggleCard,
 }) {
   return (
     <div>
@@ -15,6 +17,8 @@ export default function ProximityStation({
           mapState={mapState}
           setSlideState={setSlideState}
           stationObj={stationObj}
+          setUniqueMarker={setUniqueMarker}
+          setToggleCard={setToggleCard}
         />
       ) : (
         "Chargement..."
