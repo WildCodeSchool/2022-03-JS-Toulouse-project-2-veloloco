@@ -82,8 +82,6 @@ export default function Map() {
     }
   };
 
-  const userConnected = localStorage.getItem("user");
-   
 
   return (
     <div id="map">

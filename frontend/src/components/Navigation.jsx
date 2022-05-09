@@ -23,6 +23,9 @@ export default function Navigation(props) {
     darkmode,
     mapState,
   } = props;
+
+  const userConnected = JSON.parse(localStorage.getItem("user"));
+
   return (
     <div className="navbar-container">
       <button
@@ -43,6 +46,14 @@ export default function Navigation(props) {
           >
             <img className="cross-close" src={Cross} alt="Cross Close" />
           </button>
+        </div>
+        <div className="welcomeUser">
+          {userConnected ? (
+            <h2>
+              Bonjour, {userConnected.firstName}
+              <span>&#128075;</span>
+            </h2>
+          ) : null}
         </div>
         <div className="navbar-logo">
           <ul className="navbar-links">
