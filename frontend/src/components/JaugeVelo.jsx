@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function JaugeVelo({ proximityStation, iteration }) {
+export default function JaugeVelo({ station }) {
   const jaugeVeloStyle = {
     display: "flex",
     width: "80%",
@@ -8,10 +8,7 @@ export default function JaugeVelo({ proximityStation, iteration }) {
     backgroundColor: "#7b0828",
     borderRadius: "15px",
   };
-  let availableBikes =
-    (proximityStation[iteration].available_bikes /
-      proximityStation[iteration].bike_stands) *
-    100;
+  let availableBikes = (station.available_bikes / station.bike_stands) * 100;
   availableBikes += "%";
   const myavailablebikesstyle = {
     width: availableBikes,
@@ -21,9 +18,7 @@ export default function JaugeVelo({ proximityStation, iteration }) {
     fontWeight: "bold",
   };
   let availableBikeStands =
-    (proximityStation[iteration].available_bike_stands /
-      proximityStation[iteration].bike_stands) *
-    100;
+    (station.available_bike_stands / station.bike_stands) * 100;
   availableBikeStands += "%";
   const myavailablebikesstandsstyle = {
     width: availableBikeStands,
@@ -31,16 +26,16 @@ export default function JaugeVelo({ proximityStation, iteration }) {
     color: "white",
   };
   let deadBikes =
-    ((proximityStation[iteration].bike_stands -
-      proximityStation[iteration].available_bikes -
-      proximityStation[iteration].available_bike_stands) /
-      proximityStation[iteration].bike_stands) *
+    ((station.bike_stands -
+      station.available_bikes -
+      station.available_bike_stands) /
+      station.bike_stands) *
     100;
   deadBikes += "%";
   const deadBikesNumber =
-    proximityStation[iteration].bike_stands -
-    proximityStation[iteration].available_bikes -
-    proximityStation[iteration].available_bike_stands;
+    station.bike_stands -
+    station.available_bikes -
+    station.available_bike_stands;
   const myDeadBikesStyle = {
     width: deadBikes,
     backgroundColor: "grey",
@@ -49,16 +44,16 @@ export default function JaugeVelo({ proximityStation, iteration }) {
   };
   return (
     <div style={jaugeVeloStyle}>
-      {proximityStation[iteration].available_bikes !== 0 ? (
+      {station.available_bikes !== 0 ? (
         <div id="available-bikes" style={myavailablebikesstyle}>
-          {proximityStation[iteration].available_bikes}
+          {station.available_bikes}
         </div>
       ) : (
         <div />
       )}
-      {proximityStation[iteration].available_bike_stands !== 0 ? (
+      {station.available_bike_stands !== 0 ? (
         <div id="available-bike-stands" style={myavailablebikesstandsstyle}>
-          {proximityStation[iteration].available_bike_stands}
+          {station.available_bike_stands}
         </div>
       ) : (
         <div />
