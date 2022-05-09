@@ -42,7 +42,6 @@
   flex-direction: row;
   align-items: center;
   font-size: 15px;
-  margin: 0.5rem 0;
 }
 .adress-station {
   font-size: 15px;
@@ -50,10 +49,16 @@
   margin: 0.5rem 0;
 }
 .image-heart {
-  height: 60px;
-  width: 60px;
+  height: 30px;
+  width: 30px;
 }
-
+.fav-button {
+  border: none;
+  background: none;
+  cursor: pointer; 
+  margin: 0.5rem 0.5rem 0 0; 
+  padding: 0;
+}
 @media screen and (min-width: 780px) {
   .card-station {
     display: flex;
@@ -66,6 +71,9 @@
   .name-jauge {
     display: flex;
     flex-direction: column;
+  }
+  .card-paragraph {
+    height: 50rem;
   }
   .header-card {
     display: flex;
@@ -84,7 +92,9 @@
     display: flex;
     align-items: center;
     width: 30vw;
-    margin: 0.5rem 0;
+  }
+  .jauge-cardstation {
+    height: 15rem;
   }
   .photo-city .image-city {
     width: 196px;
@@ -103,7 +113,7 @@
   .name-station {
     font-size: 2rem;
     font-weight: bolder;
-    width: 400px;
+    width: 420px;
     margin-right: 2.4rem;
   }
   .image-city {
@@ -127,6 +137,6 @@
   border: 1px solid rgba(209, 213, 219, 0.3);
 }
 .image-heart {
-  height: 30px;
-  width: 30px;
+  height: 50px;
+  width: 50px;
 }
