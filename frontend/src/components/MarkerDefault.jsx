@@ -15,7 +15,7 @@ const iconDanger = L.icon({
   iconAnchor: [12, 41],
 });
 // eslint-disable-next-line no-unused-vars
-const markerIndisponible = L.icon({
+const iconIndisponible = L.icon({
   iconUrl: markerblack,
   iconSize: [25, 41],
   iconAnchor: [12, 41],
@@ -36,10 +36,23 @@ export default function MarkerDefault({
       "color: #c635f2; font-size: 20pt;"
     );
   }
-  if (marker.available_bikes <= 3) {
+  if (marker.available_bikes <= 3 && marker.available_bikes > 0) {
     return (
       <Marker
         icon={iconDanger}
+        position={positionStation}
+        eventHandlers={{
+          click: () => {
+            clickAction();
+          },
+        }}
+      />
+    );
+  }
+  if (marker.available_bikes <= 0) {
+    return (
+      <Marker
+        icon={iconIndisponible}
         position={positionStation}
         eventHandlers={{
           click: () => {

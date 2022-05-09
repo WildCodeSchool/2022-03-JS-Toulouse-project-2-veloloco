@@ -13,7 +13,7 @@
   background-color: white;
   backdrop-filter: blur(1px) saturate(200%);
   -webkit-backdrop-filter: blur(1px) saturate(200%);
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 1);
   border: 1px solid rgba(209, 213, 219, 0.3);
 }
 .logo-title {
@@ -61,7 +61,6 @@ h2 {
   height: 6rem;
 }
 .image-item {
-  background-color: #7b0828;
   width: 2.7rem;
   height: 2.7rem;
   border-radius: 0.5rem;
@@ -80,13 +79,34 @@ h2 {
 .burger-logo {
   visibility: hidden;
 }
+.marker-container {
+  display: flex;
+  flex-direction: column;
+}
 @media screen and (max-width: 780px) {
   .logo-burger {
     width: 30px;
     height: 25px;
     left: 10%;
   }
+  .marker-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .marker-container span {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+    align-content: flex-start;
+    margin-left: 30px;
+  }
 
+  .marker-container img {
+    height: 35px;
+  }
   .cross-logo {
     display: inline-block;
     background: transparent;
@@ -113,7 +133,7 @@ h2 {
     background-color: white;
     backdrop-filter: blur(1px) saturate(200%);
     -webkit-backdrop-filter: blur(1px) saturate(200%);
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 1);
     border: 1px solid rgba(209, 213, 219, 0.3);
   }
   .show-nav {
@@ -188,7 +208,6 @@ h2 {
     height: 120px;
   }
   .image-item {
-    background-color: #7b0828;
     width: 40px;
     height: 40px;
     border-radius: 0.5rem;

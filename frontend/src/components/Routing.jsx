@@ -42,10 +42,6 @@ export default function Routing({
     routingControl.getRouter().options.urlParameters.vehicle = "bike";
     routingControl.route();
 
-    routingControl.on("routesfound", (e) => {
-      const routes = e;
-      console.log(routes.summary);
-    });
     // eslint-disable-next-line consistent-return
     return () => map.removeControl(routingControl);
   }, [map]);
