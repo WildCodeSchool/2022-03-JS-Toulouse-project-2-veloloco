@@ -6,6 +6,8 @@ export default function FavouriteStation({
   setSlideState,
   userPos,
   favouriteStation,
+  setUniqueMarker,
+  setToggleCard,
 }) {
   return (
     <div>
@@ -15,6 +17,8 @@ export default function FavouriteStation({
           favouriteStation={favouriteStation}
           mapState={mapState}
           userPos={userPos}
+          setUniqueMarker={setUniqueMarker}
+          setToggleCard={setToggleCard}
         />
       ) : (
         "Chargement..."
