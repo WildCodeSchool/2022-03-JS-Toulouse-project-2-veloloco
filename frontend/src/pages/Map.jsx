@@ -85,6 +85,7 @@ export default function Map() {
       setShowLinks(!showLinks);
     }
   };
+  console.log("tacos");
 
   return (
     <div id="map">

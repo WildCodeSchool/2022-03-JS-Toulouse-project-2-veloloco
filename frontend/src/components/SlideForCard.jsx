@@ -65,8 +65,8 @@ function SlideForCard({
       className={
         statusDarkmode === "1" ? "main-collumn-slidedark" : "main-collumn-slide"
       }
-      onMouseEnter={mouseEnterDiv}
-      onMouseLeave={mouseLeaveDiv}
+      /* onMouseEnter={mouseEnterDiv}
+    onMouseLeave={mouseLeaveDiv} */
     >
       <div
         className="legend-container"
