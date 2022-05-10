@@ -154,7 +154,7 @@ export default function AboutUs() {
                 alt="logo"
               />
             </a>
-            <a href="https://flappyhenri.vercel.app/game.html">
+            <a href="https://flappyhenri.vercel.app/index.html">
               <img
                 name="logo-flappy-henri"
                 type="logo"
