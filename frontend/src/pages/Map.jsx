@@ -35,6 +35,7 @@ export default function Map() {
   const [apiResult, setApiResult] = useState([]);
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(success, error, option);
+
     axios
       .get(
         "https:/api.jcdecaux.com/vls/v1/stations?contract=toulouse&apiKey=ac948d6ebb42f6edfe3322e2089d50095869b8e3"
@@ -65,6 +66,7 @@ export default function Map() {
       17
     );
   }
+
   function Mapclick() {
     setMapState.map = useMapEvents({
       click() {
@@ -208,7 +210,6 @@ export default function Map() {
                 slideState={slideState}
                 setSlideState={setSlideState}
                 userPosition={location}
-                setMapState={setMapState}
                 mapState={mapState}
                 setToggleCard={setToggleCard}
                 setUniqueMarker={setUniqueMarker}

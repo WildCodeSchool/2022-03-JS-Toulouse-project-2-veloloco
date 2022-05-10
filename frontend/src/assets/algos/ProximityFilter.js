@@ -7,7 +7,7 @@ const ProximityFilter = (userPosition, stationsList) => {
   };
   const closerFounder = (coords, userCoord) => {
     let distance = 0;
-    let oldDistance = 1000;
+    let oldDistance = Infinity;
     let closer = [];
 
     for (let i = 0; i < coords.length; i += 1) {
