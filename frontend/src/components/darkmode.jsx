@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function DarkMode({ darkmode, setDarkMode }) {
-  console.log(darkmode);
   function toggleDarkmode() {
     setDarkMode(darkmode === "0" ? "1" : "0");
     localStorage.setItem("darkmode", darkmode === "0" ? "1" : "0");
