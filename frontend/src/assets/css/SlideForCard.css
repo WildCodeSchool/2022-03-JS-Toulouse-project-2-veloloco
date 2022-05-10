@@ -15,7 +15,38 @@
   backdrop-filter: blur(15px);
 }
 
+.legend-available-bikes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  width: 30%;
+  color: black;
+  background-color: #32936f;
+  font-size: large;
+}
 
+.legend-available-bikes-standings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: 25px;
+  color: white;
+  background-color: #7b0828;
+  font-size: large;
+}
+
+.legend-dead-bikes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  color: white;
+  background-color: grey;
+  font-size: large;
+  height: 25px;
+}
 
 @media screen and (max-width: 783px) {
   .main-collumn-slide {
@@ -62,22 +93,26 @@
   padding: 5px;
 }
 
+.legend-container h3 {
+  text-align: right;
+}
+
 .legend-available-bikes {
-  width: 150px;
+  width: 40%;
   color: black;
   background-color: #32936f;
   border-radius: 15px;
 }
 
 .legend-available-bikes-standings {
-  width: 150px;
+  width: 40%;
   color: white;
   background-color: #7b0828;
   border-radius: 15px;
 }
 
 .legend-dead-bikes {
-  width: 150px;
+  width: 40%;
   color: white;
   background-color: grey;
   border-radius: 15px;

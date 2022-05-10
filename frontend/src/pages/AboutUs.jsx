@@ -154,6 +154,14 @@ export default function AboutUs() {
                 alt="logo"
               />
             </a>
+            <a href="https://aristotia.github.io/flappyhenri/">
+              <img
+                name="logo-flappy-henri"
+                type="logo"
+                src="/src/assets/images/logo-flappy-henri.png"
+                alt="logo"
+              />
+            </a>
           </div>
         </div>
       </div>
