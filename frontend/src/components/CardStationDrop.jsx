@@ -65,13 +65,13 @@ export default function CardStationDrop({ uniqueMarker, apiResult }) {
                 {window.matchMedia("(min-width: 780px)").matches ? (
                   <JaugeVelo
                     station={apiResult[iteration]}
-                    height="3rem"
-                    fontsize="2.1rem"
+                    height="2.5rem"
+                    fontsize="2rem"
                   />
                 ) : (
                   <JaugeVelo
                     station={apiResult[iteration]}
-                    height="1.6rem"
+                    height="1.5rem"
                     fontsize="1.1rem"
                   />
                 )}
