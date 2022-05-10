@@ -40,7 +40,7 @@ export default function Recherche({ apiResult: apiStations, mapState }) {
           autoComplete="off"
           name="search"
           value={valueOrigin}
-          placeholder="On va ou aujourd'hui ?  👇"
+          placeholder="On va où aujourd'hui ?  👇"
           onChange={(e) => {
             setValueOrigin(e.target.value);
             setDisplayChange(true);
