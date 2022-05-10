@@ -5,9 +5,11 @@
 :root {
   --map-tiles-filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg)
     saturate(0.3) brightness(0.5);
+    overflow:hidden;
 }
 #map {
   width: 100vw;
+  overflow: hidden;
 }
 .leaflet-tile {
   filter: var(--map-tiles-filter, none);
@@ -106,26 +108,30 @@
     justify-content: center;
     align-items: center;
   }
-}
-
-.cardstation {
-  height: 16%;
-  width: 100vw;
+  .containersearch {
+    gap: 1.5rem;
+    width: 45%;
+  }
 }
 .containersearch {
   display: flex;
   position: absolute;
-  z-index: 1001;
+  z-index: 10050;
   height: 11%;
-  width: 100%;
+  left: 30vw;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  justify-content: space-around;
+  right: 30vw;
 }
+
+.cardstation {
+  height: 15%;
+  width: 100vw;
+}
+
 .btn-geo-container {
   height: 100vh;
-  width: 100vw;
   position: absolute;
   display: flex;
   flex-direction: column;
