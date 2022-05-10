@@ -11,7 +11,7 @@ export default function InfoFooterItinerary(itineraryInfo) {
   } else if (duration >= 60) {
     price = 0.5 + Math.floor(duration / 60) - 1;
   }
-  // const distance = itineraryInfo.routes[0].summary.totalDistance;
+
   return (
     <div className="info-footer">
       <li className="info-box"> {distance} Km</li>

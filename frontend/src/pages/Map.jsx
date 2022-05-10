@@ -63,7 +63,6 @@ export default function Map() {
       17
     );
   }
-  console.log(mapState);
 
   function Mapclick() {
     setMapState.map = useMapEvents({
