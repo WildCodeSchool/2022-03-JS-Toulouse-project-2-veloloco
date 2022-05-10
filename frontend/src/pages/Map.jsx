@@ -207,7 +207,6 @@ export default function Map() {
                 slideState={slideState}
                 setSlideState={setSlideState}
                 userPosition={location}
-
                 mapState={mapState}
                 setToggleCard={setToggleCard}
                 setUniqueMarker={setUniqueMarker}

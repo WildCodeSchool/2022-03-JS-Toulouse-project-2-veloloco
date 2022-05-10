@@ -10,6 +10,7 @@ export default function Routing({
   originStation,
   destinationStation,
   mapItineraryState,
+  setItineraryInfo,
 }) {
   const map = useMap(mapItineraryState);
 
@@ -38,6 +39,9 @@ export default function Routing({
       fitSelectedRoutes: true,
       showAlternatives: false,
     }).addTo(map);
+    routingControl.on("routesfound", (e) => {
+      setItineraryInfo(e);
+    });
 
     routingControl.getRouter().options.urlParameters.vehicle = "bike";
     routingControl.route();
@@ -45,6 +49,5 @@ export default function Routing({
     // eslint-disable-next-line consistent-return
     return () => map.removeControl(routingControl);
   }, [map]);
-
   return null;
 }

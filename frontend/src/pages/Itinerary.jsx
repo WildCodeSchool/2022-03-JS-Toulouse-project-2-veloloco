@@ -4,11 +4,12 @@ import "leaflet/dist/leaflet.css";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import InfoFooterItinerary from "../components/InfoFooterItinerary";
 import Geo from "../components/Geo";
-
 import Routing from "../components/Routing";
 
 export default function Itinerary() {
+  const [itineraryInfo, setItineraryInfo] = useState();
   const position = [43.599731, 1.432891];
   const params = useParams();
   const [originStation, setOriginStation] = useState();
@@ -72,7 +73,6 @@ export default function Itinerary() {
       17
     );
   }
-
   return (
     <>
       <div />
@@ -98,7 +98,7 @@ export default function Itinerary() {
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="btn-geo"
+              className="btn-geo-itinerary"
               onClick={mapItineraryState ? flyPositionUser : null}
             >
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -106,11 +106,22 @@ export default function Itinerary() {
               <path d="M12 17l-1 -4l-4 -1l9 -4z" />
             </svg>
           </div>
+          <div>
+            {itineraryInfo !== undefined ? (
+              <div>
+                zizi
+                <InfoFooterItinerary itineraryInfo={itineraryInfo} />
+              </div>
+            ) : (
+              <div className="info-footer">zizi</div>
+            )}
+          </div>
           <Geo
             localisationlat={location.coordinates.lat}
             localisationlng={location.coordinates.lng}
           />
           <Routing
+            setItineraryInfo={setItineraryInfo}
             originStation={originStation}
             destinationStation={destinationStation}
             mapItineraryState={mapItineraryState}
