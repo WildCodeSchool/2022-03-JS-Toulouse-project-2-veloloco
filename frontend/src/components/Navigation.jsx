@@ -97,7 +97,7 @@ export default function Navigation(props) {
         <hr className="hr-burgerbottom" />
         <div className="contact">
           <h5>Contact us (please do not)</h5>
-          <h6>Licence</h6>
+          <h6 className="licence">Licence</h6>
           <div className="logo-social">
             <a href="https://www.facebook.com/WildCodeSchool/">
               <img src={Facebook} alt="logo facebook" />
