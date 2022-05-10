@@ -49,7 +49,7 @@ export default function Map() {
   const [toggleCard, setToggleCard] = useState(false);
   const [idStationOrigin, setIdStationOrigin] = useState();
   const [idStationDestination, setIdStationDestination] = useState();
-
+  const [mouseOver, setMouseOver] = useState(true);
   const storageDarkmode = localStorage.getItem("darkmode") || "0";
   const [darkmode, setDarkMode] = useState(storageDarkmode);
   const [showLinks, setShowLinks] = useState(false);
@@ -180,6 +180,7 @@ export default function Map() {
           <MapContainer
             center={[location.coordinates.lat, location.coordinates.lng]}
             zoom={20}
+            scrollWheelZoom={!!mouseOver}
             whenCreated={(map) => setMapState({ map })}
             zoomControl={false}
           >
@@ -211,6 +212,8 @@ export default function Map() {
                 mapState={mapState}
                 setToggleCard={setToggleCard}
                 setUniqueMarker={setUniqueMarker}
+                setMouseOver={setMouseOver}
+                mouseOver={mouseOver}
               />
             </div>
             <LayerChange darkmode={darkmode} />

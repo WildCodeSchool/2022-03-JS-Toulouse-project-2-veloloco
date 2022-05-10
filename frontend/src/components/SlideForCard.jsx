@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 import axios from "axios";
 import FavouriteStation from "./FavouriteStation";
 import ProximityStation from "./ProximityStation";
@@ -11,6 +12,8 @@ function SlideForCard({
   mapState,
   setUniqueMarker,
   setToggleCard,
+  setMouseOver,
+  mouseOver,
 }) {
   const [isFavourite, setisFavourite] = useState(null);
   const [BDDlist, setBDDlist] = useState([]);
@@ -50,11 +53,20 @@ function SlideForCard({
     setisHidden(!isHidden);
   };
   const statusDarkmode = localStorage.getItem("darkmode");
+
+  function mouseEnterDiv() {
+    setMouseOver(!mouseOver);
+  }
+  function mouseLeaveDiv() {
+    setMouseOver(!mouseOver);
+  }
   return (
     <div
       className={
         statusDarkmode === "1" ? "main-collumn-slidedark" : "main-collumn-slide"
       }
+      onMouseEnter={mouseEnterDiv}
+      onMouseLeave={mouseLeaveDiv}
     >
       <div className="legend-container">
         <h2>Légende</h2>
@@ -88,15 +100,7 @@ function SlideForCard({
           <div className="legend-dead-bikes">7</div>
         </div>
       )}
-      <div
-        className={
-          statusDarkmode === "1"
-            ? "slide-menu-title-favdark"
-            : "slide-menu-title-fav"
-        }
-      >
-        Mes favoris
-      </div>
+      <div className="slide-menu-title-fav">Mes favoris</div>
       <div className="sub-collumn-slide">
         {isFavourite !== null
           ? isFavourite.map((favouriteStation) => (
@@ -118,15 +122,7 @@ function SlideForCard({
           : "Chargement..."}
 
         <div className="separator"> </div>
-        <div
-          className={
-            statusDarkmode === "1"
-              ? "slide-menu-title-proxdark"
-              : "slide-menu-title-prox"
-          }
-        >
-          Mes stations proches
-        </div>
+        <div className="slide-menu-title-prox">Mes stations proches</div>
         {cardInfos !== null ? (
           <div className="proximity-stations-cont">
             {cardInfos.map((stationObj) =>

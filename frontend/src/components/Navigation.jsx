@@ -75,8 +75,11 @@ export default function Navigation(props) {
         <div className="welcomeUser">
           {userConnected ? (
             <h2>
-              Bonjour {userConnected.firstName}
-              <span>&nbsp;&#128075;</span>
+              Bonjour{" "}
+              {userConnected.firstName
+                ? userConnected.firstName
+                : "Mysterieux inconnu"}
+              <span> {userConnected.firstName ? "👋" : "🧐"}</span>
             </h2>
           ) : null}
         </div>
@@ -89,7 +92,7 @@ export default function Navigation(props) {
                 alt="Logo Vélo Toulouse"
               />
               <a
-                href="/"
+                href="http://www.velo.toulouse.fr/Les-stations/Trouver-une-station"
                 className={
                   statusDarkmode === "1" ? "navbar-linkdark" : "navbar-link"
                 }
