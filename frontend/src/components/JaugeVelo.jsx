@@ -1,12 +1,12 @@
 import React from "react";
 
-export default function JaugeVelo({ station, height }) {
+export default function JaugeVelo({ station }) {
   const jaugeVeloStyle = {
     display: "flex",
     width: "80%",
+    height: "1.5em",
     backgroundColor: "#7b0828",
     borderRadius: "15px",
-    height: `${height}`,
   };
   let availableBikes = (station.available_bikes / station.bike_stands) * 100;
   availableBikes += "%";

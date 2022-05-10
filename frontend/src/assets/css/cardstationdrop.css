@@ -49,8 +49,8 @@
   margin: 0.5rem 0;
 }
 .image-heart {
-  height: 30px;
-  width: 30px;
+  height: 20px;
+  width: 20px;
 }
 .fav-button {
   border: none;
@@ -121,6 +121,10 @@
     height: 9rem;
     border-radius: 5px;
   }
+  .image-heart {
+    height: 50px;
+    width: 50px;
+  } 
 }
 .listorigin {
   backdrop-filter: blur(2px) saturate(200%);
