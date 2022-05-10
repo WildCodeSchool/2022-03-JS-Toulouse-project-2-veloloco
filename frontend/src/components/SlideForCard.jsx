@@ -68,7 +68,14 @@ function SlideForCard({
       onMouseEnter={mouseEnterDiv}
       onMouseLeave={mouseLeaveDiv}
     >
-      <div className="legend-container">
+      <div
+        className="legend-container"
+        style={
+          isHidden
+            ? { boxShadow: "0 0 20px 8px rgba(51, 51, 51, 0.6)" }
+            : { boxShadow: "none" }
+        }
+      >
         <h2>Légende</h2>
         {isHidden && (
           <button
@@ -95,9 +102,20 @@ function SlideForCard({
       </div>
       {!isHidden && (
         <div className="legend-content">
-          <div className="legend-available-bikes">2</div>
-          <div className="legend-available-bikes-standings">2</div>
-          <div className="legend-dead-bikes">7</div>
+          <div className="legend-item">
+            <div className="legend-available-bikes">2</div>
+
+            <h3>Vélos disponibles</h3>
+          </div>
+          <div className="legend-item">
+            <div className="legend-available-bikes-standings">2</div>
+
+            <h3>Places disponibles</h3>
+          </div>
+          <div className="legend-item">
+            <div className="legend-dead-bikes">7</div>
+            <h3>Vélos indisponibles</h3>
+          </div>
         </div>
       )}
       <div className="slide-menu-title-fav">Mes favoris</div>

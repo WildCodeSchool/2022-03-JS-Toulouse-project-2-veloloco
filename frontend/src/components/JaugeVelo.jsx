@@ -6,7 +6,7 @@ export default function JaugeVelo({ station, height, fontsize }) {
     width: "80%",
     backgroundColor: "#7b0828",
     borderRadius: "15px",
-    height: height ?? "1.5rem",
+    height: height ?? "1.3rem",
   };
   let availableBikes = (station.available_bikes / station.bike_stands) * 100;
   availableBikes += "%";
