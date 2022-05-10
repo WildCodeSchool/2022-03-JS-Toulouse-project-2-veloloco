@@ -9,7 +9,7 @@ export default function CardStationDrop({ uniqueMarker, apiResult }) {
     (station) => station.number === uniqueMarker.number
   );
 
-  const nameStation = uniqueMarker.name.toLowerCase().substr(7).split("");
+  const nameStation = uniqueMarker.name.substr(7).split("");
   const adressStation = uniqueMarker.address;
 
   const [photoLink, setPhotoLink] = useState("");
@@ -62,7 +62,19 @@ export default function CardStationDrop({ uniqueMarker, apiResult }) {
             </div>
             <div className="card-paragraph">
               <div className="jauge">
-                <JaugeVelo station={apiResult[iteration]} />
+                {window.matchMedia("(min-width: 780px)").matches ? (
+                  <JaugeVelo
+                    station={apiResult[iteration]}
+                    height="3rem"
+                    fontsize="2.1rem"
+                  />
+                ) : (
+                  <JaugeVelo
+                    station={apiResult[iteration]}
+                    height="1.6rem"
+                    fontsize="1.1rem"
+                  />
+                )}
               </div>
               <p className="adress-station">{adressStation}</p>
             </div>

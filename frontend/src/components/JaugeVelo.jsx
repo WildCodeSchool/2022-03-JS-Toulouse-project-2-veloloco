@@ -1,12 +1,12 @@
 import React from "react";
 
-export default function JaugeVelo({ station }) {
+export default function JaugeVelo({ station, height, fontsize }) {
   const jaugeVeloStyle = {
     display: "flex",
     width: "80%",
-    height: "1.5em",
     backgroundColor: "#7b0828",
     borderRadius: "15px",
+    height: height ?? "1.5rem",
   };
   let availableBikes = (station.available_bikes / station.bike_stands) * 100;
   availableBikes += "%";
@@ -16,6 +16,7 @@ export default function JaugeVelo({ station }) {
     borderRadius: "15px",
     color: "black",
     fontWeight: "bold",
+    fontSize: fontsize ?? "1rem",
   };
   let availableBikeStands =
     (station.available_bike_stands / station.bike_stands) * 100;
@@ -24,6 +25,7 @@ export default function JaugeVelo({ station }) {
     width: availableBikeStands,
     borderRadius: "15px",
     color: "white",
+    fontSize: fontsize ?? "1rem",
   };
   let deadBikes =
     ((station.bike_stands -
@@ -41,6 +43,7 @@ export default function JaugeVelo({ station }) {
     backgroundColor: "grey",
     color: "white",
     borderRadius: "15px",
+    fontSize: fontsize ?? "1rem",
   };
   return (
     <div style={jaugeVeloStyle}>
