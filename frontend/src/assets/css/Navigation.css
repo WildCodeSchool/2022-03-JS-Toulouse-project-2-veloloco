@@ -124,6 +124,16 @@ h2 {
   background: #333333;
 }
 .logo-social {
+  height: 200px;
+  display: flex;
+  align-items: flex-end;
+  margin-top: 3rem;
+}
+.licence {
+  height: 150px;
+}
+.contact-us {
+  height: 80px;
   margin-top: 3rem;
 }
 @media screen and (max-width: 780px) {
@@ -317,5 +327,18 @@ h2 {
   }
   .licence {
     margin-bottom: 1.5rem;
+  }
+  .logo-social {
+    height: 80px;
+    display: flex;
+    align-items: flex-end;
+    margin-top: 2rem;
+  }
+  .licence {
+    height: 0px;
+  }
+  .contact-us {
+    height: 20px;
+    margin-top: 0rem;
   }
 }
