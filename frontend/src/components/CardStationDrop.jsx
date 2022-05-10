@@ -62,7 +62,11 @@ export default function CardStationDrop({ uniqueMarker, apiResult }) {
             </div>
             <div className="card-paragraph">
               <div className="jauge">
-                <JaugeVelo station={apiResult[iteration]} height="2.1rem" />
+                {window.matchMedia("(min-width: 780px)").matches ? (
+                  <JaugeVelo station={apiResult[iteration]} height="3rem" />
+                ) : (
+                  <JaugeVelo station={apiResult[iteration]} height="1.5rem" />
+                )}
               </div>
               <p className="adress-station">{adressStation}</p>
             </div>
