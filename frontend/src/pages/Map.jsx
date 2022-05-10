@@ -190,7 +190,7 @@ export default function Map() {
             <ZoomControl position="bottomleft" />
             {/* TODO empecher le zoom de map pour pouvoir scroll le slideer de droite */}
             <div className={slideState ? "right-slide-on" : "right-slide-off"}>
-              <div className="slide-button-cont">
+              <div className=    "slide-button-cont">
                 <button
                   type="button"
                   className="slide-button"
