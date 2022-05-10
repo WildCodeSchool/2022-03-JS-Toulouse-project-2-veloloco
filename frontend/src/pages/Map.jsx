@@ -114,17 +114,17 @@ export default function Map() {
               <path d="M12 17l-1 -4l-4 -1l9 -4z" />
             </svg>
           </div>
+          {mapState ? (
+            <Navigation
+              setShowLinks={setShowLinks}
+              showLinks={showLinks}
+              antiConflictMenu={() => antiConflictMenu()}
+              setDarkMode={setDarkMode}
+              darkmode={darkmode}
+              mapState={mapState}
+            />
+          ) : null}
           <div className="containersearch">
-            {mapState ? (
-              <Navigation
-                setShowLinks={setShowLinks}
-                showLinks={showLinks}
-                antiConflictMenu={() => antiConflictMenu()}
-                setDarkMode={setDarkMode}
-                darkmode={darkmode}
-                mapState={mapState}
-              />
-            ) : null}
             {toggleSearch ? (
               <Recherche apiResult={apiResult} mapState={mapState} />
             ) : (

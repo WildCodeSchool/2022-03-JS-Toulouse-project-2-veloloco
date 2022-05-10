@@ -23,6 +23,7 @@ export default function Navigation(props) {
     darkmode,
     mapState,
   } = props;
+  console.log(showLinks);
   return (
     <div className="navbar-container">
       <button
