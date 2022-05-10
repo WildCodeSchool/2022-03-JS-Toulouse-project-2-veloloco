@@ -49,18 +49,34 @@ function SlideForCard({
   const handleHiddenButton = () => {
     setisHidden(!isHidden);
   };
-
+  const statusDarkmode = localStorage.getItem("darkmode");
   return (
-    <div className="main-collumn-slide">
+    <div
+      className={
+        statusDarkmode === "1" ? "main-collumn-slidedark" : "main-collumn-slide"
+      }
+    >
       <div className="legend-container">
         <h2>Légende</h2>
         {isHidden && (
-          <button type="button" onClick={handleHiddenButton}>
+          <button
+            type="button"
+            className={
+              statusDarkmode === "1" ? "btn-legendedark" : "btn-legende"
+            }
+            onClick={handleHiddenButton}
+          >
             <img src="../src/assets/images/downarrow.png" alt="down arrow" />
           </button>
         )}
         {!isHidden && (
-          <button type="button" onClick={handleHiddenButton}>
+          <button
+            type="button"
+            className={
+              statusDarkmode === "1" ? "btn-legendedark" : "btn-legende"
+            }
+            onClick={handleHiddenButton}
+          >
             <img src="../src/assets/images/uparrow.png" alt="up arrow" />
           </button>
         )}
@@ -72,7 +88,15 @@ function SlideForCard({
           <div className="legend-dead-bikes">7</div>
         </div>
       )}
-      <div className="slide-menu-title-fav">Mes favoris</div>
+      <div
+        className={
+          statusDarkmode === "1"
+            ? "slide-menu-title-favdark"
+            : "slide-menu-title-fav"
+        }
+      >
+        Mes favoris
+      </div>
       <div className="sub-collumn-slide">
         {isFavourite !== null
           ? isFavourite.map((favouriteStation) => (
@@ -94,7 +118,15 @@ function SlideForCard({
           : "Chargement..."}
 
         <div className="separator"> </div>
-        <div className="slide-menu-title-prox">Mes stations proches</div>
+        <div
+          className={
+            statusDarkmode === "1"
+              ? "slide-menu-title-proxdark"
+              : "slide-menu-title-prox"
+          }
+        >
+          Mes stations proches
+        </div>
         {cardInfos !== null ? (
           <div className="proximity-stations-cont">
             {cardInfos.map((stationObj) =>

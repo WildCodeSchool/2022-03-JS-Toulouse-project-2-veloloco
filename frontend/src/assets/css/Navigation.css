@@ -1,4 +1,4 @@
-.navbar {
+.navbarnotdark {
   display: flex;
   flex-direction: column;
   width: 300px;
@@ -11,6 +11,25 @@
   box-shadow: 0 0 2.5em;
   margin: 0rem 5rem 0.5rem 0rem;
   background-color: white;
+  backdrop-filter: blur(1px) saturate(200%);
+  -webkit-backdrop-filter: blur(1px) saturate(200%);
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(209, 213, 219, 0.3);
+}
+.navbardark {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  position: absolute;
+  top: 0;
+  color: white;
+  left: 4px;
+  z-index: 1000;
+  height: 100vh;
+  font-family: var(--nunito);
+  box-shadow: 0 0 2.5em;
+  margin: 0rem 5rem 0.5rem 0rem;
+  background-color: #383838;
   backdrop-filter: blur(1px) saturate(200%);
   -webkit-backdrop-filter: blur(1px) saturate(200%);
   background-color: rgba(255, 255, 255, 1);
@@ -67,11 +86,18 @@ h2 {
   margin-right: 0.5rem;
 }
 .navbar-link {
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   padding: 0.6rem;
   text-decoration: none;
   color: #7b0828;
 }
+.navbar-linkdark {
+  font-size: 1.5rem;
+  padding: 0.6rem;
+  text-decoration: none;
+  color: white;
+}
+
 .navbar-container {
   width: 30px;
   height: 30px;
@@ -88,6 +114,16 @@ h2 {
 .marker-container span {
   display: flex;
   gap: 30px;
+}
+.title-burgerdark {
+  font-size: 1.2rem;
+  color: #ffffff;
+  background: #333333;
+  text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+    #ff2d95 0px 0px 20px, #ff2d95 0px 0px 30px, #ff2d95 0px 0px 40px,
+    #ff2d95 0px 0px 50px, #ff2d95 0px 0px 75px;
+  color: #ffffff;
+  background: #333333;
 }
 @media screen and (max-width: 780px) {
   .logo-burger {
@@ -108,7 +144,7 @@ h2 {
     align-items: center;
     gap: 30px;
     align-content: flex-start;
-    margin-left: 30px;
+    margin-left: 20px;
   }
 
   .marker-container img {
@@ -125,7 +161,8 @@ h2 {
     margin-left: 1rem;
     background-color: transparent;
   }
-  .navbar {
+
+  .navbarnotdark {
     display: flex;
     flex-direction: column;
     width: 80vw;
@@ -138,6 +175,24 @@ h2 {
     box-shadow: 0 0 2.5em;
     margin: 0.5rem 5rem 0.5rem 0rem;
     background-color: white;
+    backdrop-filter: blur(1px) saturate(200%);
+    -webkit-backdrop-filter: blur(1px) saturate(200%);
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(209, 213, 219, 0.3);
+  }
+  .navbardark {
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1200;
+    height: 98vh;
+    border-radius: 0 2rem 2rem 0;
+    box-shadow: 0 0 2.5em;
+    margin: 0.5rem 5rem 0.5rem 0rem;
+    background-color: #383838;
     backdrop-filter: blur(1px) saturate(200%);
     -webkit-backdrop-filter: blur(1px) saturate(200%);
     background-color: rgba(255, 255, 255, 1);
@@ -187,6 +242,16 @@ h2 {
     font-size: 1rem;
     color: #7b0828;
   }
+  .title-burgerdark {
+    font-size: 1.2rem;
+    color: #ffffff;
+    background: #333333;
+    text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+      #ff2d95 0px 0px 20px, #ff2d95 0px 0px 30px, #ff2d95 0px 0px 40px,
+      #ff2d95 0px 0px 50px, #ff2d95 0px 0px 75px;
+    color: #ffffff;
+    background: #333333;
+  }
   .title-burger {
     font-size: 1.2rem;
   }
@@ -199,11 +264,12 @@ h2 {
     align-items: flex-start;
     margin-top: 30px;
   }
+
   .navbar-logo {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    margin-top: 20px;
+    margin-top: 10px;
   }
   .navbar-links {
     display: flex;
@@ -218,6 +284,7 @@ h2 {
     display: flex;
     justify-content: center;
     font-size: 2rem;
+    align-items: center;
   }
   .logo {
     width: 90px;
@@ -230,8 +297,10 @@ h2 {
     margin-right: 0.5rem;
   }
   .navbar-link {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     padding: 0.6rem;
+    text-decoration: none;
+    color: #7b0828;
   }
   .hr-burgertop {
     margin-top: 10px;

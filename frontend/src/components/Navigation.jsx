@@ -19,7 +19,9 @@ import markergreen from "../assets/images/marker-green.png";
 import markerblack from "../assets/images/marker-black.png";
 import bike from "../assets/images/Bicycle-2-2-icon.png";
 import heart from "../assets/images/download-icon-heart-131965017458786724_32.png";
-import people from "../assets/images/png-clipart-computer-icons-person-user-spark-icon-people-share-icon-thumbnail.png";
+import peopledarkmode from "../assets/images/pngwing.com.png";
+import bikedarkmode from "../assets/images/bikeocinwhite.png";
+import people from "../assets/images/33308.png";
 
 export default function Navigation(props) {
   const {
@@ -32,6 +34,7 @@ export default function Navigation(props) {
   } = props;
 
   const userConnected = JSON.parse(localStorage.getItem("user"));
+  const statusDarkmode = localStorage.getItem("darkmode");
 
   return (
     <div className="navbar-container">
@@ -42,10 +45,25 @@ export default function Navigation(props) {
       >
         <img className="logo-burger" src={LogoBurger} alt="Logo Burger" />
       </button>
-      <div className={showLinks ? "navbar show-nav" : "navbar hide-nav"}>
+      <div
+        style={{
+          backgroundColor: statusDarkmode === "1" ? "#383838" : "white",
+        }}
+        className={
+          showLinks
+            ? `navbar${statusDarkmode === "1" ? "dark" : "notdark"} show-nav`
+            : `navbar${statusDarkmode === "1" ? "dark" : "notdark"} hide-nav`
+        }
+      >
         <div className="logo-title">
           <img className="logo-velo" src={LogoVelo} alt="Logo Vélo" />
-          <h2 className="title-burger">VELO LOCO</h2>
+          <h2
+            className={
+              statusDarkmode === "1" ? "title-burgerdark" : "title-burger"
+            }
+          >
+            VELO LOCO
+          </h2>
           <button
             type="button"
             className="cross-logo"
@@ -57,22 +75,40 @@ export default function Navigation(props) {
         <div className="welcomeUser">
           {userConnected ? (
             <h2>
-              Bonjour, {userConnected.firstName}
-              <span>&#128075;</span>
+              Bonjour {userConnected.firstName}
+              <span>&nbsp;&#128075;</span>
             </h2>
           ) : null}
         </div>
         <div className="navbar-logo">
           <ul className="navbar-links">
             <li className="navbar-item">
-              <img className="image-item" src={bike} alt="Logo Vélo Toulouse" />
-              <a href="/" className="navbar-link">
+              <img
+                className="image-item"
+                src={statusDarkmode === "1" ? bikedarkmode : bike}
+                alt="Logo Vélo Toulouse"
+              />
+              <a
+                href="/"
+                className={
+                  statusDarkmode === "1" ? "navbar-linkdark" : "navbar-link"
+                }
+              >
                 Vélo-Toulouse
               </a>
             </li>
             <li className="navbar-item">
-              <img className="image-item" src={people} alt="Logo About Us" />
-              <Link className="navbar-link" to="/aboutus">
+              <img
+                className="image-item"
+                src={statusDarkmode === "1" ? peopledarkmode : people}
+                alt="Logo About Us"
+              />
+              <Link
+                className={
+                  statusDarkmode === "1" ? "navbar-linkdark" : "navbar-link"
+                }
+                to="/aboutus"
+              >
                 About Us
               </Link>
             </li>
