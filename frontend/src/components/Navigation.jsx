@@ -36,7 +36,6 @@ export default function Navigation(props) {
   const userConnected = JSON.parse(localStorage.getItem("user"));
   const statusDarkmode = localStorage.getItem("darkmode");
 
-
   return (
     <div className="navbar-container">
       <button
