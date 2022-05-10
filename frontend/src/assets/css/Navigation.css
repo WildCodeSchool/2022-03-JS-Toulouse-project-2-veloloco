@@ -125,6 +125,9 @@ h2 {
   color: #ffffff;
   background: #333333;
 }
+.logo-social {
+  margin-top: 3rem;
+}
 @media screen and (max-width: 780px) {
   .logo-burger {
     width: 30px;
