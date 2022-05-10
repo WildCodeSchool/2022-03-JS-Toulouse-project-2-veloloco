@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 import axios from "axios";
 import FavouriteStation from "./FavouriteStation";
 import ProximityStation from "./ProximityStation";
@@ -11,6 +12,8 @@ function SlideForCard({
   mapState,
   setUniqueMarker,
   setToggleCard,
+  setMouseOver,
+  mouseOver,
 }) {
   const [isFavourite, setisFavourite] = useState(null);
   const [BDDlist, setBDDlist] = useState([]);
@@ -49,18 +52,43 @@ function SlideForCard({
   const handleHiddenButton = () => {
     setisHidden(!isHidden);
   };
+  const statusDarkmode = localStorage.getItem("darkmode");
 
+  function mouseEnterDiv() {
+    setMouseOver(!mouseOver);
+  }
+  function mouseLeaveDiv() {
+    setMouseOver(!mouseOver);
+  }
   return (
-    <div className="main-collumn-slide">
+    <div
+      className={
+        statusDarkmode === "1" ? "main-collumn-slidedark" : "main-collumn-slide"
+      }
+      onMouseEnter={mouseEnterDiv}
+      onMouseLeave={mouseLeaveDiv}
+    >
       <div className="legend-container">
         <h2>Légende</h2>
         {isHidden && (
-          <button type="button" onClick={handleHiddenButton}>
+          <button
+            type="button"
+            className={
+              statusDarkmode === "1" ? "btn-legendedark" : "btn-legende"
+            }
+            onClick={handleHiddenButton}
+          >
             <img src="../src/assets/images/downarrow.png" alt="down arrow" />
           </button>
         )}
         {!isHidden && (
-          <button type="button" onClick={handleHiddenButton}>
+          <button
+            type="button"
+            className={
+              statusDarkmode === "1" ? "btn-legendedark" : "btn-legende"
+            }
+            onClick={handleHiddenButton}
+          >
             <img src="../src/assets/images/uparrow.png" alt="up arrow" />
           </button>
         )}
@@ -76,8 +104,12 @@ function SlideForCard({
       <div className="sub-collumn-slide">
         {isFavourite !== null
           ? isFavourite.map((favouriteStation) => (
-              <div className="favourite-stations-cont">
+              <div
+                key={favouriteStation.number}
+                className="favourite-stations-cont"
+              >
                 <FavouriteStation
+                  key={favouriteStation.number}
                   favouriteStation={favouriteStation}
                   mapState={mapState}
                   setSlideState={setSlideState}
@@ -96,6 +128,7 @@ function SlideForCard({
             {cardInfos.map((stationObj) =>
               !BDDlist.includes(stationObj.number) ? (
                 <ProximityStation
+                  key={stationObj.number}
                   stationObj={stationObj}
                   mapState={mapState}
                   setSlideState={setSlideState}

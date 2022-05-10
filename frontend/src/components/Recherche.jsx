@@ -40,6 +40,7 @@ export default function Recherche({ apiResult: apiStations, mapState }) {
           autoComplete="off"
           name="search"
           value={valueOrigin}
+          placeholder="On va où aujourd'hui ?  👇"
           onChange={(e) => {
             setValueOrigin(e.target.value);
             setDisplayChange(true);
@@ -69,6 +70,7 @@ export default function Recherche({ apiResult: apiStations, mapState }) {
                     data-aos-offset="500"
                     data-aos-duration="500"
                     type="button"
+                    key={station.number}
                     onClick={() => flyPosition(station)}
                   >
                     {stationCapitalized}

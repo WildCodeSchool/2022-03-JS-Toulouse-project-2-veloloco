@@ -1,4 +1,4 @@
-.navbar {
+.navbarnotdark {
   display: flex;
   flex-direction: column;
   width: 300px;
@@ -7,14 +7,32 @@
   left: 4px;
   z-index: 1000;
   height: 100vh;
-
+  font-family: var(--nunito);
   box-shadow: 0 0 2.5em;
   margin: 0rem 5rem 0.5rem 0rem;
   background-color: white;
   backdrop-filter: blur(1px) saturate(200%);
   -webkit-backdrop-filter: blur(1px) saturate(200%);
-  background-color: rgba(255, 255, 255, 0.7);
-
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(209, 213, 219, 0.3);
+}
+.navbardark {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  position: absolute;
+  top: 0;
+  color: white;
+  left: 4px;
+  z-index: 1000;
+  height: 100vh;
+  font-family: var(--nunito);
+  box-shadow: 0 0 2.5em;
+  margin: 0rem 5rem 0.5rem 0rem;
+  background-color: #383838;
+  backdrop-filter: blur(1px) saturate(200%);
+  -webkit-backdrop-filter: blur(1px) saturate(200%);
+  background-color: rgba(255, 255, 255, 1);
   border: 1px solid rgba(209, 213, 219, 0.3);
 }
 .logo-title {
@@ -31,24 +49,24 @@ h2 {
 }
 
 .cross-logo {
-  visibility: hidden;
-  border: none;
-  background: none;
-  cursor: pointer;
-  margin: 0;
-  padding: 0;
+  display: none;
+}
+.cross-close {
+  width: 40px;
+  height: 40px;
+  margin-left: 1rem;
 }
 .navbar-logo {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 34%;
 }
 .navbar-links {
   display: flex;
   flex-direction: column;
-  height: 40rem;
-  justify-content: space-between;
+  gap: 30px;
+  margin-top: 50px;
+  justify-content: flex-start;
   list-style-type: none;
   align-items: flex-start;
 }
@@ -62,18 +80,24 @@ h2 {
   height: 6rem;
 }
 .image-item {
-  background-color: #7b0828;
   width: 2.7rem;
   height: 2.7rem;
   border-radius: 0.5rem;
   margin-right: 0.5rem;
 }
 .navbar-link {
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   padding: 0.6rem;
   text-decoration: none;
   color: #7b0828;
 }
+.navbar-linkdark {
+  font-size: 1.5rem;
+  padding: 0.6rem;
+  text-decoration: none;
+  color: white;
+}
+
 .navbar-container {
   width: 30px;
   height: 30px;
@@ -81,22 +105,25 @@ h2 {
 .burger-logo {
   visibility: hidden;
 }
-.hr-burgertop {
-  margin-top: 40px;
-  border: none;
-  width: 90%;
-  border-bottom: 1px solid #5a5a5a96;
-  box-shadow: 0 0 20px 8px rgba(51, 51, 51, 0.6);
+.marker-container {
+  display: flex;
+  flex-direction: column;
+  margin: 30px 0 20px 20px;
+  gap: 20px;
 }
-.hr-burgerbottom {
-  margin: 40px 0 50px 0;
-  border: none;
-  width: 90%;
-  border-bottom: 1px solid #5a5a5a96;
-  box-shadow: 0 0 20px 8px rgba(90, 90, 90, 0.6);
+.marker-container span {
+  display: flex;
+  gap: 30px;
 }
-.licence {
-  margin-bottom: 5rem;
+.title-burgerdark {
+  font-size: 1.2rem;
+  color: #ffffff;
+  background: #333333;
+  text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+    #ff2d95 0px 0px 20px, #ff2d95 0px 0px 30px, #ff2d95 0px 0px 40px,
+    #ff2d95 0px 0px 50px, #ff2d95 0px 0px 75px;
+  color: #ffffff;
+  background: #333333;
 }
 @media screen and (max-width: 780px) {
   .logo-burger {
@@ -104,13 +131,29 @@ h2 {
     height: 25px;
     left: 10%;
   }
+  .marker-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 40px;
+  }
+  .marker-container span {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+    align-content: flex-start;
+    margin-left: 20px;
+  }
+
+  .marker-container img {
+    height: 35px;
+  }
   .cross-logo {
-    visibility: visible;
-    border: none;
-    background: none;
-    cursor: pointer;
-    margin: 0;
-    padding: 0;
+    display: inline-block;
+    background: transparent;
+    border: 0;
   }
   .cross-close {
     width: 45px;
@@ -118,7 +161,8 @@ h2 {
     margin-left: 1rem;
     background-color: transparent;
   }
-  .navbar {
+
+  .navbarnotdark {
     display: flex;
     flex-direction: column;
     width: 80vw;
@@ -133,7 +177,25 @@ h2 {
     background-color: white;
     backdrop-filter: blur(1px) saturate(200%);
     -webkit-backdrop-filter: blur(1px) saturate(200%);
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(209, 213, 219, 0.3);
+  }
+  .navbardark {
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1200;
+    height: 98vh;
+    border-radius: 0 2rem 2rem 0;
+    box-shadow: 0 0 2.5em;
+    margin: 0.5rem 5rem 0.5rem 0rem;
+    background-color: #383838;
+    backdrop-filter: blur(1px) saturate(200%);
+    -webkit-backdrop-filter: blur(1px) saturate(200%);
+    background-color: rgba(255, 255, 255, 1);
     border: 1px solid rgba(209, 213, 219, 0.3);
   }
   .show-nav {
@@ -180,57 +242,79 @@ h2 {
     font-size: 1rem;
     color: #7b0828;
   }
+  .title-burgerdark {
+    font-size: 1.2rem;
+    color: #ffffff;
+    background: #333333;
+    text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+      #ff2d95 0px 0px 20px, #ff2d95 0px 0px 30px, #ff2d95 0px 0px 40px,
+      #ff2d95 0px 0px 50px, #ff2d95 0px 0px 75px;
+    color: #ffffff;
+    background: #333333;
+  }
   .title-burger {
     font-size: 1.2rem;
   }
+  .navbar-links {
+    display: flex;
+    flex-direction: column;
+    height: 40rem;
+    justify-content: flex-start;
+    list-style-type: none;
+    align-items: flex-start;
+    margin-top: 30px;
+  }
+
   .navbar-logo {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 40%;
+    margin-top: 10px;
   }
   .navbar-links {
     display: flex;
     flex-direction: column;
     height: 75%;
-    justify-content: space-between;
+    justify-content: flex-start;
     list-style-type: none;
     align-items: flex-start;
-    gap: 30px;
+    gap: 40px;
   }
   .navbar-item {
     display: flex;
     justify-content: center;
     font-size: 2rem;
+    align-items: center;
   }
   .logo {
     width: 90px;
     height: 120px;
   }
   .image-item {
-    background-color: #7b0828;
     width: 40px;
     height: 40px;
     border-radius: 0.5rem;
     margin-right: 0.5rem;
   }
   .navbar-link {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     padding: 0.6rem;
+    text-decoration: none;
+    color: #7b0828;
   }
   .hr-burgertop {
     margin-top: 10px;
     border: none;
     width: 90%;
-    border-bottom: 1px solid #5a5a5a96;
+
     box-shadow: 0 0 20px 8px rgba(51, 51, 51, 0.6);
   }
   .hr-burgerbottom {
     margin: 20px 0 20px 0;
     border: none;
     width: 90%;
-    border-bottom: 1px solid #5a5a5a96;
     box-shadow: 0 0 20px 8px rgba(90, 90, 90, 0.6);
+    margin-bottom: 30px;
   }
   .licence {
     margin-bottom: 1.5rem;
