@@ -1,15 +1,22 @@
+
+.navbar-container {
+  height: 100vh;
+  position: absolute;
+}
+
 .navbarnotdark {
   display: flex;
   flex-direction: column;
   width: 300px;
   position: absolute;
   top: 0;
-  left: 4px;
   z-index: 1000;
+  bottom: 0;
   height: 100vh;
   font-family: var(--nunito);
   box-shadow: 0 0 2.5em;
-  margin: 0rem 5rem 0.5rem 0rem;
+  margin: 0;
+  padding: 0;
   background-color: white;
   backdrop-filter: blur(1px) saturate(200%);
   -webkit-backdrop-filter: blur(1px) saturate(200%);
@@ -33,6 +40,7 @@
   -webkit-backdrop-filter: blur(1px) saturate(200%);
   background-color: rgba(255, 255, 255, 1);
 }
+
 .logo-title {
   display: flex;
   flex-direction: row;
@@ -89,6 +97,7 @@ h2 {
   text-decoration: none;
   color: #7b0828;
 }
+
 .navbar-linkdark {
   font-size: 1.5rem;
   padding: 0.6rem;
@@ -96,10 +105,7 @@ h2 {
   color: white;
 }
 
-.navbar-container {
-  width: 30px;
-  height: 30px;
-}
+
 .burger-logo {
   visibility: hidden;
 }
@@ -201,7 +207,7 @@ h2 {
   }
   @keyframes openAnimation {
     0% {
-      left: -85%;
+      left: -85vh;
     }
     100% {
       left: 0;
@@ -211,6 +217,8 @@ h2 {
     position: absolute;
     z-index: 1000;
     left: 1rem;
+    top:4.5%;
+
     background-color: transparent;
     border: transparent;
     visibility: visible;
@@ -219,14 +227,14 @@ h2 {
     animation-name: closeAnimation;
     animation-duration: 0.75s;
     animation-iteration-count: 1;
-    left: -85%;
+    left:-80vh;
   }
   @keyframes closeAnimation {
     0% {
       left: 0;
     }
     100% {
-      left: -85%;
+      left: -85vh;
     }
   }
   .logo-title {
