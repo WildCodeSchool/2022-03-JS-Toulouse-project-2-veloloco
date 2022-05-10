@@ -5,20 +5,15 @@
 }
 
 .navbarnotdark {
-
   display: flex;
   flex-direction: column;
   width: 300px;
   position: absolute;
   top: 0;
-
   z-index: 1000;
-
   bottom: 0;
-
   height: 100vh;
   font-family: var(--nunito);
-
   box-shadow: 0 0 2.5em;
   margin: 0;
   padding: 0;
@@ -180,7 +175,7 @@ h2 {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 120000;
+    z-index: 1200;
     height: 98vh;
     border-radius: 0 2rem 2rem 0;
     box-shadow: 0 0 2.5em;

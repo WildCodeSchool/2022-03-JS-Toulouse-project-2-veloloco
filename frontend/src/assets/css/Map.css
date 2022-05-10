@@ -110,7 +110,6 @@
   }
   .containersearch {
     gap: 1.5rem;
-    top:0.1%;
     width: 45%;
   }
 }
@@ -127,7 +126,7 @@
 }
 
 .cardstation {
-  height: 16%;
+  height: 15%;
   width: 100vw;
 }
 

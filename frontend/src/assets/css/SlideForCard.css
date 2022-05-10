@@ -8,9 +8,7 @@
   background-color: var(--translucid-bg);
   overflow: scroll;
   height: 100%;
-
   overflow-x: hidden;
-
   font-family: var(--nunito);
 }
 .main-collumn-slidedark {
