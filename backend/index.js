@@ -50,10 +50,10 @@ app.get("/favourite-stations", (req, response) => {
   });
 });
 app.post("/user", (req, response) => {
-  const { id, firstname, lastname } = req.body;
+  const { id, firstName, lastName } = req.body;
   connection.query(
     "INSERT INTO user VALUES (? , ?, ? )",
-    [id, firstname, lastname],
+    [id, firstName, lastName],
     (err, result) => {
       if (err) {
         response.status(500).send("Error retrieving data from database");

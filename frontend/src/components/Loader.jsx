@@ -14,16 +14,21 @@ export default function Loader({
     e.preventDefault();
     setReadyOrNot(!readyOrNot);
     localStorage.setItem("alreadyConnected", true);
+    const user = {
+      id: null,
+      firstName: valueFirstName,
+      lastName: valueLastName,
+    };
     axios
-      .post("http://localhost:5500/user", {
-        id: null,
-        firstName: valueFirstName,
-        lastName: valueLastName,
+      .post("http://localhost:5500/user", user)
+      .then(() => {
+        localStorage.setItem("user", JSON.stringify(user));
       })
       .catch(function (error) {
         console.error(error);
       });
   }
+
   return (
     <form onSubmit={callBDD}>
       <div

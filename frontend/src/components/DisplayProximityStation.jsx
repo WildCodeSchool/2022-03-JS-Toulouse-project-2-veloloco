@@ -44,9 +44,12 @@ export default function DisplayFavouriteCard({
       );
     }
   }
+  const statusDarkmode = localStorage.getItem("darkmode");
   return (
     <div
-      className="card-station-comp"
+      className={
+        statusDarkmode === "1" ? "card-station-compdark" : "card-station-comp"
+      }
       role="button"
       onKeyDown={flyPositionStation}
       onClick={flyPositionStation}
