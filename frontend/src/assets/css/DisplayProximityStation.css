@@ -48,6 +48,8 @@
   font-size: 16px;
   font-weight: lighter;
   margin: 0%;
+  overflow: hidden;
+  height: 30px;
 }
 
 .bottom-proximity-card {
@@ -58,6 +60,7 @@
   height: 25%;
   margin: 0.5rem;
   gap: 5px;
+  padding-bottom: 0.5rem;
 }
 
 .fav-button {
