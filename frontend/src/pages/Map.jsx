@@ -50,13 +50,16 @@ export default function Map() {
   const [toggleCard, setToggleCard] = useState(false);
   const [idStationOrigin, setIdStationOrigin] = useState();
   const [idStationDestination, setIdStationDestination] = useState();
-  const [darkmode, setDarkMode] = useState(false);
+  const [mouseOver, setMouseOver] = useState(true);
+  const storageDarkmode = localStorage.getItem("darkmode") || "0";
+  const [darkmode, setDarkMode] = useState(storageDarkmode);
   const [showLinks, setShowLinks] = useState(false);
   const alreadyConnected = localStorage.getItem("alreadyConnected") || false;
   const [readyOrNot, setReadyOrNot] = useState(alreadyConnected);
   const [uniqueMarker, setUniqueMarker] = useState();
-  const [valueFirstName, setValueFirstName] = useState("");
-  const [valueLastName, setValueLastName] = useState("");
+  const [valueFirstName, setValueFirstName] = useState();
+  const [valueLastName, setValueLastName] = useState();
+
   function flyPositionUser() {
     mapState.map.flyTo(
       [location.coordinates.lat, location.coordinates.lng],
@@ -179,6 +182,7 @@ export default function Map() {
           <MapContainer
             center={[location.coordinates.lat, location.coordinates.lng]}
             zoom={20}
+            scrollWheelZoom={!!mouseOver}
             whenCreated={(map) => setMapState({ map })}
             zoomControl={false}
           >
@@ -209,6 +213,8 @@ export default function Map() {
                 mapState={mapState}
                 setToggleCard={setToggleCard}
                 setUniqueMarker={setUniqueMarker}
+                setMouseOver={setMouseOver}
+                mouseOver={mouseOver}
               />
             </div>
             <LayerChange darkmode={darkmode} />

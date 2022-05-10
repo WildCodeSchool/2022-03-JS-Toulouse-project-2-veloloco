@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Link } from "react-router-dom";
 import LogoVelo from "../assets/images/logo.png";
 import LogoBurger from "../assets/images/Menu hamburger.png";
@@ -13,6 +14,14 @@ import "../assets/css/Navigation.css";
 import "../assets/css/darkMode.css";
 import "../assets/css/contact.css";
 import DarkMode from "./darkmode";
+import markerorange from "../assets/images/marker-orange.png";
+import markergreen from "../assets/images/marker-green.png";
+import markerblack from "../assets/images/marker-black.png";
+import bike from "../assets/images/Bicycle-2-2-icon.png";
+import heart from "../assets/images/download-icon-heart-131965017458786724_32.png";
+import peopledarkmode from "../assets/images/pngwing.com.png";
+import bikedarkmode from "../assets/images/bikeocinwhite.png";
+import people from "../assets/images/33308.png";
 
 export default function Navigation(props) {
   const {
@@ -23,6 +32,10 @@ export default function Navigation(props) {
     darkmode,
     mapState,
   } = props;
+
+  const userConnected = JSON.parse(localStorage.getItem("user"));
+  const statusDarkmode = localStorage.getItem("darkmode");
+
   return (
     <div className="navbar-container">
       <button
@@ -32,10 +45,25 @@ export default function Navigation(props) {
       >
         <img className="logo-burger" src={LogoBurger} alt="Logo Burger" />
       </button>
-      <div className={showLinks ? "navbar show-nav" : "navbar hide-nav"}>
+      <div
+        style={{
+          backgroundColor: statusDarkmode === "1" ? "#383838" : "white",
+        }}
+        className={
+          showLinks
+            ? `navbar${statusDarkmode === "1" ? "dark" : "notdark"} show-nav`
+            : `navbar${statusDarkmode === "1" ? "dark" : "notdark"} hide-nav`
+        }
+      >
         <div className="logo-title">
           <img className="logo-velo" src={LogoVelo} alt="Logo Vélo" />
-          <h2 className="title-burger">VELO LOCO</h2>
+          <h2
+            className={
+              statusDarkmode === "1" ? "title-burgerdark" : "title-burger"
+            }
+          >
+            VELO LOCO
+          </h2>
           <button
             type="button"
             className="cross-logo"
@@ -44,57 +72,71 @@ export default function Navigation(props) {
             <img className="cross-close" src={Cross} alt="Cross Close" />
           </button>
         </div>
+        <div className="welcomeUser">
+          {userConnected ? (
+            <h2>
+              Bonjour{" "}
+              {userConnected.firstName
+                ? userConnected.firstName
+                : "Mysterieux inconnu"}
+              <span> {userConnected.firstName ? "👋" : "🧐"}</span>
+            </h2>
+          ) : null}
+        </div>
         <div className="navbar-logo">
           <ul className="navbar-links">
             <li className="navbar-item">
               <img
                 className="image-item"
-                src={LogoTopsecret}
-                alt="Logo Top-secret"
-              />
-              <a href="/" className="navbar-link">
-                TOP-SECRET
-              </a>
-            </li>
-            <li className="navbar-item">
-              <img
-                className="image-item"
-                src={LogoVeloToulouse}
+                src={statusDarkmode === "1" ? bikedarkmode : bike}
                 alt="Logo Vélo Toulouse"
               />
-              <a href="/" className="navbar-link">
+              <a
+                href="http://www.velo.toulouse.fr/Les-stations/Trouver-une-station"
+                className={
+                  statusDarkmode === "1" ? "navbar-linkdark" : "navbar-link"
+                }
+              >
                 Vélo-Toulouse
               </a>
             </li>
             <li className="navbar-item">
               <img
                 className="image-item"
-                src={LogoFavoris}
-                alt="Logo Favoris"
-              />
-              <a href="/" className="navbar-link">
-                Favoris
-              </a>
-            </li>
-            <li className="navbar-item">
-              <img
-                className="image-item"
-                src={LogoAboutUs}
+                src={statusDarkmode === "1" ? peopledarkmode : people}
                 alt="Logo About Us"
               />
-              <Link className="navbar-link" to="/aboutus">
+              <Link
+                className={
+                  statusDarkmode === "1" ? "navbar-linkdark" : "navbar-link"
+                }
+                to="/aboutus"
+              >
                 About Us
               </Link>
             </li>
           </ul>
         </div>
-        <hr className="hr-burgertop" />
+        <div className="marker-container">
+          <span>
+            <img src={markergreen} alt="icon" />
+            <h3>La station est disponible</h3>
+          </span>
+          <span>
+            <img src={markerorange} alt="icon" />
+            <h3>Peu de velo disponible</h3>
+          </span>
+          <span>
+            <img src={markerblack} alt="icon" />
+            <h3>Aucun velo disponible</h3>
+          </span>
+        </div>
         <DarkMode
           setDarkMode={setDarkMode}
           darkmode={darkmode}
           mapState={mapState}
         />
-        <hr className="hr-burgerbottom" />
+
         <div className="contact">
           <h5>Contact us (please do not)</h5>
           <h6 className="licence">Licence</h6>

@@ -27,6 +27,7 @@
   background-color: rgba(255, 255, 255, 0.6);
   border-radius: 12px;
   border: 1px solid rgba(209, 213, 219, 0.3);
+  font-family: var(--nunito);
 }
 .item-list-no {
   display: none;
@@ -37,6 +38,7 @@
   background-color: rgba(255, 255, 255, 0.6);
   border-radius: 12px;
   border: 1px solid rgba(209, 213, 219, 0.3);
+  font-family: var(--nunito);
 }
 .item-list-no-destination {
   display: none;
@@ -151,5 +153,23 @@
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+@media screen and (min-width: 780px) {
+  .origin-list {
+    width: calc(100vw - 750px);
+  }
+  .item-list {
+    height: 30px;
+    font-size: 1.4rem;
+    font-family: var(--nunito);
+  }
+  .destination-list {
+    width: calc(100vw - 750px);
+  }
+  .item-list-destination {
+    height: 30px;
+    font-size: 1.4rem;
+    font-family: var(--nunito);
   }
 }

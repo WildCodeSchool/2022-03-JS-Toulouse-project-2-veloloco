@@ -1,15 +1,22 @@
 import { Marker } from "react-leaflet";
 import L from "leaflet";
+import markerorange from "../assets/images/marker-orange.png";
+import markergreen from "../assets/images/marker-green.png";
+import markerblack from "../assets/images/marker-black.png";
 
 const iconDefault = L.icon({
-  iconUrl:
-    "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png",
+  iconUrl: markergreen,
   iconSize: [25, 41],
   iconAnchor: [12, 41],
 });
 const iconDanger = L.icon({
-  iconUrl:
-    "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-orange.png",
+  iconUrl: markerorange,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+});
+// eslint-disable-next-line no-unused-vars
+const iconIndisponible = L.icon({
+  iconUrl: markerblack,
   iconSize: [25, 41],
   iconAnchor: [12, 41],
 });
@@ -29,10 +36,23 @@ export default function MarkerDefault({
       "color: #c635f2; font-size: 20pt;"
     );
   }
-  if (marker.available_bikes <= 3) {
+  if (marker.available_bikes <= 3 && marker.available_bikes > 0) {
     return (
       <Marker
         icon={iconDanger}
+        position={positionStation}
+        eventHandlers={{
+          click: () => {
+            clickAction();
+          },
+        }}
+      />
+    );
+  }
+  if (marker.available_bikes <= 0) {
+    return (
+      <Marker
+        icon={iconIndisponible}
         position={positionStation}
         eventHandlers={{
           click: () => {

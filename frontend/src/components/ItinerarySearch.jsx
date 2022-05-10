@@ -60,6 +60,7 @@ export default function Recherche({
     setDisplayChangeDestination(!displayChangeDestination);
     setInputDestination(stationCapitalized);
     setIdStationDestination(numberStationDestination);
+    setDisplayChange(true);
   }
 
   return (
@@ -114,6 +115,7 @@ export default function Recherche({
                   className={displayChange ? "item-list" : "item-list-no"}
                   type="button"
                   data-aos={displayChange ? "fade-down" : null}
+                  key={station.number}
                   data-aos-duration="500"
                   onClick={() =>
                     saveValueOrigin(stationCapitalized, numberStationOrigin)
@@ -146,6 +148,7 @@ export default function Recherche({
                 <button
                   data-aos={displayChange ? null : "fade-down"}
                   data-aos-duration="500"
+                  key={station.number}
                   className={
                     displayChange === false
                       ? "item-list-destination"

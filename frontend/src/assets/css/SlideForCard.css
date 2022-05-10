@@ -8,11 +8,16 @@
   background-color: var(--translucid-bg);
   overflow: scroll;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.7);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(15px);
+  font-family: var(--nunito);
+}
+.main-collumn-slidedark {
+  position: relative;
+  top: 0%;
+  background-color: var(--translucid-bg);
+  overflow: scroll;
+  height: 100%;
+  background-color: #383838;
+  color: white;
 }
 
 .legend-available-bikes {
@@ -73,24 +78,30 @@
   font-weight: bold;
   padding-top: 1rem;
 }
-
+.slide-menu-title-favdark {
+  font-size: 24px;
+  font-weight: bold;
+  padding-top: 1rem;
+  text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+    #ff2d95 0px 0px 20px, #ff2d95 0px 0px 0px, #ff2d95 0px 0px 10px,
+    #ff2d95 0px 0px 40px, #ff2d95 0px 0px 40px;
+}
 .slide-menu-title-prox {
   font-size: 24px;
   font-weight: bold;
 }
-
+.slide-menu-title-proxdark {
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+    #ff2d95 0px 0px 20px, #ff2d95 0px 0px 30px, #ff2d95 0px 0px 40px,
+    #ff2d95 0px 0px 50px, #ff2d95 0px 0px 75px;
+}
 .legend-container {
   padding: 1rem;
   display: flex;
   justify-content: space-between;
   box-shadow: 0 0 20px 8px rgba(51, 51, 51, 0.6);
-}
-
-.legend-container button {
-  border: none;
-  background-color: white;
-  border-radius: 15px;
-  padding: 5px;
 }
 
 .legend-container h3 {
@@ -132,4 +143,12 @@
 
 .legend-item h3 {
   padding-left: 2rem;
+}
+.btn-legendedark {
+  background-color: #383838;
+  border: none;
+}
+.btn-legende {
+  border: none;
+  background-color: white;
 }
