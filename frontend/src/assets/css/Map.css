@@ -47,8 +47,14 @@
 .leaflet-bottom .leaflet-control {
   margin-bottom: 25px;
 }
+.leaflet-control-zoom {
+  left: 300px;
+}
 
 @media screen and (max-width: 783px) {
+  .leaflet-control-zoom {
+    left: auto;
+  }
   .right-slide-on {
     position: relative;
     left: 20%;
@@ -112,6 +118,15 @@
     gap: 1.5rem;
     width: 50%;
   }
+  .btn-geo-container {
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    right: 1rem;
+  }
 }
 .containersearch {
   display: flex;
@@ -129,14 +144,16 @@
   height: 15%;
   width: 100vw;
 }
-
-.btn-geo-container {
-  height: 100vh;
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-end;
+@media screen and (min-width: 783px) {
+  .btn-geo-container {
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    right: 320px;
+  }
 }
 .btn-geo {
   z-index: 1000;
