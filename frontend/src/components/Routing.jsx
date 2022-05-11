@@ -3,6 +3,7 @@ import L from "leaflet";
 import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 import "leaflet-routing-machine";
 import { useMap } from "react-leaflet";
+import markerDefault from "../assets/images/marker-32.png";
 
 import "lrm-graphhopper";
 
@@ -13,6 +14,12 @@ export default function Routing({
   setItineraryInfo,
 }) {
   const map = useMap(mapItineraryState);
+
+  const iconDefault = L.icon({
+    iconUrl: markerDefault,
+    iconSize: [41, 41],
+    iconAnchor: [22, 41],
+  });
 
   useEffect(() => {
     if (!map) return;
@@ -38,6 +45,11 @@ export default function Routing({
       draggableWaypoints: false,
       fitSelectedRoutes: true,
       showAlternatives: false,
+      createMarker(i, wp) {
+        return L.marker(wp.latLng, {
+          icon: iconDefault,
+        });
+      },
     }).addTo(map);
     routingControl.on("routesfound", (e) => {
       setItineraryInfo(e);
