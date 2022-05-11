@@ -5,6 +5,9 @@ import "../assets/css/DisplayProximityStation.css";
 import getDistanceFromLatLonInKm from "../assets/algos/getDistanceFromLatLonInKm";
 import JaugeVelo from "./JaugeVelo";
 
+import favouriteHeart from "../assets/images/favourite-heart.png";
+import emptyHeart from "../assets/images/empty-heart.png";
+
 export default function DisplayFavouriteStation({
   favouriteStation,
   mapState,
@@ -72,7 +75,7 @@ export default function DisplayFavouriteStation({
             {" "}
             <img
               name="img-coeur"
-              src="../src/assets/images/favourite-heart.png"
+              src={favouriteHeart}
               alt="favourite-heart-full"
             />
           </button>
@@ -85,11 +88,7 @@ export default function DisplayFavouriteStation({
             onClick={handleClickFavourite}
           >
             {" "}
-            <img
-              name="img-coeur"
-              src="../src/assets/images/empty-heart.png"
-              alt="empty-heart"
-            />
+            <img name="img-coeur" src={emptyHeart} alt="empty-heart" />
           </button>
         )}
       </div>

@@ -14,6 +14,9 @@ import CardStationDrop from "../components/CardStationDrop";
 import Navigation from "../components/Navigation";
 import Loader from "../components/Loader";
 
+import vector from "../assets/images/Vector.png";
+import triangle from "../assets/images/TRIANGLE.png";
+
 export default function Map() {
   const [location, setLocation] = useState(null);
 
@@ -157,11 +160,7 @@ export default function Map() {
                     className="btn-route"
                     type="button"
                   >
-                    <img
-                      className="img-btn-route"
-                      src="/src/assets/images/Vector.png"
-                      alt="logo"
-                    />
+                    <img className="img-btn-route" src={vector} alt="logo" />
                   </button>
                 </Link>
               )}
@@ -196,7 +195,7 @@ export default function Map() {
                   onClick={() => antiConflictMenu(true)}
                 >
                   <img
-                    src="../src/assets/images/TRIANGLE.png"
+                    src={triangle}
                     className={
                       slideState
                         ? "triangle-logo triangle-on"

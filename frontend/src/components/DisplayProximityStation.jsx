@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import "../assets/css/DisplayProximityStation.css";
 import JaugeVelo from "./JaugeVelo";
+import favouriteHeart from "../assets/images/favourite-heart.png";
+import emptyHeart from "../assets/images/empty-heart.png";
 
 export default function DisplayFavouriteCard({
   mapState,
@@ -73,7 +75,7 @@ export default function DisplayFavouriteCard({
             {" "}
             <img
               name="img-coeur"
-              src="../src/assets/images/favourite-heart.png"
+              src={favouriteHeart}
               alt="favourite-heart-full"
             />
           </button>
@@ -86,11 +88,7 @@ export default function DisplayFavouriteCard({
             onClick={handleClickFavourite}
           >
             {" "}
-            <img
-              name="img-coeur"
-              src="../src/assets/images/empty-heart.png"
-              alt="empty-heart"
-            />
+            <img name="img-coeur" src={emptyHeart} alt="empty-heart" />
           </button>
         )}
       </div>
