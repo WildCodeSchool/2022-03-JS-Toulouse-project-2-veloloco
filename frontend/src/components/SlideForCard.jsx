@@ -6,6 +6,9 @@ import ProximityStation from "./ProximityStation";
 import "../assets/css/SlideForCard.css";
 import ProximityFilter from "../assets/algos/ProximityFilter";
 
+import downarrow from "../assets/images/downarrow.png";
+import uparrow from "../assets/images/uparrow.png";
+
 function SlideForCard({
   setSlideState,
   userPosition,
@@ -75,7 +78,7 @@ function SlideForCard({
             }
             onClick={handleHiddenButton}
           >
-            <img src="../src/assets/images/downarrow.png" alt="down arrow" />
+            <img src={downarrow} alt="down arrow" />
           </button>
         )}
         {!isHidden && (
@@ -86,7 +89,7 @@ function SlideForCard({
             }
             onClick={handleHiddenButton}
           >
-            <img src="../src/assets/images/uparrow.png" alt="up arrow" />
+            <img src={uparrow} alt="up arrow" />
           </button>
         )}
       </div>
