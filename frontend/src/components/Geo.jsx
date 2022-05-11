@@ -8,12 +8,12 @@ import locationGreen from "../assets/images/My-location-green.png";
 export default function Geo({ localisationlat, localisationlng }) {
   const icon = L.icon({
     /* todo changer la couleur en fonction du darkmode */
-    iconUrl: { locationRed },
+    iconUrl: locationRed,
     iconSize: [34, 34],
     iconAnchor: [17, 17],
   });
   const icondark = L.icon({
-    iconUrl: { locationGreen },
+    iconUrl: locationGreen,
     iconSize: [34, 34],
     iconAnchor: [17, 17],
   });
