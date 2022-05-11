@@ -5,7 +5,7 @@
   justify-content: center;
   background: transparent;
   position: absolute;
-  z-index: 10000;
+  z-index: 12000;
   width: 100%;
   height: 100%;
   align-items: center;
@@ -20,14 +20,17 @@
   background-color: rgba(255, 255, 255, 0.51);
   border-radius: 12px;
   border: 1px solid rgba(209, 213, 219, 0.3);
-  height: 60%;
+  height: auto;
   width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 #username {
   padding: 15px;
   border-radius: 10px;
   height: 0.5rem;
-  width: calc(100vw - 200px);
+  width: 80%;
   backdrop-filter: blur(1px) saturate(200%);
   -webkit-backdrop-filter: blur(1px) saturate(200%);
   background-color: rgba(255, 255, 255, 0.8);
@@ -55,7 +58,7 @@
   border-radius: 20px;
   border: 2px solid #7b0828;
   background: #7b0828;
-  margin: 20px 0 0 0;
+  margin: 20px 0 20px 0;
 }
 .continue :hover {
   background: #fff;
@@ -78,4 +81,15 @@
   font-size: 1.3rem;
   color: #7b0828;
   font-weight: bold;
+}
+.formulaire {
+  width: 50%;
+}
+@media screen and (max-width: 780px) {
+  .text-color {
+    color: #7b08;
+  }
+  .card {
+    overflow: auto;
+  }
 }

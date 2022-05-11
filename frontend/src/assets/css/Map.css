@@ -5,7 +5,7 @@
 :root {
   --map-tiles-filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg)
     saturate(0.3) brightness(0.5);
-  overflow: hidden;
+  
 }
 #map {
   width: 100vw;
@@ -18,14 +18,14 @@
 .right-slide-off {
   position: relative;
   right: calc(-100% + 300px);
-  z-index: 999999;
+  z-index: 1300;
   width: 300px;
   height: 100%;
 }
 .right-slide-on {
   position: relative;
   right: calc(-100% + 300px);
-  z-index: 999999;
+  z-index: 1300;
   width: 300px;
   height: 100%;
 }
@@ -58,7 +58,7 @@
   .right-slide-on {
     position: relative;
     left: 20%;
-    z-index: 999999;
+    z-index: 1300;
     width: 80%;
     top: 1%;
     height: 98%;
@@ -132,12 +132,13 @@
   display: flex;
   position: absolute;
   z-index: 1050;
-  height: 90px;
+  height: 100px;
   left: 30vw;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   right: 30vw;
+  gap: 20px;
 }
 
 .cardstation {
