@@ -19,7 +19,7 @@ function SlideForCard({
   useEffect(() => {
     const URLAPI =
       "https:/api.jcdecaux.com/vls/v1/stations?contract=toulouse&apiKey=ac948d6ebb42f6edfe3322e2089d50095869b8e3";
-    const URLBDD = "http://localhost:5500/favourite-stations/:id";
+    const URLBDD = `${import.meta.env.VITE_BACKEND_URL}/favourite-stations/:id`;
     const promise1 = axios.get(URLAPI);
     const promise2 = axios.get(URLBDD);
 

@@ -14,7 +14,7 @@ export default function DisplayFavouriteStation({
   setUniqueMarker,
 }) {
   const [fav, setFav] = useState(true);
-  const URLBDD = "http://localhost:5500/favourite-stations/";
+  const URLBDD = `${import.meta.env.VITE_BACKEND_URL}/favourite-stations/`;
   const handleClickFavourite = () => {
     if (!fav) {
       axios
@@ -27,7 +27,9 @@ export default function DisplayFavouriteStation({
     } else if (fav) {
       axios
         .delete(
-          `http://localhost:5500/favourite-stations/${favouriteStation.number}`
+          `${import.meta.env.VITE_BACKEND_URL}/favourite-stations/${
+            favouriteStation.number
+          }`
         )
         .then(() => {
           setFav(!fav);
