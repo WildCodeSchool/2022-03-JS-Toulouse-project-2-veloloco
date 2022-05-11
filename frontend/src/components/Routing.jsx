@@ -3,23 +3,28 @@ import L from "leaflet";
 import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 import "leaflet-routing-machine";
 import { useMap } from "react-leaflet";
-/* Icon par defaut  */
-L.Marker.prototype.options.icon = L.icon({
-  iconUrl:
-    "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png",
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-});
 
-export default function Routing() {
-  const map = useMap();
-  // eslint-disable-next-line no-unused-vars
+import "lrm-graphhopper";
+
+export default function Routing({
+  originStation,
+  destinationStation,
+  mapItineraryState,
+  setItineraryInfo,
+}) {
+  const map = useMap(mapItineraryState);
 
   useEffect(() => {
     if (!map) return;
-    /* Genere route selon deux coordonees */
+
     const routingControl = L.Routing.control({
-      waypoints: [L.latLng(43.60068, 1.420117), L.latLng(43.603699, 1.444699)],
+      waypoints: [
+        L.latLng(originStation.position),
+        L.latLng(destinationStation.position),
+      ],
+
+      router: L.Routing.graphHopper(import.meta.env.VITE_API_MAP),
+
       routeWhileDragging: true,
       lineOptions: {
         styles: [
@@ -31,13 +36,18 @@ export default function Routing() {
       },
       addWaypoints: false,
       draggableWaypoints: false,
-      fitSelectedRoutes: false,
+      fitSelectedRoutes: true,
       showAlternatives: false,
     }).addTo(map);
+    routingControl.on("routesfound", (e) => {
+      setItineraryInfo(e);
+    });
+
+    routingControl.getRouter().options.urlParameters.vehicle = "bike";
+    routingControl.route();
 
     // eslint-disable-next-line consistent-return
     return () => map.removeControl(routingControl);
   }, [map]);
-
   return null;
 }

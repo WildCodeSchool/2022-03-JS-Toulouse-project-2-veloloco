@@ -1,0 +1,158 @@
+:root {
+  --translucid-bg: rgba(255, 255, 255, 1);
+}
+
+.main-collumn-slide {
+  position: relative;
+  top: 0%;
+  background-color: var(--translucid-bg);
+  overflow: scroll;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: var(--nunito);
+}
+.main-collumn-slidedark {
+  position: relative;
+  top: 0%;
+  background-color: var(--translucid-bg);
+  overflow: scroll;
+  height: 100%;
+  background-color: #383838;
+  color: white;
+  overflow-x: hidden;
+
+
+}
+
+.legend-available-bikes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  width: 30%;
+  color: black;
+  background-color: #32936f;
+  font-size: large;
+}
+
+.legend-available-bikes-standings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: 25px;
+  color: white;
+  background-color: #7b0828;
+  font-size: large;
+}
+
+.legend-dead-bikes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  color: white;
+  background-color: grey;
+  font-size: large;
+  height: 25px;
+}
+
+@media screen and (max-width: 783px) {
+  .main-collumn-slide {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+}
+.sub-collumn-slide {
+  margin: 0 15px 0 15px;
+}
+
+.separator {
+  position: relative;
+  left: -5%;
+  border: none;
+  margin: 2rem;
+  width: 90%;
+  border-bottom: 1px solid #5a5a5a96;
+  box-shadow: 0 0 20px 8px rgba(51, 51, 51, 0.6);
+}
+
+.slide-menu-title-fav {
+  font-size: 24px;
+  font-weight: bold;
+  padding-top: 1rem;
+}
+.slide-menu-title-favdark {
+  font-size: 24px;
+  font-weight: bold;
+  padding-top: 1rem;
+  text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+    #ff2d95 0px 0px 20px, #ff2d95 0px 0px 0px, #ff2d95 0px 0px 10px,
+    #ff2d95 0px 0px 40px, #ff2d95 0px 0px 40px;
+}
+.slide-menu-title-prox {
+  font-size: 24px;
+  font-weight: bold;
+}
+.slide-menu-title-proxdark {
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+    #ff2d95 0px 0px 20px, #ff2d95 0px 0px 30px, #ff2d95 0px 0px 40px,
+    #ff2d95 0px 0px 50px, #ff2d95 0px 0px 75px;
+}
+.legend-container {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 0 20px 8px rgba(51, 51, 51, 0.6);
+}
+
+.legend-container h3 {
+  text-align: right;
+}
+
+.legend-available-bikes {
+  width: 40%;
+  color: black;
+  background-color: #32936f;
+  border-radius: 15px;
+}
+
+.legend-available-bikes-standings {
+  width: 40%;
+  color: white;
+  background-color: #7b0828;
+  border-radius: 15px;
+}
+
+.legend-dead-bikes {
+  width: 40%;
+  color: white;
+  background-color: grey;
+  border-radius: 15px;
+}
+
+.legend-content {
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 1rem 1rem 1rem;
+  gap: 0.5rem;
+  box-shadow: 0 20px 10px -5px rgba(51, 51, 51, 0.6);
+}
+
+.legend-item {
+  display: flex;
+}
+
+.legend-item h3 {
+  padding-left: 2rem;
+}
+.btn-legendedark {
+  background-color: #383838;
+  border: none;
+}
+.btn-legende {
+  border: none;
+  background-color: white;
+}

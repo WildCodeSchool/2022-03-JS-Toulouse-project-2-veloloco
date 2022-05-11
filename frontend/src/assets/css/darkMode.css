@@ -1,8 +1,7 @@
 .theme-mode {
   display: flex;
   flex-direction: column;
-  padding-top: 3rem;
-  margin-bottom: 5.5rem;
+  margin: 1.5rem 0 1.5rem 0;
 }
 .dark {
   display: flex;
@@ -14,7 +13,7 @@
   flex-direction: row;
   align-items: center;
 }
-h4 {
+.title-darkmode {
   padding-left: 2rem;
 }
 .switch {
@@ -22,7 +21,7 @@ h4 {
   flex-direction: row;
   position: relative;
   margin-left: 1rem;
-  width: 25%;
+  width: 78px;
   height: 34px;
 }
 
@@ -65,9 +64,9 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+  -webkit-transform: translateX(44px);
+  -ms-transform: translateX(44px);
+  transform: translateX(44px);
 }
 
 /* Rounded sliders */

@@ -1,0 +1,201 @@
+.leaflet-container {
+  height: 100vh;
+  width: 100vw;
+}
+:root {
+  --map-tiles-filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg)
+    saturate(0.3) brightness(0.5);
+}
+#map {
+  width: 100vw;
+  overflow: hidden;
+}
+.leaflet-tile {
+  filter: var(--map-tiles-filter, none);
+  z-index: 1;
+}
+.right-slide-off {
+  position: relative;
+  right: calc(-100% + 300px);
+  z-index: 1300;
+  width: 300px;
+  height: 100%;
+}
+.right-slide-on {
+  position: relative;
+  right: calc(-100% + 300px);
+  z-index: 1300;
+  width: 300px;
+  height: 100%;
+}
+.slide-button {
+  display: none;
+  visibility: none;
+}
+.btn-change {
+  z-index: 1101;
+  border-radius: 50%;
+  height: 35px;
+  width: 50px;
+  -webkit-backdrop-filter: blur(1px) saturate(200%);
+  background-color: #7b082971;
+  border-radius: 12px;
+  border: 0;
+}
+
+.leaflet-bottom .leaflet-control {
+  margin-bottom: 25px;
+}
+.leaflet-control-zoom {
+  left: 300px;
+}
+
+@media screen and (max-width: 783px) {
+  .leaflet-control-zoom {
+    left: auto;
+  }
+  .right-slide-on {
+    position: relative;
+    left: 20%;
+    z-index: 1300;
+    width: 80%;
+    top: 1%;
+    height: 98%;
+
+    animation-name: slideAnimationOn;
+    animation-duration: 500ms;
+    animation-iteration-count: 1;
+  }
+  @keyframes slideAnimationOn {
+    0% {
+      left: 100%;
+    }
+    100% {
+      left: 20%;
+    }
+  }
+
+  .right-slide-off {
+    position: relative;
+    left: 100%;
+    z-index: 1100;
+    width: 80%;
+    top: 1%;
+    height: 98%;
+    /* overflow: scroll; */
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    animation-name: slideAnimationOff;
+    animation-duration: 500ms;
+    animation-iteration-count: 1;
+  }
+  @keyframes slideAnimationOff {
+    0% {
+      left: 20%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+
+  .slide-button {
+    background-color: var(--translucid-bg);
+    width: 30px;
+    height: 70px;
+    position: relative;
+    left: -29px;
+    top: calc(50vh - 35px);
+    z-index: 999999;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    display: flex;
+    border: none;
+    justify-content: center;
+    align-items: center;
+  }
+  .containersearch {
+    gap: 1.5rem;
+    width: 50%;
+  }
+  .btn-geo-container {
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    right: 1rem;
+  }
+}
+.containersearch {
+  display: flex;
+  position: absolute;
+  z-index: 1050;
+  height: 100px;
+  left: 30vw;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  right: 30vw;
+  gap: 20px;
+}
+
+.cardstation {
+  height: 15vh;
+  width: 100vw;
+}
+@media screen and (min-width: 783px) {
+  .btn-geo-container {
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    right: 320px;
+  }
+}
+.btn-geo {
+  z-index: 1000;
+  margin: 0 10px 2rem 0;
+}
+
+.triangle-logo {
+  height: 38px;
+  width: auto;
+}
+
+.triangle-on {
+  transform: rotate(180deg);
+}
+
+.slide-button-cont {
+  height: 0px;
+}
+.display-none {
+  display: none;
+}
+.btn-container-false {
+  display: flex;
+  flex-direction: column-reverse;
+  margin-top: 55px;
+  gap: 15px;
+}
+.btn-container-true {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.btn-route {
+  z-index: 1101;
+  border-radius: 50%;
+  -webkit-backdrop-filter: blur(1px) saturate(200%);
+  background-color: #7b082971;
+  border-radius: 12px;
+  border: 0;
+  height: 35px;
+  width: 50px;
+}
+.img-btn-route {
+  margin-top: 3px;
+}

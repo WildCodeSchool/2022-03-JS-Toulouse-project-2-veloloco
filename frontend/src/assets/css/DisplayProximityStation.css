@@ -1,0 +1,72 @@
+.card-station-comp {
+  box-shadow: 0 0 15px rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  border-radius: 15px;
+  width: 100%;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.card-station-compdark {
+  box-shadow: 0 0 15px rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  border-radius: 15px;
+  width: 100%;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background-color: #383838;
+  color: white;
+}
+.top-proximity-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 35%;
+  padding: 0.5rem;
+}
+
+.top-proximity-card h2 {
+  font-size: 16px;
+}
+
+.top-proximity-card img {
+  width: 20px;
+  height: 20px;
+}
+
+.top-proximity-card h3 {
+  font-size: 16px;
+  font-weight: lighter;
+}
+
+.middle-proximity-card h2 {
+  font-size: 16px;
+  font-weight: lighter;
+  margin: 0%;
+  overflow: hidden;
+  height: 30px;
+}
+
+.bottom-proximity-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 25%;
+  margin: 0.5rem;
+  gap: 5px;
+  padding-bottom: 0.5rem;
+}
+
+.fav-button {
+  border: none;
+  background-color: white;
+  border-radius: 15px;
+  margin: 0.5rem;
+  background-color: transparent;
+}
