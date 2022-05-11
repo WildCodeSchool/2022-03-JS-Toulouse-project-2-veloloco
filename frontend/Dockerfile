@@ -5,6 +5,8 @@ WORKDIR /usr/src/app
 ENV PATH /usr/src/app/node_modules/.bin:$PATH
 ARG VITE_BACKEND_URL=${VITE_BACKEND_URL}
 ENV VITE_BACKEND_URL=${VITE_BACKEND_URL}
+ARG VITE_API_MAP=${VITE_API_MAP}
+ENV VITE_API_MAP=${VITE_API_MAP}
 COPY ./frontend /usr/src/app
 RUN npm install
 RUN npm run build
