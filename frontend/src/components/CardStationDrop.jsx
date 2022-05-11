@@ -29,28 +29,6 @@ export default function CardStationDrop({ uniqueMarker, apiResult }) {
     });
   }, []);
 
-  const URLBDD = "http://localhost:5500/favourite-stations/";
-  const [fav, setFav] = useState(false);
-
-  const handleClickFavourite = () => {
-    if (!fav) {
-      axios
-        .post(URLBDD, {
-          id: apiResult[iteration].number,
-        })
-        .then(() => {
-          setFav(!fav);
-        });
-    } else if (fav) {
-      axios
-        .delete(
-          `http://localhost:5500/favourite-stations/${apiResult[iteration].number}`
-        )
-        .then(() => {
-          setFav(!fav);
-        });
-    }
-  };
   return (
     <div className="leaflet-bottom cardstation">
       <div data-aos="fade-up" data-aos-duration="1000" className="card-station">
@@ -78,35 +56,6 @@ export default function CardStationDrop({ uniqueMarker, apiResult }) {
               </div>
               <p className="adress-station">{adressStation}</p>
             </div>
-          </div>
-          <div className="heart-fav">
-            {fav && (
-              <button
-                type="button"
-                className="fav-button"
-                onClick={handleClickFavourite}
-              >
-                {" "}
-                <img
-                  src="../src/assets/images/favourite-heart.png"
-                  alt="favourite-heart-full"
-                />
-              </button>
-            )}
-            {!fav && (
-              <button
-                type="button"
-                className="fav-button"
-                onClick={handleClickFavourite}
-              >
-                {" "}
-                <img
-                  className="image-heart"
-                  src="../src/assets/images/empty-heart.png"
-                  alt="empty-heart"
-                />
-              </button>
-            )}
           </div>
         </div>
       </div>

@@ -1,6 +1,8 @@
 .contact {
   display: flex;
   flex-direction: column;
+  height: 20vh;
+  justify-content: flex-end;
 }
 .logo-social {
   display: flex;

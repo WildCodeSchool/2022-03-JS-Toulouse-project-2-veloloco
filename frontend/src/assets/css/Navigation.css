@@ -137,7 +137,7 @@ h2 {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-top: 20px;
+    margin-top: 30px;
   }
   .marker-container span {
     display: flex;
@@ -271,7 +271,7 @@ h2 {
     justify-content: flex-start;
     list-style-type: none;
     align-items: flex-start;
-    gap: 20px;
+    gap: 40px;
     margin-top: 10px;
   }
   .navbar-item {
@@ -309,8 +309,5 @@ h2 {
     width: 90%;
     box-shadow: 0 0 20px 8px rgba(90, 90, 90, 0.6);
     margin-bottom: 30px;
-  }
-  .licence {
-    margin-bottom: 1.5rem;
   }
 }
