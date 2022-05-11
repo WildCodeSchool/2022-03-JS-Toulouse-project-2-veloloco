@@ -4,9 +4,11 @@ import "leaflet/dist/leaflet.css";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import L from "leaflet";
 import InfoFooterItinerary from "../components/InfoFooterItinerary";
 import Geo from "../components/Geo";
 import Routing from "../components/Routing";
+import markerDefault from "../assets/images/marker-32.png";
 
 export default function Itinerary() {
   const [itineraryInfo, setItineraryInfo] = useState();
@@ -14,6 +16,12 @@ export default function Itinerary() {
   const params = useParams();
   const [originStation, setOriginStation] = useState();
   const [destinationStation, setDestinationStation] = useState();
+
+  const iconDefault = L.icon({
+    iconUrl: markerDefault,
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+  });
 
   const [apiResult, setApiResult] = useState([]);
   useEffect(() => {
@@ -82,6 +90,7 @@ export default function Itinerary() {
           zoom={13}
           style={{ height: "100vh" }}
           whenCreated={(map) => setMapItineraryState({ map })}
+          icon={iconDefault}
         >
           <TileLayer
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
