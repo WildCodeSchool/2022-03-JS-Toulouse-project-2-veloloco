@@ -1,8 +1,6 @@
-
 .navbar-container {
   height: 100vh;
   position: absolute;
-
 }
 
 .navbarnotdark {
@@ -106,14 +104,13 @@ h2 {
   color: white;
 }
 
-
 .burger-logo {
   visibility: hidden;
 }
 .marker-container {
   display: flex;
   flex-direction: column;
-  margin: 30px 0 20px 20px;
+  margin: 20px 0 20px 20px;
   gap: 20px;
 }
 .marker-container span {
@@ -140,7 +137,7 @@ h2 {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-top: 40px;
+    margin-top: 30px;
   }
   .marker-container span {
     display: flex;
@@ -218,7 +215,7 @@ h2 {
     position: absolute;
     z-index: 1000;
     left: 1rem;
-    top:4.5%;
+    top: 4.5%;
 
     background-color: transparent;
     border: transparent;
@@ -228,7 +225,7 @@ h2 {
     animation-name: closeAnimation;
     animation-duration: 0.75s;
     animation-iteration-count: 1;
-    left:-80vh;
+    left: -80vh;
   }
   @keyframes closeAnimation {
     0% {
@@ -260,15 +257,6 @@ h2 {
   .title-burger {
     font-size: 1.2rem;
   }
-  .navbar-links {
-    display: flex;
-    flex-direction: column;
-    height: 40rem;
-    justify-content: flex-start;
-    list-style-type: none;
-    align-items: flex-start;
-    margin-top: 30px;
-  }
 
   .navbar-logo {
     display: flex;
@@ -284,6 +272,7 @@ h2 {
     list-style-type: none;
     align-items: flex-start;
     gap: 40px;
+    margin-top: 10px;
   }
   .navbar-item {
     display: flex;
@@ -320,8 +309,5 @@ h2 {
     width: 90%;
     box-shadow: 0 0 20px 8px rgba(90, 90, 90, 0.6);
     margin-bottom: 30px;
-  }
-  .licence {
-    margin-bottom: 1.5rem;
   }
 }

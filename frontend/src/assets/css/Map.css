@@ -5,7 +5,6 @@
 :root {
   --map-tiles-filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg)
     saturate(0.3) brightness(0.5);
-  
 }
 #map {
   width: 100vw;
@@ -142,7 +141,7 @@
 }
 
 .cardstation {
-  height: 15%;
+  height: 15vh;
   width: 100vw;
 }
 @media screen and (min-width: 783px) {

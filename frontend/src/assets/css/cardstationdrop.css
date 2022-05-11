@@ -100,7 +100,7 @@
   }
   .photo-city .image-city {
     width: 196px;
-    height: 196px;
+    height: 100%;
     border-radius: 5px;
     margin-left: 0rem;
   }
@@ -108,15 +108,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bolder;
     margin: 1rem 0;
   }
   .name-station {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bolder;
     width: 420px;
-    margin-right: 2.4rem;
   }
   .image-city {
     width: 9rem;
