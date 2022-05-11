@@ -131,7 +131,7 @@
 .containersearch {
   display: flex;
   position: absolute;
-  z-index: 1050;
+  z-index: 1020;
   height: 100px;
   left: 30vw;
   flex-direction: row;
