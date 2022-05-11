@@ -59,10 +59,9 @@ code {
 button {
   font-size: calc(10px + 2vmin);
 }
-.bottom-favourite-card{
+.bottom-favourite-card {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap:0.5rem;
-  
+  gap: 0.5rem;
 }
