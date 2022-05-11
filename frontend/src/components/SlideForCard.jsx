@@ -12,8 +12,6 @@ function SlideForCard({
   mapState,
   setUniqueMarker,
   setToggleCard,
-  setMouseOver,
-  mouseOver,
 }) {
   const [isFavourite, setisFavourite] = useState(null);
   const [BDDlist, setBDDlist] = useState([]);
@@ -54,19 +52,11 @@ function SlideForCard({
   };
   const statusDarkmode = localStorage.getItem("darkmode");
 
-  function mouseEnterDiv() {
-    setMouseOver(!mouseOver);
-  }
-  function mouseLeaveDiv() {
-    setMouseOver(!mouseOver);
-  }
   return (
     <div
       className={
         statusDarkmode === "1" ? "main-collumn-slidedark" : "main-collumn-slide"
       }
-      onMouseEnter={mouseEnterDiv}
-      onMouseLeave={mouseLeaveDiv}
     >
       <div
         className="legend-container"

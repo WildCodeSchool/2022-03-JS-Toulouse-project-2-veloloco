@@ -23,7 +23,7 @@ export default function Recherche({ apiResult: apiStations, mapState }) {
     setFilteredStations([...stations]);
   }
   function flyPosition(item) {
-    mapState.map.flyTo(item.position, 18);
+    mapState.map.flyTo(item.position, 17);
     setDisplayChange(!displayChange);
     setValueOrigin("");
   }

@@ -8,6 +8,17 @@ export default function Geo({ localisationlat, localisationlng }) {
     iconSize: [34, 34],
     iconAnchor: [17, 17],
   });
+  const icondark = L.icon({
+    iconUrl: "../src/assets/images/My-location-green.png",
+    iconSize: [34, 34],
+    iconAnchor: [17, 17],
+  });
 
-  return <Marker position={[localisationlat, localisationlng]} icon={icon} />;
+  const statusdarkmode = localStorage.getItem("darkmode");
+  return (
+    <Marker
+      position={[localisationlat, localisationlng]}
+      icon={statusdarkmode === "1" ? icondark : icon}
+    />
+  );
 }
