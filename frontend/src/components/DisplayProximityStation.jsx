@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import "../assets/css/DisplayProximityStation.css";
 import JaugeVelo from "./JaugeVelo";
+import favouriteHeart from "../assets/images/favourite-heart.png";
+import emptyHeart from "../assets/images/empty-heart.png";
 
 export default function DisplayFavouriteCard({
   mapState,
@@ -11,7 +13,7 @@ export default function DisplayFavouriteCard({
   setUniqueMarker,
 }) {
   const [fav, setFav] = useState(false);
-  const URLBDD = "http://localhost:5500/favourite-stations/";
+  const URLBDD = `${import.meta.env.VITE_BACKEND_URL}/favourite-stations/`;
   const handleClickFavourite = () => {
     if (!fav) {
       axios
@@ -23,7 +25,11 @@ export default function DisplayFavouriteCard({
         });
     } else if (fav) {
       axios
-        .delete(`http://localhost:5500/favourite-stations/${stationObj.number}`)
+        .delete(
+          `${import.meta.env.VITE_BACKEND_URL}/favourite-stations/${
+            stationObj.number
+          }`
+        )
         .then(() => {
           setFav(!fav);
         });
@@ -69,7 +75,7 @@ export default function DisplayFavouriteCard({
             {" "}
             <img
               name="img-coeur"
-              src="../src/assets/images/favourite-heart.png"
+              src={favouriteHeart}
               alt="favourite-heart-full"
             />
           </button>
@@ -82,11 +88,7 @@ export default function DisplayFavouriteCard({
             onClick={handleClickFavourite}
           >
             {" "}
-            <img
-              name="img-coeur"
-              src="../src/assets/images/empty-heart.png"
-              alt="empty-heart"
-            />
+            <img name="img-coeur" src={emptyHeart} alt="empty-heart" />
           </button>
         )}
       </div>

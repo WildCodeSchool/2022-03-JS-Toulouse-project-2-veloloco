@@ -20,7 +20,7 @@ export default function Loader({
       lastName: valueLastName,
     };
     axios
-      .post("http://localhost:5500/user", user)
+      .post(`${import.meta.env.VITE_BACKEND_URL}/user`, user)
       .then(() => {
         localStorage.setItem("user", JSON.stringify(user));
       })

@@ -6,6 +6,9 @@ import ProximityStation from "./ProximityStation";
 import "../assets/css/SlideForCard.css";
 import ProximityFilter from "../assets/algos/ProximityFilter";
 
+import downarrow from "../assets/images/downarrow.png";
+import uparrow from "../assets/images/uparrow.png";
+
 function SlideForCard({
   setSlideState,
   userPosition,
@@ -18,8 +21,8 @@ function SlideForCard({
   const [isHidden, setisHidden] = useState(true);
   useEffect(() => {
     const URLAPI =
-      "https:/api.jcdecaux.com/vls/v1/stations?contract=toulouse&apiKey=ac948d6ebb42f6edfe3322e2089d50095869b8e3";
-    const URLBDD = "http://localhost:5500/favourite-stations/:id";
+      "https://api.jcdecaux.com/vls/v1/stations?contract=toulouse&apiKey=ac948d6ebb42f6edfe3322e2089d50095869b8e3";
+    const URLBDD = `${import.meta.env.VITE_BACKEND_URL}/favourite-stations/:id`;
     const promise1 = axios.get(URLAPI);
     const promise2 = axios.get(URLBDD);
 
@@ -40,7 +43,7 @@ function SlideForCard({
   useEffect(() => {
     axios
       .get(
-        "https:/api.jcdecaux.com/vls/v1/stations?contract=toulouse&apiKey=ac948d6ebb42f6edfe3322e2089d50095869b8e3"
+        "https://api.jcdecaux.com/vls/v1/stations?contract=toulouse&apiKey=ac948d6ebb42f6edfe3322e2089d50095869b8e3"
       )
       .then((response) => {
         setcardInfos(ProximityFilter(userPosition, response.data));
@@ -75,7 +78,7 @@ function SlideForCard({
             }
             onClick={handleHiddenButton}
           >
-            <img src="../src/assets/images/downarrow.png" alt="down arrow" />
+            <img src={downarrow} alt="down arrow" />
           </button>
         )}
         {!isHidden && (
@@ -86,7 +89,7 @@ function SlideForCard({
             }
             onClick={handleHiddenButton}
           >
-            <img src="../src/assets/images/uparrow.png" alt="up arrow" />
+            <img src={uparrow} alt="up arrow" />
           </button>
         )}
       </div>
