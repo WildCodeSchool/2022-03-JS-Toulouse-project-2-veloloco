@@ -109,11 +109,10 @@ export default function Itinerary() {
           <div>
             {itineraryInfo !== undefined ? (
               <div>
-                zizi
                 <InfoFooterItinerary itineraryInfo={itineraryInfo} />
               </div>
             ) : (
-              <div className="info-footer">zizi</div>
+              <div className="info-footer" />
             )}
           </div>
           <Geo
